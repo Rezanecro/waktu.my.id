@@ -7,16 +7,13 @@
         <div class="login_wrapper">
             <section class="login_content">
                 <form action="" method="POST">
-                    <h1>Masuk Panel</h1>
+                    <h1>Lupa Password</h1>
                     <div>
                         <input name="emaiUserTxt" type="email" class="form-control" placeholder="Tulis alamat email anda" required="" />
                     </div>
                     <div>
-                        <input name="passwordUserTxt" type="password" class="form-control" placeholder="Tulis password anda" required="" />
-                    </div>
-                    <div>
-                        <button type="submit" class="btn btn-info submit" name="masuk_form">Masuk</button>
-                        <a href="<?php echo base_url('lupa') ?>" class="reset_pass">Lupa assword?</a>
+                        <button type="submit" class="btn btn-info submit" name="lupa_form">Masuk</button>
+                        <a class="reset_pass" href="#">Lupa password?</a>
                     </div>
 
                     <div class="clearfix"></div>
@@ -24,6 +21,10 @@
                     <div class="separator">
                         <p class="change_link">Belum punya akun?
                             <a href="<?php echo base_url('register') ?>" class="to_register"> Buat Akun </a>
+                        </p>
+
+                        <p class="change_link">Sudah punya akun?
+                            <a href="<?php echo base_url('masuk') ?>" class="to_register"> Masuk </a>
                         </p>
 
                         <div class="clearfix"></div>

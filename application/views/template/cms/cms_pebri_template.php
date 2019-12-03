@@ -9,6 +9,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<title><?php echo $title ?></title>
+		<link rel="shortcut icon" href="favicon.ico">
 
 		<!-- Bootstrap -->
 	    <link href="<?php echo base_url('vendors/bootstrap/dist/css/bootstrap.min.css') ?>" rel="stylesheet">

@@ -55,6 +55,9 @@ $route['translate_uri_dashes'] = FALSE;
 
 // DEF
 $route['masuk']						= 'Pengguna';
+$route['register']					= 'Pengguna/register_pengguna';
+$route['lupa']						= 'Pengguna/lupa_password';
+
 $route['panel']						= 'Cms';
 $route['panel/pengguna']			= 'Pengguna';
 $route['panel/artikel']				= 'Artikel';
@@ -71,7 +74,6 @@ $route['panel/moderasi/etalase']	= 'Etalase/daftar_moderasi';
 $route['panel/moderasi/jadwal']		= 'Jadwal/daftar_moderasi';
 
 // PENGGUNA
-$route['panel/pengguna/register']	= 'Pengguna/register_pengguna';
 $route['panel/pengguna/keluar']		= 'Pengguna/keluar_pengguna';
 $route['panel/pengguna/profil']		= 'Pengguna/profil_pengguna';
 $route['panel/pengguna/pengaturan']	= 'Pengguna/pengaturan_pengguna';

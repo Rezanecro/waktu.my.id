@@ -29,6 +29,45 @@ class Pengguna extends CI_Controller
 		$this->template->render();
 	}
 
+	public function register_pengguna() {
+
+		$datas = array(
+			'ccc' => 'ccccccccc',
+			'ddd', 'dddddddddd'
+		);
+
+		$toHtml = array(
+			'aaa' => $datas,
+		);
+
+		$this->template->set_template('non_pebri_cms');
+		$this->template->write('title', 'Registrasi Akun - Waktu.my.id', TRUE);
+		$this->template->write('header', 'Registrasi Akun');
+		$this->template->write_view('content', 'cms/pengguna/register', $toHtml, true);
+
+		$this->template->render();
+	}
+
+	public function lupa_password() {
+
+		$datas = array(
+			'ccc' => 'ccccccccc',
+			'ddd', 'dddddddddd'
+		);
+
+		$toHtml = array(
+			'aaa' => $datas,
+		);
+
+		$this->template->set_template('non_pebri_cms');
+		$this->template->write('title', 'Lupa Password Akun - Waktu.my.id', TRUE);
+		$this->template->write('header', 'Lupa Password Akun');
+		$this->template->write_view('content', 'cms/pengguna/lupa_password', $toHtml, true);
+
+		$this->template->render();
+	}
+
+
 	public function daftar_moderasi() {
 
 		$datas = array(
