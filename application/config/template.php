@@ -91,7 +91,7 @@ $config['theme_locations'] = array(
 
 $template['active_template'] = 'pebri_cms';
 
-$template['non_pebri_cms']['template'] = 'template/cms/non_pebri_template.php';
+$template['non_pebri_cms']['template'] = 'template/non_pebri_template.php';
 $template['non_pebri_cms']['regions'] = array(
    'title' => array('content' => array('NonWaktuCms')),
    'header',
@@ -111,7 +111,7 @@ $template['non_pebri_cms']['parse_template'] = FALSE;
 
 
 
-$template['pebri_cms']['template'] = 'template/cms/pebri_template.php';
+$template['pebri_cms']['template'] = 'template/cms/cms_pebri_template.php';
 $template['pebri_cms']['regions'] = array(
    'title' => array('content' => array('WaktuCms')),
    'header',
@@ -126,3 +126,23 @@ $template['pebri_cms']['regions'] = array(
 $template['pebri_cms']['parser'] = 'parser';
 $template['pebri_cms']['parser_method'] = 'parse';
 $template['pebri_cms']['parse_template'] = FALSE;
+
+
+
+
+
+$template['pebri_front']['template'] = 'template/front/front_pebri_template.php';
+$template['pebri_front']['regions'] = array(
+   'title' => array('content' => array('WaktuFront')),
+   'header',
+   'navs',
+   'sidenavs',
+   'content',
+   'footer' => array(
+        'content' => array('Waktu &copy;2019'),
+    ),
+);
+
+$template['pebri_front']['parser'] = 'parser';
+$template['pebri_front']['parser_method'] = 'parse';
+$template['pebri_front']['parse_template'] = FALSE;
