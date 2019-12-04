@@ -22,11 +22,13 @@
 	                  		<table class="table table-striped jambo_table bulk_action">
 	                    		<thead>
 	                      			<tr class="headings">
-			                            <th class="column-title">Short URL</th>
+									  	<th class="column-title">Short URL</th>
 			                            <th class="column-title">Nama Barang</th>
 			                            <th class="column-title">Kategori</th>
-			                            <th class="column-title">Sub Kategori</th>
-			                            <th class="column-title">Status </th>
+										<th class="column-title">Sub Kategori</th>
+										<th class="column-title">Harga</th>
+										<th class="column-title">Status </th>
+										<th class="column-title">Tanggal</th>
 			                            <th class="column-title no-link last">
 			                            	<span class="nobr">Action</span>
 			                            </th>
@@ -35,15 +37,17 @@
 
 	                    		<tbody>
 	                      			<tr class="even pointer">
-			                            <td class=" "><a href="http://waktu.my.id/short/dkfdf8">dkfdf8</a></td>
-			                            <td class=" ">Kisah Hidup Nabi Ayun AS</td>
-			                            <td class=" ">Kisah</td>
-			                            <td class=" ">Kisah Nabi</td>
+									  	<td class=" "><a href="http://waktu.my.id/short/dkfdf8">dkfdf8</a></td>
+			                            <td class=" ">Habatusasuda</td>
+			                            <td class=" ">Obat</td>
+										<td class=" ">Herbal</td>
+										<td class=" ">Rp.20.000</td>
 			                            <td class=" ">
 			                            	<span class="badge badge-warning">Menunggu Moderasi</span>
 			                            	<span class="badge badge-danger">Ditolak</span>
 			                            	<span class="badge badge-success">Tayang</span>
-			                            </td>
+										</td>
+										<td class=" ">12 Desember 2019</td>
 			                            <td class=" ">
 			                            	<ul class="nav nav-pills" role="tablist">
                     							<li role="presentation" class="dropdown">
@@ -78,29 +82,6 @@
 				                    		</div>
 					                  	</div>
 				                  		<!-- /modals -->
-	                      			</tr>
-	                      			<tr class="even pointer">
-			                            <td class=" "><a href="http://waktu.my.id/short/dkfdf8">dkfdf8</a></td>
-			                            <td class=" ">Kisah Hidup Nabi Ayun AS</td>
-			                            <td class=" ">Kisah</td>
-			                            <td class=" ">Kisah Nabi</td>
-			                            <td class=" ">
-			                            	<span class="badge badge-warning">Menunggu Moderasi</span>
-			                            	<span class="badge badge-danger">Ditolak</span>
-			                            	<span class="badge badge-success">Tayang</span>
-			                            </td>
-			                            <td class=" ">
-			                            	<ul class="nav nav-pills" role="tablist">
-                    							<li role="presentation" class="dropdown">
-                      								<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding: 0px">Action<span class="caret"></span></a>
-                              						<div class="dropdown-menu">
-                                  						<a class="dropdown-item" href="#">Edit</a>
-                                  						<a class="dropdown-item" href="#">Hapus</a>
-                                  						<a class="dropdown-item" href="#">Lihat</a>
-                                  					</div>
-                    							</li>
-                  							</ul>
-			                            </td>
 	                      			</tr>
 	                    		</tbody>
 	                  		</table>

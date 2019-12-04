@@ -26,7 +26,8 @@
 			                            <th class="column-title">Judul</th>
 			                            <th class="column-title">Kategori</th>
 			                            <th class="column-title">Sub Kategori</th>
-			                            <th class="column-title">Status </th>
+										<th class="column-title">Status </th>
+										 <td class=" ">12 Desember 2019</td>
 			                            <th class="column-title no-link last">
 			                            	<span class="nobr">Action</span>
 			                            </th>
@@ -43,7 +44,8 @@
 			                            	<span class="badge badge-warning">Menunggu Moderasi</span>
 			                            	<span class="badge badge-danger">Ditolak</span>
 			                            	<span class="badge badge-success">Tayang</span>
-			                            </td>
+										</td>
+										<td class=" ">12 Desember 2019</td>
 			                            <td class=" ">
 			                            	<ul class="nav nav-pills" role="tablist">
                     							<li role="presentation" class="dropdown">

@@ -24,9 +24,10 @@
 	                      			<tr class="headings">
 			                            <th class="column-title">Judul</th>
 			                            <th class="column-title">Kategori</th>
-			                            <th class="column-title">Sub Kategori</th>
+										<th class="column-title">Sub Kategori</th>
+										<th class="column-title">Tanggal Unggah</th>
 			                            <th class="column-title">Status</th>
-			                            <th class="column-title">Tanggal Unggah</th>
+			                            <th class="column-title">Tanggal Diterima</th>
 			                            <th class="column-title no-link last">
 			                            	<span class="nobr">Action</span>
 			                            </th>
@@ -37,11 +38,12 @@
 	                      			<tr class="even pointer">
 			                            <td class=" ">Kisah Hidup Nabi Ayun AS</td>
 			                            <td class=" ">Kisah</td>
-			                            <td class=" ">Kisah Nabi</td>
+										<td class=" ">Kisah Nabi</td>
+										<td class=" ">12 Desember 2019</td>
 			                            <td class=" ">
 			                            	<span class="badge badge-success">Tayang</span>
 			                            </td>
-			                            <td class=" ">12 Desember 2019</td>
+			                            <td class=" ">13 Desember 2019</td>
 			                            <td class=" ">
 			                            	<ul class="nav nav-pills" role="tablist">
                     							<li role="presentation" class="dropdown">

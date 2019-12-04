@@ -26,7 +26,7 @@
 			                            <th class="column-title">Kategori</th>
 			                            <th class="column-title">Sub Kategori</th>
 			                            <th class="column-title">Status</th>
-			                            <th class="column-title">Tanggal Unggah</th>
+			                            <th class="column-title">Tanggal</th>
 			                            <th class="column-title no-link last">
 			                            	<span class="nobr">Action</span>
 			                            </th>
@@ -50,6 +50,7 @@
                       								<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding: 0px">Action<span class="caret"></span></a>
                               						<div class="dropdown-menu">
                                   						<a class="dropdown-item" href="#">Lihat</a>
+														<a class="dropdown-item" href="#">Terima</a>
                                   						<a class="dropdown-item" data-toggle="modal" data-target=".modalaLihat1">Tolak / Blok</a>
                                   					</div>
                     							</li>
