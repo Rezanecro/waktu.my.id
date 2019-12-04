@@ -54,6 +54,17 @@
 				</ul>
 
 				<br>
+				<h3>Donasi</h3>
+				<ul class="nav side-menu">
+					<li><a><i class="fa fa-dollar"></i> Permintaan Donasi<span class="fa fa-chevron-down"></span></a>
+						<ul class="nav child_menu">
+							<li><a href="<?php echo base_url('panel/donasi/permintaan') ?>">Tambah Permintaan Donasi</a></li>
+							<li><a href="<?php echo base_url('panel/donasi/daftar') ?>">Daftar Permintaan Donasi</a></li>
+						</ul>
+					</li>
+				</ul>
+
+				<br>
 				<h3>Moderator</h3>
 				<ul class="nav side-menu">
 					<li><a><i class="fa fa-user"></i> Pengguna <span class="fa fa-chevron-down"></span></a>
@@ -88,6 +99,13 @@
 						<ul class="nav child_menu">
 							<li><a href="<?php echo base_url('panel/moderasi/jadwal/menunggu') ?>">Menunggu Moderasi</a></li>
 							<li><a href="<?php echo base_url('panel/moderasi/jadwal/disetujui') ?>">Daftar Jadwal Disetujui</a></li>
+						</ul>
+					</li>
+
+					<li><a><i class="fa fa-dollar"></i> Donasi<span class="fa fa-chevron-down"></span></a>
+						<ul class="nav child_menu">
+							<li><a href="<?php echo base_url('panel/moderasi/donasi/menunggu') ?>">Menunggu Moderasi</a></li>
+							<li><a href="<?php echo base_url('panel/moderasi/donasi/disetujui') ?>">Daftar Permintaan Disetujui</a></li>
 						</ul>
 					</li>
 				</ul>

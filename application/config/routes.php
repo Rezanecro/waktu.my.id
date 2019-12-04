@@ -99,7 +99,12 @@ $route['panel/jadwal/daftar']		= 'Jadwal';
 $route['panel/jadwal/unggah']		= 'Jadwal/tambah_jadwal';
 
 
-// MDERASI
+// DONASI
+$route['panel/donasi/daftar']		= 'Donasi';
+$route['panel/donasi/permintaan']	= 'Donasi/permintaan_donasi';
+
+
+// MODERASI
 $route['panel/moderasi/pengguna/menunggu']	= 'Pengguna/daftar_moderasi';
 $route['panel/moderasi/pengguna/disetujui']	= 'Pengguna/daftar_disetujui';
 
@@ -114,3 +119,6 @@ $route['panel/moderasi/etalase/disetujui']	= 'Etalase/daftar_disetujui';
 
 $route['panel/moderasi/jadwal/menunggu']	= 'Jadwal/daftar_moderasi';
 $route['panel/moderasi/jadwal/disetujui']	= 'Jadwal/daftar_disetujui';
+
+$route['panel/moderasi/donasi/menunggu']	= 'Donasi/daftar_moderasi';
+$route['panel/moderasi/donasi/disetujui']	= 'Donasi/daftar_disetujui';
