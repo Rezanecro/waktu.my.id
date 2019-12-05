@@ -1,4 +1,4 @@
-<form class="form-horizontal form-label-left">
+<form class="form-horizontal form-label-left" method="" action="">
 	<div class="row">
 	<div class="col-md-12 col-sm-12 col-xs-12">
 		<div class="right_col" role="main">
@@ -86,7 +86,7 @@
 								</div>
 							</div>
 						<div class="form-group row">
-							<label class="control-label col-md-3 col-sm-3 "><h2>Kategori</h2></label>
+							<label class="control-label col-md-3 col-sm-3 "><h2>Kategori :</h2></label>
 							<div class="col-md-9 col-sm-9 ">
 								<select class="form-control">
 									<option></option>
@@ -98,7 +98,7 @@
 							</div>
 						</div>
 						<div class="form-group row">
-							<label class="control-label col-md-3 col-sm-3 "><h2>Sub Kategori</h2></label>
+							<label class="control-label col-md-3 col-sm-3 "><h2>Sub Kategori :</h2></label>
 							<div class="col-md-9 col-sm-9 ">
 								<select class="form-control">
 									<option></option>
@@ -110,18 +110,20 @@
 							</div>
 						</div>
 						<div class="control-group row">
-							<label class="control-label col-md-3 col-sm-3 "><h2 style="margin-left:10px;">Tags</h2></label>
+							<label class="control-label col-md-3 col-sm-3 "><h2 style="margin-left:10px;">Tags :</h2></label>
 							<div class="col-md-9 col-sm-9 ">
 								<input id="tags_1" type="text" class="tags form-control" value="social, adverts, sales" />
 								<div id="suggestions-container" style="position: relative; float: left; width: 250px; margin: 10px;"></div>
 							</div>
 						</div>
+						<div class="ln_solid"></div>
 						<!-- UPLOAD GAMBAR -->
+						<label class="control-label col-md-3 col-sm-3 "><h2 style="margin-left:10px;">Thumbnail/Gambar Artikel :</h2></label>
 						<div class="panel">
 							<div class="button_outer">
 								<div class="btn_upload">
 								<input type="file" id="upload_file" name="">
-									Upload Gambar Artikel
+									Klik di sini
 								</div>
 								<div class="processing_bar"></div>
 							<div class="success_box"></div>
