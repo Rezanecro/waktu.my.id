@@ -7,8 +7,6 @@
 			</div>
 			<div class="x_content">
 				<h4>Banyaknya konten dilihat</h4>
-				<?php echo "sdjosdjaosdj" ?>
-
 			</div>
 		</div>
 	</div>
