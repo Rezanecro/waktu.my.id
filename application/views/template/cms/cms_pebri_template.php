@@ -10,7 +10,8 @@
 
 		<title><?php echo $title ?></title>
 		<link rel="shortcut icon" href="favicon.ico">
-
+		<!-- fileinput css -->
+	    <link href="<?php echo base_url('vendors/bootstrap-fileinput/fileinput.min.css') ?>" rel="stylesheet">
 		<!-- Bootstrap -->
 	    <link href="<?php echo base_url('vendors/bootstrap/dist/css/bootstrap.min.css') ?>" rel="stylesheet">
 	    <!-- Font Awesome -->
@@ -51,7 +52,13 @@
 	    <!-- Custom Theme Style -->
 	    <link href="<?php echo base_url('build/css/custom.min.css') ?>" rel="stylesheet">
 	    <link href="<?php echo base_url('assets/css/master.css') ?>" rel="stylesheet">
-	    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<style media="screen">
+	        .file-drag-handle {
+
+	            display: none;
+	        }
+	    </style>
+		<script src="<?php echo base_url('vendors/jquery/jquery-3.3.1.min.js') ?>"></script>
 	</head>
 	<body class="nav-md">
 
@@ -169,31 +176,59 @@
 		<script src="<?php echo base_url('vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js') ?>"></script>
 		<!-- starrr -->
 		<script src="<?php echo base_url('vendors/starrr/dist/starrr.js') ?>"></script>
+		<!-- fileinput -->
+		<script src="<?php echo base_url('vendors/bootstrap-fileinput/js/piexif.min.js') ?>"></script>
+		<script src="<?php echo base_url('vendors/bootstrap-fileinput/js/sortable.min.js') ?>"></script>
+		<script src="<?php echo base_url('vendors/bootstrap-fileinput/js/purify.min.js') ?>"></script>
+		<script src="<?php echo base_url('vendors/bootstrap-fileinput/js/fileinput.min.js') ?>"></script>
+		<script src="<?php echo base_url('vendors/bootstrap-fileinput/js/theme.js') ?>"></script>
+		<!-- popper -->
+		<script src="<?php echo base_url('vendors/popper/popper.min.js') ?>"></script>
+
 		<script type="text/javascript">
-		var btnUpload = $("#upload_file"),
-		    btnOuter = $(".button_outer");
-		btnUpload.on("change", function(e){
-		    var ext = btnUpload.val().split('.').pop().toLowerCase();
-		    if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
-		        $(".error_msg").text("Not an Image...");
-		    } else {
-		        $(".error_msg").text("");
-		        btnOuter.addClass("file_uploading");
-		        setTimeout(function(){
-		            btnOuter.addClass("file_uploaded");
-		        },3000);
-		        var uploadedFile = URL.createObjectURL(e.target.files[0]);
-		        setTimeout(function(){
-		            $("#uploaded_view").append('<img src="'+uploadedFile+'" />').addClass("show");
-		        },3500);
-		    }
-		});
-		$(".file_remove").on("click", function(e){
-		    $("#uploaded_view").removeClass("show");
-		    $("#uploaded_view").find("img").remove();
-		    btnOuter.removeClass("file_uploading");
-		    btnOuter.removeClass("file_uploaded");
-		});
+		// image upload
+			var btnUpload = $("#upload_file"),
+			    btnOuter = $(".button_outer");
+			btnUpload.on("change", function(e){
+			    var ext = btnUpload.val().split('.').pop().toLowerCase();
+			    if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
+			        $(".error_msg").text("Not an Image...");
+			    } else {
+			        $(".error_msg").text("");
+			        btnOuter.addClass("file_uploading");
+			        setTimeout(function(){
+			            btnOuter.addClass("file_uploaded");
+			        },3000);
+			        var uploadedFile = URL.createObjectURL(e.target.files[0]);
+			        setTimeout(function(){
+			            $("#uploaded_view").append('<img src="'+uploadedFile+'" />').addClass("show");
+			        },3500);
+			    }
+			});
+			$(".file_remove").on("click", function(e){
+			    $("#uploaded_view").removeClass("show");
+			    $("#uploaded_view").find("img").remove();
+			    btnOuter.removeClass("file_uploading");
+			    btnOuter.removeClass("file_uploaded");
+			});
+		// end image upload
+
+		$(function() {
+	        $("#video-attachment").fileinput({
+	            minFileCount: 0,
+	            maxFileCount: 1,
+	            initialPreview: [
+	              "<?php echo base_url('assets\video') ?>"
+	            ],
+	            initialPreviewAsData: true,
+	            initialPreviewConfig: [{type: "video", size: 375000, filetype: "video/mp4", caption: "", url: "/file-upload-batch/2", key: 1}],
+	            deleteUrl: "/site/file-delete",
+	            overwriteInitial: true,
+	            initialCaption: "Video"
+	        });
+	    });
 		</script>
+
+
 	</body>
 </html>
