@@ -21,38 +21,24 @@
 	    <!-- jQuery custom content scroller -->
 	    <link href="<?php echo base_url('vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css') ?>" rel="stylesheet"/>
 
-	    <!-- TABELE -->
-	    <link href="<?php echo base_url('vendors/datatables.net-bs/css/dataTables.bootstrap.min.css') ?>" rel="stylesheet">
-	    <link href="<?php echo base_url('vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css') ?>" rel="stylesheet">
-	    <link href="<?php echo base_url('vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css') ?>" rel="stylesheet">
-	    <link href="<?php echo base_url('vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') ?>" rel="stylesheet">
-	    <link href="<?php echo base_url('vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css') ?>" rel="stylesheet">
-
 	    <!-- Custom Theme Style -->
 	    <link href="<?php echo base_url('assets/css/custom.min.css') ?>" rel="stylesheet">
+	    <!-- SUMMERNOTE -->
+	    <link href="<?php echo base_url('vendors/summernote/dist/summernote.css') ?>" rel="stylesheet">
 
-		<link href="<?php echo base_url('vendors/iCheck/skins/flat/green.css') ?>" rel="stylesheet">
-
-	    <!-- bootstrap-wysiwyg -->
-	    <link href="<?php echo base_url('vendors/google-code-prettify/bin/prettify.min.css') ?>" rel="stylesheet">
-	    <!-- Select2 -->
-	    <link href="<?php echo base_url('vendors/select2/dist/css/select2.min.css') ?>" rel="stylesheet">
-	    <!-- Switchery -->
-	    <link href="<?php echo base_url('vendors/switchery/dist/switchery.min.css') ?>" rel="stylesheet">
-	    <!-- starrr -->
-	    <link href="<?php echo base_url('vendors/starrr/dist/starrr.css') ?>" rel="stylesheet">
-
-	    <!-- bootstrap-progressbar -->
-	    <link href="<?php echo base_url('vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') ?>" rel="stylesheet">
-	    <!-- JQVMap -->
-	    <link href="<?php echo base_url('vendors/jqvmap/dist/jqvmap.min.css') ?>" rel="stylesheet"/>
-	    <!-- bootstrap-daterangepicker -->
-	    <link href="<?php echo base_url('vendors/bootstrap-daterangepicker/daterangepicker.css') ?>" rel="stylesheet">
 
 	    <!-- Custom Theme Style -->
 	    <link href="<?php echo base_url('build/css/custom.min.css') ?>" rel="stylesheet">
 	    <link href="<?php echo base_url('assets/css/master.css') ?>" rel="stylesheet">
 
+=======
+		<style media="screen">
+	        .file-drag-handle {
+
+	            display: none;
+	        }
+	    </style>
+>>>>>>> Stashed changes
 	</head>
 	<body class="nav-md">
 
@@ -94,81 +80,15 @@
 
 	    <!-- Bootstrap -->
 	   	<script src="<?php echo base_url('vendors/bootstrap/dist/js/bootstrap.bundle.min.js') ?>"></script>
-	    <!-- FastClick -->
-	    <script src="<?php echo base_url('vendors/fastclick/lib/fastclick.js') ?>"></script>
 	    <!-- NProgress -->
 	    <script src="<?php echo base_url('vendors/nprogress/nprogress.js') ?>"></script>
 	    <!-- jQuery custom content scroller -->
 	    <script src="<?php echo base_url('vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js') ?>"></script>
-
 	    <!-- Custom Theme Scripts -->
 	    <script src="<?php echo base_url('assets/js/custom.js') ?>"></script>
 
-	    <!-- Datatables -->
-	    <script src="<?php echo base_url('vendors/datatables.net/js/jquery.dataTables.min.js') ?>"></script>
-	    <script src="<?php echo base_url('vendors/datatables.net-bs/js/dataTables.bootstrap.min.js') ?>"></script>
-	    <script src="<?php echo base_url('vendors/datatables.net-buttons/js/dataTables.buttons.min.js') ?>"></script>
-	    <script src="<?php echo base_url('vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js') ?>"></script>
-	    <script src="<?php echo base_url('vendors/datatables.net-buttons/js/buttons.flash.min.js') ?>"></script>
-	    <script src="<?php echo base_url('vendors/datatables.net-buttons/js/buttons.html5.min.js') ?>"></script>
-	    <script src="<?php echo base_url('vendors/datatables.net-buttons/js/buttons.print.min.js') ?>"></script>
-	    <script src="<?php echo base_url('vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js') ?>"></script>
-	    <script src="<?php echo base_url('vendors/datatables.net-keytable/js/dataTables.keyTable.min.js') ?>"></script>
-	    <script src="<?php echo base_url('vendors/datatables.net-responsive/js/dataTables.responsive.min.js') ?>"></script>
-	    <script src="<?php echo base_url('vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js') ?>"></script>
-	    <script src="<?php echo base_url('vendors/datatables.net-scroller/js/dataTables.scroller.min.js') ?>"></script>
-	    <script src="<?php echo base_url('vendors/jszip/dist/jszip.min.js') ?>"></script>
-	    <script src="<?php echo base_url('vendors/pdfmake/build/pdfmake.min.js') ?>"></script>
-	    <script src="<?php echo base_url('vendors/pdfmake/build/vfs_fonts.js') ?>"></script>
-
-		<!-- Chart.js -->
-		<script src="<?php echo base_url('vendors/Chart.js/dist/Chart.min.js') ?>"></script>
-		<!-- gauge.js -->
-		<script src="<?php echo base_url('vendors/gauge.js/dist/gauge.min.js') ?>"></script>
-		<!-- bootstrap-progressbar -->
-		<script src="<?php echo base_url('vendors/bootstrap-progressbar/bootstrap-progressbar.min.js') ?>"></script>
-		<!-- iCheck -->
-		<script src="<?php echo base_url('vendors/iCheck/icheck.min.js') ?>"></script>
-		<!-- Skycons -->
-		<script src="<?php echo base_url('vendors/skycons/skycons.js') ?>"></script>
-		<!-- Flot -->
-		<script src="<?php echo base_url('vendors/Flot/jquery.flot.js') ?>"></script>
-		<script src="<?php echo base_url('vendors/Flot/jquery.flot.pie.js') ?>"></script>
-		<script src="<?php echo base_url('vendors/Flot/jquery.flot.time.js') ?>"></script>
-		<script src="<?php echo base_url('vendors/Flot/jquery.flot.stack.js') ?>"></script>
-		<script src="<?php echo base_url('vendors/Flot/jquery.flot.resize.js') ?>"></script>
-		<!-- Flot plugins -->
-		<script src="<?php echo base_url('vendors/flot.orderbars/js/jquery.flot.orderBars.js') ?>"></script>
-		<script src="<?php echo base_url('vendors/flot-spline/js/jquery.flot.spline.min.js') ?>"></script>
-		<script src="<?php echo base_url('vendors/flot.curvedlines/curvedLines.js') ?>"></script>
-		<!-- DateJS -->
-		<script src="<?php echo base_url('vendors/DateJS/build/date.js') ?>"></script>
-		<!-- JQVMap -->
-		<script src="<?php echo base_url('vendors/jqvmap/dist/jquery.vmap.js') ?>"></script>
-		<script src="<?php echo base_url('vendors/jqvmap/dist/maps/jquery.vmap.world.js') ?>') ?>"></script>
-		<script src="<?php echo base_url('vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') ?>"></script>
-		<!-- bootstrap-daterangepicker -->
-		<script src="<?php echo base_url('vendors/moment/min/moment.min.js') ?>"></script>
-		<script src="<?php echo base_url('vendors/bootstrap-daterangepicker/daterangepicker.js') ?>"></script>
-		<!-- bootstrap-wysiwyg -->
-		<script src="<?php echo base_url('vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js') ?>"></script>
-		<script src="<?php echo base_url('vendors/jquery.hotkeys/jquery.hotkeys.js') ?>"></script>
-		<script src="<?php echo base_url('vendors/google-code-prettify/src/prettify.js') ?>"></script>
 		<!-- jQuery Tags Input -->
 		<script src="<?php echo base_url('vendors/jquery.tagsinput/src/jquery.tagsinput.js') ?>"></script>
-		<!-- Switchery -->
-		<script src="<?php echo base_url('vendors/switchery/dist/switchery.min.js') ?>"></script>
-		<!-- Select2 -->
-		<script src="<?php echo base_url('vendors/select2/dist/js/select2.full.min.js') ?>"></script>
-		<!-- Parsley -->
-		<script src="<?php echo base_url('vendors/parsleyjs/dist/parsley.min.js') ?>"></script>
-		<!-- Autosize -->
-		<script src="<?php echo base_url('vendors/autosize/dist/autosize.min.js') ?>"></script>
-		<!-- jQuery autocomplete -->
-		<script src="<?php echo base_url('vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js') ?>"></script>
-		<!-- starrr -->
-		<script src="<?php echo base_url('vendors/starrr/dist/starrr.js') ?>"></script>
-
 
 		<script type="text/javascript">
 		// image upload
@@ -199,26 +119,25 @@
 		// end image upload
 
 		jQuery(document).ready(function($){
-			// Click button to activate hidden file input
-			$('.fileuploader-btn').on('click', function(){
-				$('.fileuploader').click();
-			});
-			// Click above calls the open dialog box
-			// Once something is selected the change function will run
-			$('.fileuploader').change(function(){
-				// Create new FileReader as a variable
-				var reader = new FileReader();
-				// Onload Function will run after video has loaded
-				reader.onload = function(file){
-					var fileContent = file.target.result;
-					$('.vidview').append('<video src="' + fileContent + '" width="430" height="320" controls></video>');
-				}
-				// Get the selected video from Dialog
-				reader.readAsDataURL(this.files[0]);
-			});
+		// Click button to activate hidden file input
+		$('.fileuploader-btn').on('click', function(){
+			$('.fileuploader').click();
 		});
-		</script>
-
+		// Click above calls the open dialog box
+		// Once something is selected the change function will run
+		$('.fileuploader').change(function(){
+			// Create new FileReader as a variable
+			var reader = new FileReader();
+			// Onload Function will run after video has loaded
+			reader.onload = function(file){
+				var fileContent = file.target.result;
+				$('body').append('<video src="' + fileContent + '" width="320" height="240" controls></video>');
+			}
+			// Get the selected video from Dialog
+			reader.readAsDataURL(this.files[0]);
+		});
+		});
+	    </script>
 
 	</body>
 </html>
