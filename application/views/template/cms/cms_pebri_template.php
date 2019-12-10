@@ -9,9 +9,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<title><?php echo $title ?></title>
+<<<<<<< Updated upstream
 		<link rel="shortcut icon" href="favicon.ico">
 		<!-- jQuery -->
 	    <script src="<?php echo base_url('vendors/jquery/dist/jquery.min.js') ?>"></script>
+=======
+		<link rel="shortcut icon" href="<?php echo base_url('favicon.ico') ?>">
+>>>>>>> Stashed changes
 		<!-- Bootstrap -->
 	    <link href="<?php echo base_url('vendors/bootstrap/dist/css/bootstrap.min.css') ?>" rel="stylesheet">
 	    <!-- Font Awesome -->
@@ -20,17 +24,13 @@
 	    <link href="<?php echo base_url('vendors/nprogress/nprogress.css') ?>" rel="stylesheet">
 	    <!-- jQuery custom content scroller -->
 	    <link href="<?php echo base_url('vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css') ?>" rel="stylesheet"/>
-
-	    <!-- TABELE -->
-	    <link href="<?php echo base_url('vendors/datatables.net-bs/css/dataTables.bootstrap.min.css') ?>" rel="stylesheet">
-	    <link href="<?php echo base_url('vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css') ?>" rel="stylesheet">
-	    <link href="<?php echo base_url('vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css') ?>" rel="stylesheet">
-	    <link href="<?php echo base_url('vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') ?>" rel="stylesheet">
-	    <link href="<?php echo base_url('vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css') ?>" rel="stylesheet">
-
 	    <!-- Custom Theme Style -->
 	    <link href="<?php echo base_url('assets/css/custom.min.css') ?>" rel="stylesheet">
+	    <!-- SUMMERNOTE -->
+	    <link href="<?php echo base_url('vendors/summernote/dist/summernote.css') ?>" rel="stylesheet">
+	    
 
+<<<<<<< Updated upstream
 		<link href="<?php echo base_url('vendors/iCheck/skins/flat/green.css') ?>" rel="stylesheet">
 
 	    <!-- bootstrap-wysiwyg -->
@@ -53,6 +53,14 @@
 	    <link href="<?php echo base_url('build/css/custom.min.css') ?>" rel="stylesheet">
 	    <link href="<?php echo base_url('assets/css/master.css') ?>" rel="stylesheet">
 
+=======
+		<style media="screen">
+	        .file-drag-handle {
+
+	            display: none;
+	        }
+	    </style>
+>>>>>>> Stashed changes
 	</head>
 	<body class="nav-md">
 
@@ -94,15 +102,28 @@
 
 	    <!-- Bootstrap -->
 	   	<script src="<?php echo base_url('vendors/bootstrap/dist/js/bootstrap.bundle.min.js') ?>"></script>
-	    <!-- FastClick -->
-	    <script src="<?php echo base_url('vendors/fastclick/lib/fastclick.js') ?>"></script>
 	    <!-- NProgress -->
 	    <script src="<?php echo base_url('vendors/nprogress/nprogress.js') ?>"></script>
 	    <!-- jQuery custom content scroller -->
 	    <script src="<?php echo base_url('vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js') ?>"></script>
-
 	    <!-- Custom Theme Scripts -->
 	    <script src="<?php echo base_url('assets/js/custom.js') ?>"></script>
+	    <!-- NSUMMERNOTE -->
+	    <script src="<?php echo base_url('vendors/summernote/dist/summernote.min.js') ?>"></script>
+
+	    <script type="text/javascript">
+	    	$(document).ready(function() {
+		  		$('#artikelId').summernote({
+			        placeholder: 'Tulis artikel anda disini',
+			        minHeight: 400,
+			        height: 100,
+			        toolbar: [
+				        ['para', ['ul', 'ol']],
+				        ['insert', ['link', 'picture', 'video']],
+				    ]
+		      	});
+			});
+	    </script>
 
 	</body>
 </html>
