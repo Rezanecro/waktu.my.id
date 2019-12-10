@@ -31,14 +31,6 @@
 	    <link href="<?php echo base_url('build/css/custom.min.css') ?>" rel="stylesheet">
 	    <link href="<?php echo base_url('assets/css/master.css') ?>" rel="stylesheet">
 
-=======
-		<style media="screen">
-	        .file-drag-handle {
-
-	            display: none;
-	        }
-	    </style>
->>>>>>> Stashed changes
 	</head>
 	<body class="nav-md">
 
