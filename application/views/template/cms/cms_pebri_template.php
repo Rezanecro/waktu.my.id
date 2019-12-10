@@ -10,8 +10,8 @@
 
 		<title><?php echo $title ?></title>
 		<link rel="shortcut icon" href="favicon.ico">
-		<!-- fileinput css -->
-	    <link href="<?php echo base_url('vendors/bootstrap-fileinput/fileinput.min.css') ?>" rel="stylesheet">
+		<!-- jQuery -->
+	    <script src="<?php echo base_url('vendors/jquery/dist/jquery.min.js') ?>"></script>
 		<!-- Bootstrap -->
 	    <link href="<?php echo base_url('vendors/bootstrap/dist/css/bootstrap.min.css') ?>" rel="stylesheet">
 	    <!-- Font Awesome -->
@@ -52,13 +52,7 @@
 	    <!-- Custom Theme Style -->
 	    <link href="<?php echo base_url('build/css/custom.min.css') ?>" rel="stylesheet">
 	    <link href="<?php echo base_url('assets/css/master.css') ?>" rel="stylesheet">
-		<style media="screen">
-	        .file-drag-handle {
 
-	            display: none;
-	        }
-	    </style>
-		<script src="<?php echo base_url('vendors/jquery/jquery-3.3.1.min.js') ?>"></script>
 	</head>
 	<body class="nav-md">
 
@@ -98,8 +92,6 @@
 			</div>
 		</div>
 
-		<!-- jQuery -->
-	    <script src="<?php echo base_url('vendors/jquery/dist/jquery.min.js') ?>"></script>
 	    <!-- Bootstrap -->
 	   	<script src="<?php echo base_url('vendors/bootstrap/dist/js/bootstrap.bundle.min.js') ?>"></script>
 	    <!-- FastClick -->
@@ -176,14 +168,7 @@
 		<script src="<?php echo base_url('vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js') ?>"></script>
 		<!-- starrr -->
 		<script src="<?php echo base_url('vendors/starrr/dist/starrr.js') ?>"></script>
-		<!-- fileinput -->
-		<script src="<?php echo base_url('vendors/bootstrap-fileinput/js/piexif.min.js') ?>"></script>
-		<script src="<?php echo base_url('vendors/bootstrap-fileinput/js/sortable.min.js') ?>"></script>
-		<script src="<?php echo base_url('vendors/bootstrap-fileinput/js/purify.min.js') ?>"></script>
-		<script src="<?php echo base_url('vendors/bootstrap-fileinput/js/fileinput.min.js') ?>"></script>
-		<script src="<?php echo base_url('vendors/bootstrap-fileinput/js/theme.js') ?>"></script>
-		<!-- popper -->
-		<script src="<?php echo base_url('vendors/popper/popper.min.js') ?>"></script>
+
 
 		<script type="text/javascript">
 		// image upload
@@ -213,20 +198,25 @@
 			});
 		// end image upload
 
-		$(function() {
-	        $("#video-attachment").fileinput({
-	            minFileCount: 0,
-	            maxFileCount: 1,
-	            initialPreview: [
-	              "<?php echo base_url('assets\video') ?>"
-	            ],
-	            initialPreviewAsData: true,
-	            initialPreviewConfig: [{type: "video", size: 375000, filetype: "video/mp4", caption: "", url: "/file-upload-batch/2", key: 1}],
-	            deleteUrl: "/site/file-delete",
-	            overwriteInitial: true,
-	            initialCaption: "Video"
-	        });
-	    });
+		jQuery(document).ready(function($){
+			// Click button to activate hidden file input
+			$('.fileuploader-btn').on('click', function(){
+				$('.fileuploader').click();
+			});
+			// Click above calls the open dialog box
+			// Once something is selected the change function will run
+			$('.fileuploader').change(function(){
+				// Create new FileReader as a variable
+				var reader = new FileReader();
+				// Onload Function will run after video has loaded
+				reader.onload = function(file){
+					var fileContent = file.target.result;
+					$('.vidview').append('<video src="' + fileContent + '" width="430" height="320" controls></video>');
+				}
+				// Get the selected video from Dialog
+				reader.readAsDataURL(this.files[0]);
+			});
+		});
 		</script>
 
 
