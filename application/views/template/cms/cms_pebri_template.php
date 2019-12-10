@@ -22,7 +22,7 @@
 	    <link href="<?php echo base_url('assets/css/custom.min.css') ?>" rel="stylesheet">
 	    <!-- SUMMERNOTE -->
 	    <link href="<?php echo base_url('vendors/summernote/dist/summernote.css') ?>" rel="stylesheet">
-	    
+
 
 		<style media="screen">
 	        .file-drag-handle {
@@ -94,6 +94,28 @@
 				    ]
 		      	});
 			});
+
+			// upload video
+			jQuery(document).ready(function($){
+			// Click button to activate hidden file input
+			$('#fileuploader-btn').on('click', function(){
+				$('.fileuploader').click();
+			});
+			// Click above calls the open dialog box
+			// Once something is selected the change function will run
+			$('.fileuploader').change(function(){
+				// Create new FileReader as a variable
+				var reader = new FileReader();
+				// Onload Function will run after video has loaded
+				reader.onload = function(file){
+					var fileContent = file.target.result;
+					$('.vidview').append('<video src="' + fileContent + '" width="650" height="auto" controls></video><br><br><button class="btn btn-success">Simpan</button>');
+					$('#fileuploader-btn').hide();
+				}
+				// Get the selected video from Dialog
+				reader.readAsDataURL(this.files[0]);
+			});
+		});
 	    </script>
 
 	</body>
