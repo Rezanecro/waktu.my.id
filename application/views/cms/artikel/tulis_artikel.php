@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <?php echo "string";?>
+=======
+>>>>>>> parent of b1a0182... test lagi
 <form class="form-horizontal form-label-left" method="" action="">
 	<div class="row">
 =======
