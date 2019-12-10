@@ -1,13 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-<?php echo "string";?>
-=======
->>>>>>> parent of b1a0182... test lagi
-<form class="form-horizontal form-label-left" method="" action="">
-	<div class="row">
-=======
 <div class="row">
->>>>>>> Stashed changes
 	<div class="col-md-12 col-sm-12 col-xs-12">
 		<div class="x_panel tile alert alert-success">
 			<div class="x_title">
