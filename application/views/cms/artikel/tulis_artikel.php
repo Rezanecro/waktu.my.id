@@ -39,6 +39,28 @@
 									</div>
 								</div>
 							</div>
+							<div class="col-md-12 col-sm-12 form-group">
+
+								<!-- UPLOAD GAMBAR --><br><br>
+								<div class="file-upload">
+								  <button style="display:none;" class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+								  <h2 style="color:#495057;">Pilih thumbnail untuk artikel</h2>
+								  <div class="image-upload-wrap">
+								    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+								    <div class="drag-text">
+								      <h3>Seret lalu drop thumbnail/gambar disini</h3>
+								    </div>
+								  </div>
+								  <div class="file-upload-content">
+								    <img class="file-upload-image" src="#" alt="your image" />
+								    <div class="image-title-wrap">
+								      <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+								    </div>
+								  </div>
+								</div>
+								<!-- END UPLOAD GAMBAR --><br><br>
+
+							</div>
 						</div>
 					</div>
 

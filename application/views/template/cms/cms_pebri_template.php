@@ -19,17 +19,10 @@
 	    <!-- jQuery custom content scroller -->
 	    <link href="<?php echo base_url('vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css') ?>" rel="stylesheet"/>
 	    <!-- Custom Theme Style -->
-	    <link href="<?php echo base_url('assets/css/custom.min.css') ?>" rel="stylesheet">
+		<link href="<?php echo base_url('assets/css/custom.min.css') ?>" rel="stylesheet">
+	    <link href="<?php echo base_url('assets/css/master.css') ?>" rel="stylesheet">
 	    <!-- SUMMERNOTE -->
-	    <link href="<?php echo base_url('vendors/summernote/dist/summernote.css') ?>" rel="stylesheet">
-
-
-		<style media="screen">
-	        .file-drag-handle {
-
-	            display: none;
-	        }
-	    </style>
+		<link href="<?php echo base_url('vendors/summernote/dist/summernote.css') ?>" rel="stylesheet">
 	</head>
 	<body class="nav-md">
 
@@ -95,27 +88,59 @@
 		      	});
 			});
 
-			// upload video
-			jQuery(document).ready(function($){
-			// Click button to activate hidden file input
-			$('#fileuploader-btn').on('click', function(){
-				$('.fileuploader').click();
-			});
-			// Click above calls the open dialog box
-			// Once something is selected the change function will run
-			$('.fileuploader').change(function(){
-				// Create new FileReader as a variable
-				var reader = new FileReader();
-				// Onload Function will run after video has loaded
-				reader.onload = function(file){
-					var fileContent = file.target.result;
-					$('.vidview').append('<video src="' + fileContent + '" width="650" height="auto" controls></video><br><br><button class="btn btn-success">Simpan</button>');
-					$('#fileuploader-btn').hide();
-				}
-				// Get the selected video from Dialog
-				reader.readAsDataURL(this.files[0]);
-			});
-		});
+			// UPLOAD VIDEO
+					jQuery(document).ready(function($){
+							$('#fileuploader').change(function(){
+								// Create new FileReader as a variable
+								var reader = new FileReader();
+								// Onload Function will run after video has loaded
+								reader.onload = function(file){
+									var fileContent = file.target.result;
+									$('.vidview').append('<video src="' + fileContent + '" width="100%" height="auto" controls></video>');
+									$('.simpan').append('<br><br><button class="btn btn-success">Simpan</button>');
+									$('.drag-text').hide();
+									$('#fileuploader-btn').hide();
+								}
+								// Get the selected video from Dialog
+								reader.readAsDataURL(this.files[0]);
+							});
+					});
+			// END UPLOAD VIDEO
+
+			// UPLOAD IMAGE
+					function readURL(input) {
+					  if (input.files && input.files[0]) {
+
+					    var reader = new FileReader();
+
+					    reader.onload = function(e) {
+					      $('.image-upload-wrap').hide();
+
+					      $('.file-upload-image').attr('src', e.target.result);
+					      $('.file-upload-content').show();
+
+					      $('.image-title').html(input.files[0].name);
+					    };
+
+					    reader.readAsDataURL(input.files[0]);
+
+					  } else {
+					    removeUpload();
+					  }
+					}
+
+					function removeUpload() {
+					  $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+					  $('.file-upload-content').hide();
+					  $('.image-upload-wrap').show();
+					}
+					$('.image-upload-wrap').bind('dragover', function () {
+							$('.image-upload-wrap').addClass('image-dropping');
+						});
+						$('.image-upload-wrap').bind('dragleave', function () {
+							$('.image-upload-wrap').removeClass('image-dropping');
+					});
+			// END UPLOAD IMAGE
 	    </script>
 
 	</body>
