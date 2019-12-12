@@ -40,14 +40,17 @@
 					<div class="col-md-4 col-sm-4 form-group has-feedback">
 						<div class="row">
 							<div class="col-md-6 col-sm-6 form-group">
-							<button class="btn btn-info">Pilih Thubnail</button>
+							<label class="btn btn-info">
+								Pilih Cover
+								<input class="file-upload-input" type="file" onchange="readURL(this);" accept="image/*" name="thumbnail">
+							</label>
 						</div>
 						<div class="col-md-6 col-sm-6 form-group">
-							<img src="<?php echo base_url('assets/images/img.jpg') ?>" style="height: 65px ">
+							<img id="previewThumbnail" style="height: 65px; width: auto;">
 						</div>
 						</div>
 					</div>
-					
+
 					<div class="col-md-12 col-sm-12 form-group">
 						<button type="submit" class="btn btn-success">Kirim</button>
 					</div>
