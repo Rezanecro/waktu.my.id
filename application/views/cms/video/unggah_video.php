@@ -1,8 +1,10 @@
-<center id="previewDropzone"></center>
-<center id="buttonPreview">
-	<button class="btn btn-info">Upload</button>
-	<a class="btn btn-warning" href="<?php echo base_url('panel/video/unggah') ?>">Cancel</a>
-</center>
+<div class="col-md-12" id="previewVideo">
+	<center id="previewDropzone"></center>
+	<center>
+		<button class="btn btn-info">Upload</button>
+		<a class="btn btn-warning" href="<?php echo base_url('panel/video/unggah') ?>">Cancel</a>
+	</center>
+</div>
 
 
 <div class="image-upload-wrap" id="dropVideo">

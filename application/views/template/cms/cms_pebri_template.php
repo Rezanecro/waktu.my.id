@@ -95,8 +95,7 @@
 				]
 			});
 
-			$('#previewDropzone').hide();
-			$('#buttonPreview').hide();
+			$('#previewVideo').hide();
 		});
 
         Dropzone.autoDiscover = false;
@@ -108,23 +107,23 @@
         	init: function(){
 
 	            this.on("addedfile", function(filenya) {
-	            	console.log(filenya.type);
-
-	            	if(filenya.type == 'video/mp4') {
-            			var reader = new FileReader();
-				        reader.onload = function(event) {
-				            console.log(event.target.result);
-				            $('#previewDropzone').show();
-				            $('#buttonPreview').show();
-				            $('#previewDropzone').html('<video width="320" height="240" controls><source src="'+event.target.result+'" type="video/mp4"></video>')
-				        };
-				        reader.readAsDataURL(filenya);
-	            	} else {
-	            		if (!filenya.accepted) {
-	            			alert('File bukan format video');
-		            		this.removeFile(filenya);
+    	      		this.on("queuecomplete", function (file) {
+		            	if(filenya.type == 'video/mp4') {
+		            		var reader = new FileReader();
+					        reader.onload = function(event) {
+					            console.log('addedfile');
+					            $('#previewVideo').show();
+					            $('#dropVideo').hide();
+					            $('#previewDropzone').html('<video width="400" controls><source src="'+event.target.result+'" type="video/mp4"></video><input name="videBlobFormat" type="hidden" value="'+event.target.result+'">');
+					        };
+					        reader.readAsDataURL(filenya);
+		            	} else {
+		            		if (!filenya.accepted) {
+		            			alert('File bukan format video');
+			            		this.removeFile(filenya);
+			            	}
 		            	}
-	            	}	            	
+			      	});      	
 	            });
 
 	            this.on("removedfile", function() {
@@ -136,18 +135,6 @@
 	            		this.removeFile(file);
 	            	}
 	            });
-
-	            this.on("queuecomplete", function (file) {
-	            	if(errors) {
-	        			console.log("There were errors!");
-	        			if (!file.accepted) {
-		            		this.removeFile(file);
-		            	}
-	        		} else {
-	        			console.log("We're done!");
-	        			$('#dropVideo').hide();
-	        		}
-		      	});
 	        },
       	});
 	</script>
