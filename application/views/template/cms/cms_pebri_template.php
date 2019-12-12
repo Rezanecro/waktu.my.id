@@ -89,57 +89,57 @@
 			});
 
 			// UPLOAD VIDEO
-					jQuery(document).ready(function($){
-							$('#fileuploader').change(function(){
-								// Create new FileReader as a variable
-								var reader = new FileReader();
-								// Onload Function will run after video has loaded
-								reader.onload = function(file){
-									var fileContent = file.target.result;
-									$('.vidview').append('<video src="' + fileContent + '" width="100%" height="auto" controls></video>');
-									$('.simpan').append('<br><br><button class="btn btn-success">Simpan</button>');
-									$('.drag-text').hide();
-									$('#fileuploader-btn').hide();
-								}
-								// Get the selected video from Dialog
-								reader.readAsDataURL(this.files[0]);
-							});
-					});
+			jQuery(document).ready(function($){
+				$('#fileuploader').change(function(){
+					// Create new FileReader as a variable
+					var reader = new FileReader();
+					// Onload Function will run after video has loaded
+					reader.onload = function(file){
+						var fileContent = file.target.result;
+						$('.vidview').append('<video src="' + fileContent + '" width="100%" height="auto" controls></video>');
+						$('.simpan').append('<br><br><button class="btn btn-success">Simpan</button>');
+						$('.drag-text').hide();
+						$('#fileuploader-btn').hide();
+					} 
+					// Get the selected video from Dialog
+					reader.readAsDataURL(this.files[0]);
+				});
+			});
 			// END UPLOAD VIDEO
 
 			// UPLOAD IMAGE
-					function readURL(input) {
-					  if (input.files && input.files[0]) {
+			function readURL(input) {
+			  if (input.files && input.files[0]) {
 
-					    var reader = new FileReader();
+			    var reader = new FileReader();
 
-					    reader.onload = function(e) {
-					      $('.image-upload-wrap').hide();
+			    reader.onload = function(e) {
+			      $('.image-upload-wrap').hide();
 
-					      $('.file-upload-image').attr('src', e.target.result);
-					      $('.file-upload-content').show();
+			      $('.file-upload-image').attr('src', e.target.result);
+			      $('.file-upload-content').show();
 
-					      $('.image-title').html(input.files[0].name);
-					    };
+			      $('.image-title').html(input.files[0].name);
+			    };
 
-					    reader.readAsDataURL(input.files[0]);
+			    reader.readAsDataURL(input.files[0]);
 
-					  } else {
-					    removeUpload();
-					  }
-					}
+			  } else {
+			    removeUpload();
+			  }
+			}
 
-					function removeUpload() {
-					  $('.file-upload-input').replaceWith($('.file-upload-input').clone());
-					  $('.file-upload-content').hide();
-					  $('.image-upload-wrap').show();
-					}
-					$('.image-upload-wrap').bind('dragover', function () {
-							$('.image-upload-wrap').addClass('image-dropping');
-						});
-						$('.image-upload-wrap').bind('dragleave', function () {
-							$('.image-upload-wrap').removeClass('image-dropping');
-					});
+			function removeUpload() {
+			  $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+			  $('.file-upload-content').hide();
+			  $('.image-upload-wrap').show();
+			}
+			$('.image-upload-wrap').bind('dragover', function () {
+					$('.image-upload-wrap').addClass('image-dropping');
+				});
+				$('.image-upload-wrap').bind('dragleave', function () {
+					$('.image-upload-wrap').removeClass('image-dropping');
+			});
 			// END UPLOAD IMAGE
 	    </script>
 

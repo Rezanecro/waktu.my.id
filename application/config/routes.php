@@ -96,7 +96,7 @@ $route['panel/etalase/tambah']		= 'Etalase/tambah_jualan';
 
 // JADWAL
 $route['panel/jadwal/daftar']		= 'Jadwal';
-$route['panel/jadwal/unggah']		= 'Jadwal/tambah_jadwal';
+$route['panel/jadwal/tambah']		= 'Jadwal/tambah_jadwal';
 
 
 // DONASI
