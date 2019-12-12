@@ -105,29 +105,51 @@
       		maxFiles: 1,
         	paramName: "videoUpload",
         	acceptedFiles: ".mp4,.mkv,.avi",
-        	error: function(file, errorMessage) {
-        		errors = true;
-        	},
-        	queuecomplete: function() {
-        		if(errors) {
-        			console.log("There were errors!");
-        		} else {
-        			console.log("We're done!");
-        			$('#dropVideo').hide();
-        		}
-        	}
-      	});
+        	init: function(){
 
-      	myDropzone.on("addedfile", function(file) {
-         	var reader = new FileReader();
-	        reader.onload = function(event) {
-	            console.log(event.target.result);
-	            $('#previewDropzone').show();
-	            $('#buttonPreview').show();
-	            $('#previewDropzone').html('<video width="320" height="240" controls><source src="'+event.target.result+'" type="video/mp4"></video>')
-	        };
-	        reader.readAsDataURL(file);
-	    });
+	            this.on("addedfile", function(filenya) {
+	            	console.log(filenya.type);
+
+	            	if(filenya.type == 'video/mp4') {
+            			var reader = new FileReader();
+				        reader.onload = function(event) {
+				            console.log(event.target.result);
+				            $('#previewDropzone').show();
+				            $('#buttonPreview').show();
+				            $('#previewDropzone').html('<video width="320" height="240" controls><source src="'+event.target.result+'" type="video/mp4"></video>')
+				        };
+				        reader.readAsDataURL(filenya);
+	            	} else {
+	            		if (!filenya.accepted) {
+	            			alert('File bukan format video');
+		            		this.removeFile(filenya);
+		            	}
+	            	}	            	
+	            });
+
+	            this.on("removedfile", function() {
+	            	console.log('hapus file');
+	            });
+
+	            this.on("error", function(file) {
+	            	if (!file.accepted) {
+	            		this.removeFile(file);
+	            	}
+	            });
+
+	            this.on("queuecomplete", function (file) {
+	            	if(errors) {
+	        			console.log("There were errors!");
+	        			if (!file.accepted) {
+		            		this.removeFile(file);
+		            	}
+	        		} else {
+	        			console.log("We're done!");
+	        			$('#dropVideo').hide();
+	        		}
+		      	});
+	        },
+      	});
 	</script>
 
 </body>
