@@ -21,6 +21,8 @@
 	<!-- Dropzone.js -->
 	<link href="<?php echo base_url('vendors/dropzone/dist/min/dropzone.min.css') ?>" rel="stylesheet">
 	<!-- SUMMERNOTE -->
+	<!-- bootstrap-progressbar -->
+    <link href="<?php echo base_url('vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') ?>" rel="stylesheet">
 	<link href="<?php echo base_url('vendors/summernote/dist/summernote.css') ?>" rel="stylesheet">
 	<!-- Custom Theme Style -->
 	<link href="<?php echo base_url('assets/css/custom.min.css') ?>" rel="stylesheet">
@@ -77,8 +79,10 @@
 	<script src="<?php echo base_url('vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js') ?>"></script>
 	<!-- Dropzone.js -->
 	<script src="<?php echo base_url('vendors/dropzone/dist/min/dropzone.min.js') ?>"></script>
-	<!-- NSUMMERNOTE -->
+	<!-- SUMMERNOTE -->
 	<script src="<?php echo base_url('vendors/summernote/dist/summernote.min.js') ?>"></script>
+	<!-- bootstrap-progressbar -->
+    <script src="<?php echo base_url('vendors/bootstrap-progressbar/bootstrap-progressbar.min.js') ?>"></script>
 	<!-- Custom Theme Scripts -->
 	<script src="<?php echo base_url('assets/js/custom.js') ?>"></script>
 	
@@ -113,7 +117,7 @@
 					        reader.onload = function(event) {
 					            console.log('addedfile');
 					            $('#previewVideo').show();
-					            $('#dropVideo').hide();
+					            $('#dropVideo').hide();	
 					            $('#previewDropzone').html('<video width="400" controls><source src="'+event.target.result+'" type="video/mp4"></video><input name="videBlobFormat" type="hidden" value="'+event.target.result+'">');
 					        };
 					        reader.readAsDataURL(filenya);

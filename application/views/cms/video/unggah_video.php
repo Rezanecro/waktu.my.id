@@ -4,6 +4,8 @@
 		<button class="btn btn-info">Upload</button>
 		<a class="btn btn-warning" href="<?php echo base_url('panel/video/unggah') ?>">Cancel</a>
 	</center>
+
+	<div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%">Uploading...</div>
 </div>
 
 
