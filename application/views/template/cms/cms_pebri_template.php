@@ -112,5 +112,8 @@
         <script src="<?php echo base_url('assets/js/waktu/dropzone-unggah-video.js') ?>"></script>
   	<?php } } ?>
 
+  	<!-- AJAX -->
+  	<script src="<?php echo base_url('assets/js/waktu/ajax.tulis-artikel.js') ?>"></script>
+
 </body>
 </html>

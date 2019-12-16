@@ -12,6 +12,9 @@ function readURL(input) {
 		        	$('#previewThumbnail')
 		        	.show()
 		        	.attr('src', e.target.result)
+
+		        	$('#thumbnailImgId')
+		        	.attr('value', e.target.result)
 		        }
 		    };
 		};
