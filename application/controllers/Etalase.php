@@ -37,7 +37,8 @@ class Etalase extends CI_Controller
 		);
 
 		$toHtml = array(
-			'aaa' => $datas,
+			'aaa' 	=> $aktif,
+			'aktif'	=> 'daftar_jualan'
 		);
 
 		$this->template->write('title', 'Daftar Barang Jualan - Waktu.my.id', TRUE);
@@ -55,7 +56,8 @@ class Etalase extends CI_Controller
 		);
 
 		$toHtml = array(
-			'aaa' => $datas,
+			'aaa' 	=> $datas,
+			'aktif'	=> 'tambah_jualan'
 		);
 
 		$this->template->write('title', 'Tambah Barang Jualan - Waktu.my.id', TRUE);

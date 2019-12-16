@@ -37,7 +37,8 @@ class Video extends CI_Controller
 		);
 
 		$toHtml = array(
-			'aaa' => $datas,
+			'aaa' 	=> $datas,
+			'aktif'	=> 'unggah_video'
 		);
 
 		$this->template->write('title', 'Unggah Video - Waktu.my.id', TRUE);
