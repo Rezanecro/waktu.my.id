@@ -41,7 +41,7 @@
 						<div class="row">
 							<div class="col-md-6 col-sm-6 form-group">
 							<label class="btn btn-info">
-								Pilih Cover
+								<i class="fa fa-image"></i> Pilih Cover
 								<input class="file-upload-input" type="file" onchange="readURL(this);" accept="image/*" name="thumbnail">
 							</label>
 						</div>
@@ -52,7 +52,7 @@
 					</div>
 
 					<div class="col-md-12 col-sm-12 form-group">
-						<button type="submit" class="btn btn-success">Kirim</button>
+						<button type="submit" class="btn btn-success"><i class="fa fa-send"></i> Kirim</button>
 					</div>
 				</div>
 			</div>

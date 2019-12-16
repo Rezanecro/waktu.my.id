@@ -30,9 +30,7 @@
 					<div class="col-md-12 col-sm-12 form-group" style="margin-top: 30px">
 						<textarea type="number" id="deskripsiId" name="deskripsiTxt" required="required" class="form-control" placeholder="Tulis deskripsi barang yang ingin dijual"></textarea>	
 					</div>
-
-					<div class="col-md-12 col-sm-12 form-group" style="margin-top: 30px" id="previewImage"></div>
-
+					
 					<div class="col-md-12 col-sm-12">
 						<div class="image-upload-wrap">
 							<div class="drag-text">

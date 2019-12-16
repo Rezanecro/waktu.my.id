@@ -37,7 +37,8 @@ class Donasi extends CI_Controller
 		);
 
 		$toHtml = array(
-			'aaa' => $datas,
+			'aaa' 	=> $datas,
+			'aktif'	=> 'permintaan_donasi'
 		);
 
 		$this->template->write('title', 'Tambah Permintaan Donasi - Waktu.my.id', TRUE);
