@@ -90,191 +90,27 @@
 	<script type="text/javascript">
 		console.log('<?php echo $aktif; ?>')
 		$(document).ready(function() {
-			$('#artikelId').summernote({
-				placeholder: 'Tulis artikel anda disini',
-				minHeight: 400,
-				height: 100,
-				toolbar: [
-				['para', ['ul', 'ol']],
-				['insert', ['link', 'picture', 'video']],
-				]
-			});
-
 			$('#previewVideo').hide();
-
 		});
-		
-
-		<?php if(isset($aktif)) { if($aktif == 'unggah_video') { ?>
-        Dropzone.autoDiscover = false;
-
-      	var myDropzone = new Dropzone("#dropZoneVideo" , {
-      		maxFiles: 1,
-        	paramName: "videoUpload",
-        	acceptedFiles: ".mp4,.mkv,.avi",
-        	init: function(){
-
-	            this.on("addedfile", function(filenya) {
-    	      		this.on("queuecomplete", function (file) {
-    	      			console.log('dropZoneVideo')
-		            	if(filenya.type == 'video/mp4') {
-		            		var reader = new FileReader();
-					        reader.onload = function(event) {
-					            console.log('addedfile');
-					            $('#previewVideo').show();
-					            $('#dropVideo').hide();	
-					            $('#previewDropzone').html('<video width="400" controls><source src="'+event.target.result+'" type="video/mp4"></video><input name="videBlobFormat" type="hidden" value="'+event.target.result+'">');
-					        };
-					        reader.readAsDataURL(filenya);
-		            	} else {
-		            		if (!filenya.accepted) {
-		            			alert('File bukan format video');
-			            		this.removeFile(filenya);
-			            	}
-		            	}
-			      	});      	
-	            });
-
-	            this.on("removedfile", function() {
-	            	console.log('hapus file');
-	            });
-
-	            this.on("error", function(file) {
-	            	if (!file.accepted) {
-	            		this.removeFile(file);
-	            	}
-	            });
-	        },
-      	});
-
-      	function readURL(input) {
-			if (input.files && input.files[0]) {
-				var reader = new FileReader();
-				reader.onload = function (e) {
-					var image = new Image();
-				    image.src = e.target.result;
-				    image.onload = function() {
-				        var imageWidth = this.width;
-				        if(imageWidth < 700) {
-				        	alert('Ukuran gambar kurang dari 700 pixel')
-				        } else {
-				        	$('#previewThumbnail')
-				        	.show()
-				        	.attr('src', e.target.result)
-				        }
-				    };
-				};
-				reader.readAsDataURL(input.files[0]);
-			}
-		}
-      	<?php } } ?>
-
-      	<?php if(isset($aktif)) { if($aktif == 'tambah_jualan') { ?>
-  		Dropzone.autoDiscover = false;
-
-      	var myDropzoneBarang = new Dropzone("#dropZoneBarang" , {
-      		maxFiles: 5,
-      		clickable: true,
-  		 	addRemoveLinks: true,
-        	paramName: "gambarBarangUpload",
-        	acceptedFiles: ".jpg,.jpeg,.png",
-        	maxThumbnailFilesize: 5,
-        	init: function(){
-
-	            this.on("addedfile", function(filenya) {
-    	      		this.on("queuecomplete", function (file) {
-    	      			console.log('dropZoneVideo')
-		            	if(filenya.type == 'image/jpg' || filenya.type == 'image/jpeg' || filenya.type == 'image/png') {
-		            		var reader = new FileReader();
-					        reader.onload = function(event) {
-					            console.log('addedfile');
-					            // $('#previewVideo').show();
-					            // $('#dropVideo').hide();	
-					            // $('#previewDropzone').html('<video width="400" controls><source src="'+event.target.result+'" type="video/mp4"></video><input name="videBlobFormat" type="hidden" value="'+event.target.result+'">');
-					        };
-					        reader.readAsDataURL(filenya);
-		            	} else {
-		            		if (!filenya.accepted) {
-		            			alert('File bukan format gambar');
-			            		this.removeFile(filenya);
-			            	}
-		            	}
-			      	});      	
-	            });
-
-	            this.on("removedfile", function() {
-	            	console.log('hapus file');
-	            });
-
-	            this.on("error", function(file) {
-	            	if (!file.accepted) {
-	            		this.removeFile(file);
-	            	}
-	            });
-
-	            this.on("maxfilesexceeded", function(file){
-                	alert("Maksimal 5 gambar");
-                this.removeFile(file);
-            });
-
-	        },
-      	});
-      	<?php } } ?>
-
-
-      	<?php if(isset($aktif)) { if($aktif == 'permintaan_donasi') { ?>
-  		Dropzone.autoDiscover = false;
-
-      	var myDropzoneDonasi = new Dropzone("#dropZoneDonasi" , {
-      		maxFiles: 5,
-      		clickable: true,
-  		 	addRemoveLinks: true,
-        	paramName: "gambarDonasiUpload",
-        	acceptedFiles: ".jpg,.jpeg,.png",
-        	maxThumbnailFilesize: 5,
-        	init: function(){
-
-	            this.on("addedfile", function(filenya) {
-    	      		this.on("queuecomplete", function (file) {
-    	      			console.log('dropZoneDonasi')
-		            	if(filenya.type == 'image/jpg' || filenya.type == 'image/jpeg' || filenya.type == 'image/png') {
-		            		var reader = new FileReader();
-					        reader.onload = function(event) {
-					            console.log('addedfile');
-					            // $('#previewVideo').show();
-					            // $('#dropVideo').hide();	
-					            // $('#previewDropzone').html('<video width="400" controls><source src="'+event.target.result+'" type="video/mp4"></video><input name="videBlobFormat" type="hidden" value="'+event.target.result+'">');
-					        };
-					        reader.readAsDataURL(filenya);
-		            	} else {
-		            		if (!filenya.accepted) {
-		            			alert('File bukan format gambar');
-			            		this.removeFile(filenya);
-			            	}
-		            	}
-			      	});      	
-	            });
-
-	            this.on("removedfile", function() {
-	            	console.log('hapus file');
-	            });
-
-	            this.on("error", function(file) {
-	            	if (!file.accepted) {
-	            		this.removeFile(file);
-	            	}
-	            });
-
-	            this.on("maxfilesexceeded", function(file){
-                	alert("Maksimal 5 gambar");
-                this.removeFile(file);
-            });
-
-	        },
-      	});
-      	<?php } } ?>
-      	
 	</script>
+
+	<script src="<?php echo base_url('assets/js/waktu/summernote-conf.js') ?>"></script>
+
+	<?php if(isset($aktif)) { if($aktif == 'tulis_artikel') { ?>
+		<script src="<?php echo base_url('assets/js/waktu/image-thum.js') ?>"></script>
+  	<?php } } ?>
+
+  	<?php if(isset($aktif)) { if($aktif == 'permintaan_donasi') { ?>
+		<script src="<?php echo base_url('assets/js/waktu/dropzone-donasi.js') ?>"></script>
+  	<?php } } ?>
+
+  	<?php if(isset($aktif)) { if($aktif == 'tambah_jualan') { ?>
+  		<script src="<?php echo base_url('assets/js/waktu/dropzone-tabah-barang.js') ?>"></script>
+  	<?php } } ?>
+
+  	<?php if(isset($aktif)) { if($aktif == 'unggah_video') { ?>
+        <script src="<?php echo base_url('assets/js/waktu/dropzone-unggah-video.js') ?>"></script>
+  	<?php } } ?>
 
 </body>
 </html>

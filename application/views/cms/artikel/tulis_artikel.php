@@ -42,11 +42,11 @@
 							<div class="col-md-6 col-sm-6 form-group">
 							<label class="btn btn-info">
 								<i class="fa fa-image"></i> Pilih Cover
-								<input class="file-upload-input" type="file" onchange="readURL(this);" accept="image/*" name="thumbnail">
+								<input class="file-upload-input" type="file" style="display: none" onchange="readURL(this);" accept="image/*" name="thumbnail">
 							</label>
 						</div>
 						<div class="col-md-6 col-sm-6 form-group">
-							<img id="previewThumbnail" style="height: 65px; width: auto;">
+							<img id="previewThumbnail" style="height: 65px; width: auto;"> 
 						</div>
 						</div>
 					</div>

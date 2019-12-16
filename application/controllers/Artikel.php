@@ -37,8 +37,8 @@ class Artikel extends CI_Controller
 		);
 
 		$toHtml = array(
-			'aaa' 			=> $datas,
-			'tulis_artikel'	=> true
+			'aaa' 	=> $datas,
+			'aktif'	=> 'tulis_artikel'
 		);
 
 		$this->template->write('title', 'Tulis Artikel - Waktu.my.id', TRUE);
