@@ -37,7 +37,7 @@ class Etalase extends CI_Controller
 		);
 
 		$toHtml = array(
-			'aaa' 	=> $aktif,
+			'aaa' 	=> $datas,
 			'aktif'	=> 'daftar_jualan'
 		);
 
