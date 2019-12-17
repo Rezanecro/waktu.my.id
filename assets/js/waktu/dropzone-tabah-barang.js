@@ -1,9 +1,9 @@
 Dropzone.autoDiscover = false;
 
-	var myDropzoneBarang = new Dropzone("#dropZoneBarang" , {
-		maxFiles: 5,
-		clickable: true,
-	 	addRemoveLinks: true,
+var myDropzoneBarang = new Dropzone("#dropZoneBarang" , { 
+	maxFiles: 5,
+	clickable: true,
+ 	addRemoveLinks: true,
 	paramName: "gambarBarangUpload",
 	acceptedFiles: ".jpg,.jpeg,.png",
 	maxThumbnailFilesize: 5,
@@ -13,14 +13,7 @@ Dropzone.autoDiscover = false;
       		this.on("queuecomplete", function (file) {
       			console.log('dropZoneVideo')
             	if(filenya.type == 'image/jpg' || filenya.type == 'image/jpeg' || filenya.type == 'image/png') {
-            		var reader = new FileReader();
-			        reader.onload = function(event) {
-			            console.log('addedfile');
-			            // $('#previewVideo').show();
-			            // $('#dropVideo').hide();	
-			            // $('#previewDropzone').html('<video width="400" controls><source src="'+event.target.result+'" type="video/mp4"></video><input name="videBlobFormat" type="hidden" value="'+event.target.result+'">');
-			        };
-			        reader.readAsDataURL(filenya);
+            		// gambarBarang.push(myDropzoneBarang.files);
             	} else {
             		if (!filenya.accepted) {
             			alert('File bukan format gambar');
@@ -46,4 +39,4 @@ Dropzone.autoDiscover = false;
     });
 
     },
-	});
+});

@@ -12,7 +12,7 @@
 					<div class="row" style="margin-top: 20px">
 						<div class="col-md-6 col-sm-6 form-group">
 							<select name="categorySelect" id="categorySelectId" class="form-control" required="">
-								<option value="0">Pilih kategori</option>
+								<option value="0">Pilih Kategori</option>
 								<option value="1">Option one</option>
 								<option value="2">Option two</option>
 								<option value="3">Option three</option>
@@ -22,7 +22,7 @@
 
 						<div class="col-md-6 col-sm-6 form-group">
 							<select name="subCategorySelect" id="subCategorySelectId" class="form-control" required="">
-								<option value="0">Pilih sub kategori</option>
+								<option value="0">Pilih Sub Kategori</option>
 								<option value="1">Option one</option>
 								<option value="2">Option two</option>
 								<option value="3">Option three</option>

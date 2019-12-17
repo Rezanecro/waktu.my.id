@@ -1,11 +1,11 @@
 <div class="col-md-12" id="previewVideo">
 	<center id="previewDropzone"></center>
-	<center>
-		<button class="btn btn-info"><i class="fa fa-upload"></i> Upload</button>
+	<center id="actionButton">
+		<button id="unggahVideoBtn" class="btn btn-info"><i class="fa fa-upload"></i> Upload</button>
 		<a class="btn btn-warning" href="<?php echo base_url('panel/video/unggah') ?>"><i class="fa fa-times"></i> Cancel</a>
 	</center>
 
-	<div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%">Uploading...</div>
+	<div id="uploadProgress" class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%">Uploading...</div>
 </div>
 
 

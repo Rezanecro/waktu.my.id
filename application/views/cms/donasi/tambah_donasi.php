@@ -5,7 +5,7 @@
 				<div class="col-md-12 col-sm-12">
 					
 					<div class="col-md-6 col-sm-6 form-group" style="margin-top: 30px">
-						<input type="text" id="NamaMasjidiId" name="NamaMasjidTxt" required="required" class="form-control has-feedback-left" placeholder="Tulis nama masjid yang butuh donasi">
+						<input type="text" id="NamaMasjidiId" name="namaMasjidTxt" required="required" class="form-control has-feedback-left" placeholder="Tulis nama masjid yang butuh donasi">
 						<span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
 					</div>
 
@@ -15,19 +15,19 @@
 					</div>
 
 					<div class="col-md-6 col-sm-6 form-group" style="margin-top: 30px">
-						<select name="kondisiSelect" id="kondisiId" class="form-control" required="">
-							<option>Pilih Kota</option>
+						<select name="kotaSelect" id="kotaId" class="form-control" required="">
+							<option value="0">Pilih Kota</option>
 						</select>
 					</div>
 
 					<div class="col-md-6 col-sm-6 form-group" style="margin-top: 30px">
-						<select name="KecamatanSelect" id="KecamatanId" class="form-control" required="">
-							<option>Pilih Kecamatan</option>
+						<select name="kecamatanSelect" id="KecamatanId" class="form-control" required="">
+							<option value="0">Pilih Kecamatan</option>
 						</select>
 					</div>
 
 					<div class="col-md-6 col-sm-6 form-group" style="margin-top: 30px">
-						<textarea id="AlamatId" name="AlamatTxt" required="required" class="form-control" placeholder="Tulis alamat masjid"></textarea>	
+						<textarea id="AlamatId" name="alamatTxt" required="required" class="form-control" placeholder="Tulis alamat masjid"></textarea>	
 					</div>
 
 					<div class="col-md-6 col-sm-6 form-group" style="margin-top: 30px">
@@ -48,7 +48,7 @@
 					</div>
 
 					<div class="col-md-12 col-sm-12 form-group" style="margin-top: 30px">
-						<button type="submit" class="btn btn-success"><i class="fa fa-bookmark"></i> Unggah Permohonan</button>
+						<button id="tambahDonasiBtn" class="btn btn-success"><i class="fa fa-bookmark"></i> Unggah Permohonan</button>
 					</div>
 				</div>
 			</div>

@@ -94,26 +94,39 @@
 		});
 	</script>
 
-	<script src="<?php echo base_url('assets/js/waktu/summernote-conf.js') ?>"></script>
+	
 
 	<?php if(isset($aktif)) { if($aktif == 'tulis_artikel') { ?>
+		<!-- SUMMERNOTE -->
+		<script src="<?php echo base_url('assets/js/waktu/summernote-conf.js') ?>"></script>
+		<!-- THUMBNAIL -->
 		<script src="<?php echo base_url('assets/js/waktu/image-thum.js') ?>"></script>
+		<!-- AJAX -->
+  		<script src="<?php echo base_url('assets/js/waktu/ajax.tulis-artikel.js') ?>"></script>
   	<?php } } ?>
 
   	<?php if(isset($aktif)) { if($aktif == 'permintaan_donasi') { ?>
+  		<!-- AJAX -->
+  		<script src="<?php echo base_url('assets/js/waktu/ajax.tambah-donasi.js') ?>"></script>
+  		<!-- DROPZONE -->
 		<script src="<?php echo base_url('assets/js/waktu/dropzone-donasi.js') ?>"></script>
   	<?php } } ?>
 
   	<?php if(isset($aktif)) { if($aktif == 'tambah_jualan') { ?>
+  		<!-- AJAX -->
+  		<script src="<?php echo base_url('assets/js/waktu/ajax.tambah-barang.js') ?>"></script>
+  		<!-- DROPZONE -->
   		<script src="<?php echo base_url('assets/js/waktu/dropzone-tabah-barang.js') ?>"></script>
   	<?php } } ?>
 
   	<?php if(isset($aktif)) { if($aktif == 'unggah_video') { ?>
+		<!-- AJAX -->
+  		<script src="<?php echo base_url('assets/js/waktu/ajax.unggah-video.js') ?>"></script>
+  		<!-- DROPZONE -->
         <script src="<?php echo base_url('assets/js/waktu/dropzone-unggah-video.js') ?>"></script>
   	<?php } } ?>
 
-  	<!-- AJAX -->
-  	<script src="<?php echo base_url('assets/js/waktu/ajax.tulis-artikel.js') ?>"></script>
+  	
 
 </body>
 </html>

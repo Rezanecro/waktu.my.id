@@ -18,26 +18,20 @@ $("#kirimTulisArtikel").on("click", function() {
 	var subCategorySelect 	= $('#subCategorySelectId').find('option:selected').val();
 	var TagTxt				= $('#TagId').val();
 	var thumbnailImg 		= $("#thumbnailImgId").prop("files")[0];
+	if(
+		artikeltxt.length !== 0 &&
+		judulTxt.length !== 0 &&
+		categorySelect !== '0' &&
+		categorySelect !== 'Pilih Kategori' &&
+		categorySelect.length !== 0 &&
+		subCategorySelect !== '0' &&
+		subCategorySelect !== 'Pilih Sub Kategori' &&
+		subCategorySelect.length !== 0 &&
+		thumbnailImg !== undefined) {
 
-	// if(
-	// 	artikeltxt.length !== 0 ||
-	// 	judulTxt.length !== 0 ||
-	// 	categorySelect != '0' ||
-	// 	categorySelect.length !== 0 ||
-	// 	subCategorySelect != '0' ||
-	// 	subCategorySelect.length !== 0 ||
-	// 	thumbnailImg.length !== 0) {
-
+		console.log('ada')
 		
-	// } else {
-	// 	console.log('kosong')
-	// }
-
-	if(subCategorySelect.toString() === 0) {	
-		console.log('=== ya')
-		console.log(subCategorySelect)
 	} else {
-		console.log('!== no')
-		console.log(subCategorySelect)
+		alert('Ada form yang kosong, mohon diisi!');
 	}
 });
