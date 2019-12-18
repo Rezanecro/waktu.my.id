@@ -14,7 +14,7 @@ function readURL(input) {
 		        	.attr('src', e.target.result)
 
 		        	$('#thumbnailImgId')
-		        	.attr('value', e.target.result) 
+		        	.attr('value', e.target.result)
 		        }
 		    };
 		};

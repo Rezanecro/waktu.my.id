@@ -91,6 +91,7 @@
 			                            	<span class="badge badge-danger">Ditolak</span>
 			                            	<span class="badge badge-success">Tayang</span>
 			                            </td>
+										<td class=" ">12 Desember 2019</td>
 			                            <td class=" ">
 			                            	<ul class="nav nav-pills" role="tablist">
                     							<li role="presentation" class="dropdown">

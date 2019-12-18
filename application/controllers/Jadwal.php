@@ -2,7 +2,7 @@
 
 class Jadwal extends CI_Controller
 {
-	
+
 	function __construct()
 	{
 		parent::__construct();
@@ -37,7 +37,8 @@ class Jadwal extends CI_Controller
 		);
 
 		$toHtml = array(
-			'aaa' => $datas,
+			'aaa' 	=> $datas,
+			'aktif'	=> 'tambah_jadwal'
 		);
 
 		$this->template->write('title', 'Tambah Jadwal Kajian - Waktu.my.id', TRUE);
