@@ -88,7 +88,7 @@
 	
 
 	<script type="text/javascript">
-		console.log('<?php echo $aktif; ?>')
+		console.log('<?php if(isset($aktif)) { echo $aktif; } else { echo base_url(); } ?>');
 		$(document).ready(function() {
 			$('#previewVideo').hide();
 		});
@@ -105,6 +105,13 @@
   		<script src="<?php echo base_url('assets/js/waktu/ajax.tulis-artikel.js') ?>"></script>
   	<?php } } ?>
 
+  	<?php if(isset($aktif)) { if($aktif == 'unggah_video') { ?>
+		<!-- AJAX -->
+  		<script src="<?php echo base_url('assets/js/waktu/ajax.unggah-video.js') ?>"></script>
+  		<!-- DROPZONE -->
+        <script src="<?php echo base_url('assets/js/waktu/dropzone-unggah-video.js') ?>"></script>
+  	<?php } } ?>
+
   	<?php if(isset($aktif)) { if($aktif == 'permintaan_donasi') { ?>
   		<!-- AJAX -->
   		<script src="<?php echo base_url('assets/js/waktu/ajax.tambah-donasi.js') ?>"></script>
@@ -119,14 +126,10 @@
   		<script src="<?php echo base_url('assets/js/waktu/dropzone-tabah-barang.js') ?>"></script>
   	<?php } } ?>
 
-  	<?php if(isset($aktif)) { if($aktif == 'unggah_video') { ?>
-		<!-- AJAX -->
-  		<script src="<?php echo base_url('assets/js/waktu/ajax.unggah-video.js') ?>"></script>
-  		<!-- DROPZONE -->
-        <script src="<?php echo base_url('assets/js/waktu/dropzone-unggah-video.js') ?>"></script>
+  	<?php if(isset($aktif)) { if($aktif == 'etalase') { ?>
+  		<!-- AJAX -->
+  		<script src="<?php echo base_url('assets/js/waktu/ajax.etalase.js') ?>"></script>
   	<?php } } ?>
-
-  	
 
 </body>
 </html>

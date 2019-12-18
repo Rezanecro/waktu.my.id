@@ -20,6 +20,7 @@ class Etalase extends CI_Controller
 
 		$toHtml = array(
 			'aaa' => $datas,
+			'aktif'	=> 'etalase'
 		);
 
 		$this->template->write('title', 'Etalase Toko - Waktu.my.id', TRUE);
