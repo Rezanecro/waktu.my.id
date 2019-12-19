@@ -1,9 +1,9 @@
 $(document).ready(function() {
-	var thumbnailImg = $("#thumbnailImgId").prop("files")[0];
+	var thumbnailImg = $("#thumbnailImgFlyerId").prop("files")[0];
 
 	var reader  = new FileReader();
 	reader.addEventListener("load", function () {
-    	$('#previewThumbnail').show().attr('src', reader.result)
+    	$('#previewThumbnailFlyer').show().attr('src', reader.result)
   	}, false);
 
   	if (thumbnailImg) {

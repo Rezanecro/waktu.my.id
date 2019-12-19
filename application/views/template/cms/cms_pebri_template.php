@@ -94,6 +94,12 @@
 	<!-- Custom Theme Scripts -->
 	<script src="<?php echo base_url('assets/js/custom.js') ?>"></script>
 
+	<script type="text/javascript">
+		console.log('<?php if(isset($aktif)) { echo $aktif; } else { echo base_url(); } ?>');
+		$(document).ready(function() {
+			$('#previewVideo').hide();
+		});
+	</script>
 
 	<?php if(isset($aktif)) { if($aktif == 'tulis_artikel') { ?>
 		<!-- SUMMERNOTE -->
@@ -106,12 +112,18 @@
 
 	<?php if(isset($aktif)) { if($aktif == 'tambah_jadwal') { ?>
 		<!-- THUMBNAIL -->
-		<script src="<?php echo base_url('assets/js/waktu/image-thum.js') ?>"></script>
+		<script src="<?php echo base_url('assets/js/waktu/image-flyer.js') ?>"></script>
 	    <!-- bootstrap-datetimepicker -->
 		<script src="<?php echo base_url('vendors/moment/min/moment.min.js') ?>"></script>
 	    <script src="<?php echo base_url('vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js') ?>"></script>
 		<!-- AJAX -->
   		<script src="<?php echo base_url('assets/js/waktu/ajax.tambah-jadwal.js') ?>"></script>
+  		<script type="text/javascript">
+			// DateTimePicker
+			$('#myDatepicker2').datetimepicker({
+         		format: 'DD.MM.YYYY'
+	     	});
+  		</script>
   	<?php } } ?>
 
   	<?php if(isset($aktif)) { if($aktif == 'unggah_video') { ?>
@@ -139,18 +151,5 @@
   		<!-- AJAX -->
   		<script src="<?php echo base_url('assets/js/waktu/ajax.etalase.js') ?>"></script>
   	<?php } } ?>
-
-	<script type="text/javascript">
-		console.log('<?php if(isset($aktif)) { echo $aktif; } else { echo base_url(); } ?>');
-		$(document).ready(function() {
-			$('#previewVideo').hide();
-		});
-
-		// DateTimePicker
-		$('#myDatepicker2').datetimepicker({
-         format: 'DD.MM.YYYY'
-     });
-
-	</script>
 </body>
 </html>
