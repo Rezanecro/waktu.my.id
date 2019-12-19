@@ -8,7 +8,7 @@
 					</div>
 				</div>
 				<div class="col-md-8 col-sm-8 col-xs-8">
-					<div class="col-md-12 col-sm-12 form-group">
+					<div class="col-md-12 col-sm-12 form-group" style="margin-top: 30px">
 						<div class="col-md-12 col-sm-12 col-xs-12">
 							<label>Judul Artikel</label>
 						</div>
@@ -18,7 +18,7 @@
 						</div>
 					</div>
 
-					<div class="col-md-6 col-sm-6 col-xs-6 form-group">
+					<div class="col-md-6 col-sm-6 col-xs-6 form-group" style="margin-top: 30px">
 						<div class="col-md-12 col-sm-12 col-xs-12">
 							<label>Pilih Kategory</label>
 						</div>
@@ -33,7 +33,7 @@
 						</div>
 					</div>
 
-					<div class="col-md-6 col-sm-6 form-group">
+					<div class="col-md-6 col-sm-6 form-group" style="margin-top: 30px">
 						<div class="col-md-12 col-sm-12 col-xs-12">
 							<label>Pilih Sub Kategory</label>
 						</div>
@@ -48,7 +48,7 @@
 						</div>
 					</div>
 
-					<div class="col-md-12 col-sm-12 col-xs-12 has-feedback">
+					<div class="col-md-12 col-sm-12 col-xs-12 has-feedback" style="margin-top: 30px">
 						<div class="col-md-12 col-sm-12 col-xs-12">
 							<label>Masukan Tag <small>Pisahkan dengan koma</small></label>
 						</div>
@@ -63,7 +63,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4 col-sm-4 col-xs-4">
+				<div class="col-md-4 col-sm-4 col-xs-4" style="margin-top: 60px">
 					<div class="row">
 						<div id="pickThumb" style="width: 100%; height: 230px; text-align: center; vertical-align: middle; line-height: 230px; background-color: #848484; color: #fff">
 							<label>

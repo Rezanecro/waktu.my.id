@@ -5,33 +5,63 @@
 				<div class="col-md-12 col-sm-12">
 					
 					<div class="col-md-6 col-sm-6 form-group" style="margin-top: 30px">
-						<input type="text" id="NamaMasjidiId" name="namaMasjidTxt" required="required" class="form-control has-feedback-left" placeholder="Tulis nama masjid yang butuh donasi">
-						<span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<label>Nama Masjid</label>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<input type="text" id="NamaMasjidiId" name="namaMasjidTxt" required="required" class="form-control has-feedback-left" placeholder="Tulis nama masjid yang butuh donasi">
+							<span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
+						</div>
 					</div>
 
 					<div class="col-md-6 col-sm-6 form-group" style="margin-top: 30px">
-						<input type="number" id="danaId" name="danaTxt" required="required" class="form-control has-feedback-left" placeholder="Tulis kebutuhan dana">
-						<span class="fa fa-dollar form-control-feedback left" aria-hidden="true"></span>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<label>Kebutuhan Dana</label>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<input type="number" id="danaId" name="danaTxt" required="required" class="form-control has-feedback-left" placeholder="Tulis kebutuhan dana">
+							<span class="fa fa-dollar form-control-feedback left" aria-hidden="true"></span>
+						</div>
 					</div>
 
 					<div class="col-md-6 col-sm-6 form-group" style="margin-top: 30px">
-						<select name="kotaSelect" id="kotaId" class="form-control" required="">
-							<option value="0">Pilih Kota</option>
-						</select>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<label>Kota Lokasi Masjid</label>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<select name="kotaSelect" id="kotaId" class="form-control" required="">
+								<option value="0">Pilih Kota</option>
+							</select>
+						</div>
 					</div>
 
 					<div class="col-md-6 col-sm-6 form-group" style="margin-top: 30px">
-						<select name="kecamatanSelect" id="KecamatanId" class="form-control" required="">
-							<option value="0">Pilih Kecamatan</option>
-						</select>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<label>Kecamatan Lokasi Masjid</label>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<select name="kecamatanSelect" id="KecamatanId" class="form-control" required="">
+								<option value="0">Pilih Kecamatan</option>
+							</select>
+						</div>
 					</div>
 
 					<div class="col-md-6 col-sm-6 form-group" style="margin-top: 30px">
-						<textarea id="AlamatId" name="alamatTxt" required="required" class="form-control" placeholder="Tulis alamat masjid"></textarea>	
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<label>Alamat Masjid</label>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<textarea id="AlamatId" name="alamatTxt" required="required" class="form-control" placeholder="Tulis alamat masjid"></textarea>	
+						</div>
 					</div>
 
 					<div class="col-md-6 col-sm-6 form-group" style="margin-top: 30px">
-						<textarea type="number" id="deskripsiId" name="deskripsiTxt" required="required" class="form-control" placeholder="Tulis deskripsi donasi"></textarea>	
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<label>Deskripsi Donasi</label>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<textarea type="number" id="deskripsiId" name="deskripsiTxt" required="required" class="form-control" placeholder="Tulis deskripsi donasi"></textarea>	
+						</div>
 					</div>
 
 					<div class="col-md-12 col-sm-12">

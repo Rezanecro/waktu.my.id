@@ -3,7 +3,7 @@
 		<div class="row">
 
 			<div class="col-md-12 col-sm-12 form-group">
-				<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 30px">
 					<label>Judul atau Tema Kajian</label>
 				</div>
 				<div class="col-md-12 col-sm-12 col-xs-12">
@@ -12,7 +12,7 @@
 				</div>
 			</div>
 
-			<div class="col-md-12 col-sm-12 form-group">
+			<div class="col-md-12 col-sm-12 form-group" style="margin-top: 30px">
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<label>Tanggal Kajian</label>
 				</div>
@@ -22,7 +22,7 @@
               	</div>
 			</div>
 
-			<div class="col-md-12 col-sm-12 form-group">
+			<div class="col-md-12 col-sm-12 form-group" style="margin-top: 30px">
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<label>Kota Kajian Dilangsungkan</label>
 				</div>
@@ -37,7 +37,7 @@
 				</div>
 			</div>
 
-			<div class="col-md-12 col-sm-12 form-group" style="margin-top: 20px">
+			<div class="col-md-12 col-sm-12 form-group" style="margin-top: 30px">
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<button id="kirimTambahJadwalBtn" class="btn btn-success"><i class="fa fa-send"></i> Kirim Jadwal</button>
 				</div>
@@ -45,7 +45,7 @@
 		</div>
 	</div>
 
-	<div class="col-md-4 col-sm-4 col-xs-4">
+	<div class="col-md-4 col-sm-4 col-xs-4" style="margin-top: 60px">
 		<div class="row">
 			<div id="pickFlyer" style="width: 100%; height: 230px; text-align: center; vertical-align: middle; line-height: 230px; background-color: #848484; color: #fff">
 				<label>
