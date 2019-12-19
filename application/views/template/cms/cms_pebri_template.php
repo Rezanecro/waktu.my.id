@@ -16,6 +16,8 @@
   	<link href="<?php echo base_url('vendors/bootstrap-daterangepicker/daterangepicker.css') ?>" rel="stylesheet">
   	<!-- bootstrap-datetimepicker -->
   	<link href="<?php echo base_url('vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css') ?>" rel="stylesheet">
+	<!-- iCheck -->
+    <link href="<?php echo base_url('vendors/iCheck/skins/flat/green.css') ?>" rel="stylesheet">
 	<!-- Font Awesome -->
 	<link href="<?php echo base_url('vendors/font-awesome/css/font-awesome.min.css') ?>" rel="stylesheet">
 	<!-- NProgress -->
@@ -93,20 +95,6 @@
 	<script src="<?php echo base_url('assets/js/custom.js') ?>"></script>
 
 
-	<script type="text/javascript">
-		console.log('<?php if(isset($aktif)) { echo $aktif; } else { echo base_url(); } ?>');
-		$(document).ready(function() {
-			$('#previewVideo').hide();
-		});
-
-		// DateTimePicker
-		   $('#myDatepicker3').datetimepicker({
-			   format: 'hh:mm A'
-		   });
-	</script>
-
-
-
 	<?php if(isset($aktif)) { if($aktif == 'tulis_artikel') { ?>
 		<!-- SUMMERNOTE -->
 		<script src="<?php echo base_url('assets/js/waktu/summernote-conf.js') ?>"></script>
@@ -119,11 +107,11 @@
 	<?php if(isset($aktif)) { if($aktif == 'tambah_jadwal') { ?>
 		<!-- THUMBNAIL -->
 		<script src="<?php echo base_url('assets/js/waktu/image-thum.js') ?>"></script>
-		<!-- bootstrap-daterangepicker -->
-	    <script src="<?php echo base_url('vendors/moment/min/moment.min.js') ?>"></script>
-	    <script src="<?php echo base_url('vendors/bootstrap-daterangepicker/daterangepicker.js') ?>"></script>
 	    <!-- bootstrap-datetimepicker -->
+		<script src="<?php echo base_url('vendors/moment/min/moment.min.js') ?>"></script>
 	    <script src="<?php echo base_url('vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js') ?>"></script>
+		<!-- AJAX -->
+  		<script src="<?php echo base_url('assets/js/waktu/ajax.tambah-jadwal.js') ?>"></script>
   	<?php } } ?>
 
   	<?php if(isset($aktif)) { if($aktif == 'unggah_video') { ?>
@@ -152,5 +140,17 @@
   		<script src="<?php echo base_url('assets/js/waktu/ajax.etalase.js') ?>"></script>
   	<?php } } ?>
 
+	<script type="text/javascript">
+		console.log('<?php if(isset($aktif)) { echo $aktif; } else { echo base_url(); } ?>');
+		$(document).ready(function() {
+			$('#previewVideo').hide();
+		});
+
+		// DateTimePicker
+		$('#myDatepicker2').datetimepicker({
+         format: 'DD.MM.YYYY'
+     });
+
+	</script>
 </body>
 </html>
