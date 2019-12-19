@@ -1,4 +1,4 @@
-function readURL(input) {
+function getThumb(input) {
 	if (input.files && input.files[0]) {
 		var reader = new FileReader();
 		reader.onload = function (e) {
@@ -11,10 +11,12 @@ function readURL(input) {
 		        } else {
 		        	$('#previewThumbnail')
 		        	.show()
-		        	.attr('src', e.target.result)
+		        	.attr('src', e.target.result);
 
 		        	$('#thumbnailImgId')
-		        	.attr('value', e.target.result)
+		        	.attr('value', e.target.result);
+
+		        	$('#pickThumb').hide();
 		        }
 		    };
 		};

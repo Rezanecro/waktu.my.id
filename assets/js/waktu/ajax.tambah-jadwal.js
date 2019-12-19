@@ -3,6 +3,7 @@ $(document).ready(function() {
 
 	var reader  = new FileReader();
 	reader.addEventListener("load", function () {
+		$('#previewThumbnailFlyer').hide();
     	$('#previewThumbnailFlyer').show().attr('src', reader.result)
   	}, false);
 
@@ -11,18 +12,20 @@ $(document).ready(function() {
   	}
 });
 
-$('#kirimJadwal').on('click', function(){
-    var judul = $('#judulKajian').val();
-    var tempat = $('#kotaKajian').val();
-    var tanggal = $('#tanggalKajian').val();
-    var thumbnailImg 		= $("#thumbnailImgId").prop("files")[0];
+$('#kirimTambahJadwalBtn').on('click', function(){
+    var judulTxt 			= $('#judulId').val();
+    var tanggalKajianTxt 	= $('#tanggalKajianId').val();
+    var kotaSelect 			= $('#kotaSelectId').find('option:selected').val();
+    var thumbnailImgFlyer 	= $("#thumbnailImgFlyerId").prop("files")[0];
 
-    if( judul.length !== 0 &&
-		tempat.length !== 0 &&
-		tanggal.length !== 0 &&
-		thumbnailImg !== undefined) {
+    if( judulTxt.length !== 0 &&
+		tanggalKajianTxt.length !== 0 &&
+		kotaSelect.length !== 0 &&
+		kotaSelect !== '0' &&
+		kotaSelect !== 'Pilih Kota' &&
+		thumbnailImgFlyer !== undefined) {
 
-		console.log('ada')
+		console.log(thumbnailImgFlyer)
 
 	} else {
 		alert('Ada form yang kosong, mohon diisi!');

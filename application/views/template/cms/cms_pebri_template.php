@@ -12,8 +12,6 @@
 	<link rel="shortcut icon" href="<?php echo base_url('favicon.ico') ?>">
 	<!-- Bootstrap -->
 	<link href="<?php echo base_url('vendors/bootstrap/dist/css/bootstrap.min.css') ?>" rel="stylesheet">
-	<!-- bootstrap-daterangepicker -->
-  	<link href="<?php echo base_url('vendors/bootstrap-daterangepicker/daterangepicker.css') ?>" rel="stylesheet">
   	<!-- bootstrap-datetimepicker -->
   	<link href="<?php echo base_url('vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css') ?>" rel="stylesheet">
 	<!-- iCheck -->
@@ -116,12 +114,14 @@
 	    <!-- bootstrap-datetimepicker -->
 		<script src="<?php echo base_url('vendors/moment/min/moment.min.js') ?>"></script>
 	    <script src="<?php echo base_url('vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js') ?>"></script>
+	    <!-- jquery.inputmask -->
+    	<script src="<?php echo base_url('vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js') ?>"></script>
 		<!-- AJAX -->
   		<script src="<?php echo base_url('assets/js/waktu/ajax.tambah-jadwal.js') ?>"></script>
   		<script type="text/javascript">
 			// DateTimePicker
-			$('#myDatepicker2').datetimepicker({
-         		format: 'DD.MM.YYYY'
+			$('#tanggalKajianId').datetimepicker({
+         		format: 'DD-MM-YYYY'
 	     	});
   		</script>
   	<?php } } ?>

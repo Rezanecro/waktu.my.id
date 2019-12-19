@@ -3,7 +3,7 @@ $(document).ready(function() {
 
 	var reader  = new FileReader();
 	reader.addEventListener("load", function () {
-    	$('#previewThumbnail').show().attr('src', reader.result)
+    	$('#pickThumb').show().attr('src', reader.result)
   	}, false);
 
   	if (thumbnailImg) {

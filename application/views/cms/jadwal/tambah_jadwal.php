@@ -1,32 +1,46 @@
 <div class="row">
 	<div class="col-md-8 col-sm-8 col-xs-8">
 		<div class="row">
+
 			<div class="col-md-12 col-sm-12 form-group">
-				<input name="judulTxt" type="text" class="form-control has-feedback-left" id="judulId" placeholder="Tulis judul/tema kajian" require>
-				<span class="fa fa-globe form-control-feedback left" aria-hidden="true"></span>
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<label>Judul atau Tema Kajian</label>
+				</div>
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<input name="judulTxt" type="text" class="form-control" id="judulId" placeholder="Tulis judul/tema kajian" require>
+					<span class="fa fa-globe form-control-feedback right" aria-hidden="true"></span>
+				</div>
 			</div>
 
 			<div class="col-md-12 col-sm-12 form-group">
-				<div class='input-group date' id='myDatepicker2'>
-					<input id="tanggalKajian" name="" type='text' class="form-control" placeholder="Pilih tanggal kajian contoh : 19.12.2019"/>
-			        <span class="input-group-addon">
-			           <span class="fa fa-calendar"></span>
-			        </span>
-			    </div>
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<label>Tanggal Kajian</label>
+				</div>
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<input id="tanggalKajianId" name="tanggalKajianTxt" type="text" class="form-control" data-inputmask="'mask': '99-99-9999'" value="10-12-2020">
+	              	<span class="fa fa-calendar form-control-feedback right" aria-hidden="true"></span>
+              	</div>
 			</div>
 
 			<div class="col-md-12 col-sm-12 form-group">
-				<select name="subCategorySelect" id="subCategorySelectId" class="form-control" required="">
-					<option value="0">Pilih Kota</option>
-					<option value="1">Option one</option>
-					<option value="2">Option two</option>
-					<option value="3">Option three</option>
-					<option value="4">Option four</option>
-				</select>
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<label>Kota Kajian Dilangsungkan</label>
+				</div>
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<select name="kotaSelect" id="kotaSelectId" class="form-control" required="">
+						<option value="0">Pilih Kota</option>
+						<option value="1">Option one</option>
+						<option value="2">Option two</option>
+						<option value="3">Option three</option>
+						<option value="4">Option four</option>
+					</select>
+				</div>
 			</div>
 
 			<div class="col-md-12 col-sm-12 form-group" style="margin-top: 20px">
-				<button id="kirimTulisArtikel" class="btn btn-success"><i class="fa fa-send"></i> Kirim Jadwal</button>
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<button id="kirimTambahJadwalBtn" class="btn btn-success"><i class="fa fa-send"></i> Kirim Jadwal</button>
+				</div>
 			</div>
 		</div>
 	</div>
