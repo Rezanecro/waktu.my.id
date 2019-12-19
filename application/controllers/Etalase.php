@@ -112,4 +112,11 @@ class Etalase extends CI_Controller
 
 	// 	$this->template->render();
 	// }
+
+	/////////////////////////////////////// AJAX ///////////////////////////////////////
+	public function Ajax_TambahBarang()
+	{
+		print_r($this->input->post());
+		print_r($_FILES);
+	}
 }

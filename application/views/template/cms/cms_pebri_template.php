@@ -73,6 +73,8 @@
 		</div>
 	</div>
 
+	<script type="text/javascript">var baseUrl = '<?php echo base_url(); ?>';</script>
+
 	<!-- jQuery -->
 	<script src="<?php echo base_url('vendors/jquery/dist/jquery.min.js') ?>"></script>
 	<!-- iCheck -->

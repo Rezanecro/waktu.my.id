@@ -122,3 +122,11 @@ $route['panel/moderasi/jadwal/disetujui']	= 'Jadwal/daftar_disetujui';
 
 $route['panel/moderasi/donasi/menunggu']	= 'Donasi/daftar_moderasi';
 $route['panel/moderasi/donasi/disetujui']	= 'Donasi/daftar_disetujui';
+
+
+
+// AJAX 
+$route['ajax']					= 'Front';
+// ETALASE
+$route['ajax/etalase']			= 'Front';
+$route['ajax/etalase/tambah']	= 'Etalase/Ajax_TambahBarang';
