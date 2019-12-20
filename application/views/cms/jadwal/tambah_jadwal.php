@@ -54,7 +54,7 @@
 				</label>
 			</div>
 
-			<img style="display: none" id="previewThumbnailFlyer" style="height: 230px; width: auto;" src="<?php echo base_url('assets/images/loading.gif') ?>"> 
+			<img style="display: none; width: 100%; height: auto;" id="previewThumbnailFlyer" src="<?php echo base_url('assets/images/loading.gif') ?>">
 		</div>
 	</div>
 </div>

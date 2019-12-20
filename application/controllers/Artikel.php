@@ -2,7 +2,7 @@
 
 class Artikel extends CI_Controller
 {
-	
+
 	function __construct()
 	{
 		parent::__construct();
@@ -84,6 +84,11 @@ class Artikel extends CI_Controller
 		$this->template->render();
 	}
 
+	public function Ajax_TulisArtikel() {
+		// echo "321313";
+		print_r($this->input->post());
+		print_r($_FILES);
+	}
 	// function simple_template() {
 	// 	$this->template->set_template('default');
 	// 	$this->template->write('header', 'This is Header');

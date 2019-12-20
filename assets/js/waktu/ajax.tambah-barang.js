@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	
+
 });
 
 $("#UnggahJualanBtn").on("click", function() {
@@ -11,7 +11,7 @@ $("#UnggahJualanBtn").on("click", function() {
 	var gambarBarang		= myDropzoneBarang.files; // array
 
 	var formData = new FormData();
-    
+
 
 	if(
 		namaBarangTxt.length !== 0 &&
@@ -40,21 +40,21 @@ $("#UnggahJualanBtn").on("click", function() {
 	    	beforeSend: function() {
 	    		console.log('1. beforeSend')
 	    	},
-		    type: "POST",  
+		    type: "POST",
 		    url: baseUrl+"ajax/etalase/tambah",
 		    data: formData,
 		    processData: false,
     		contentType: false,
-		    success: function(response){  
-		        console.log('2. response')  
-		        console.log(response)  
+		    success: function(response){
+		        console.log('2. response')
+		        console.log(response)
 		    },
-		    error: function(XMLHttpRequest, textStatus, errorThrown) { 
+		    error: function(XMLHttpRequest, textStatus, errorThrown) {
 		        console.log("Status: " + textStatus);
-		        console.log("Error: " + errorThrown); 
-		    }       
+		        console.log("Error: " + errorThrown);
+		    }
 		});
-		
+
 	} else {
 		alert('Ada form yang kosong, mohon diisi!');
 	}

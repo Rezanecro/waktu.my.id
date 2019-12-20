@@ -65,7 +65,7 @@ $route['panel/video']				= 'Video';
 $route['panel/jadwal']				= 'Jadwal';
 $route['panel/etalase']				= 'Etalase';
 
-// MODERASI DEF 
+// MODERASI DEF
 $route['panel/moderasi']			= 'Moderasi';
 $route['panel/moderasi/pengguna']	= 'Pengguna/daftar_moderasi';
 $route['panel/moderasi/artikel']	= 'Artikel/daftar_moderasi';
@@ -125,8 +125,9 @@ $route['panel/moderasi/donasi/disetujui']	= 'Donasi/daftar_disetujui';
 
 
 
-// AJAX 
+// AJAX
 $route['ajax']					= 'Front';
 // ETALASE
 $route['ajax/etalase']			= 'Front';
 $route['ajax/etalase/tambah']	= 'Etalase/Ajax_TambahBarang';
+$route['ajax/artikel/tulis']    = 'Artikel/Ajax_TulisArtikel';
