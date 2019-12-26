@@ -19,6 +19,8 @@ $("#kirimTulisArtikel").on("click", function() {
 	var TagTxt				= $('#TagId').val();
 	var thumbnailImg 		= $("#thumbnailImgId").prop("files")[0];
 
+	// var xhr = new XMLHttpRequest();
+
 	var data = new FormData();
 
 	if(
@@ -32,7 +34,6 @@ $("#kirimTulisArtikel").on("click", function() {
 		subCategorySelect.length !== 0 &&
 		thumbnailImg !== undefined) {
 
-
 		data.append('artikelTxt', artikeltxt);
 		data.append('judulTxt', judulTxt);
 		data.append('categorySelect', categorySelect);
@@ -40,14 +41,19 @@ $("#kirimTulisArtikel").on("click", function() {
 		data.append('TagTxt', TagTxt);
 		data.append('thumbnailImg', thumbnailImg);
 
+
 		$.ajax({
 			type 	: 'POST',
 			url 	: baseUrl+'ajax/artikel/tulis',
 			data 	: data,
 			processData: false,
     		contentType: false,
+			beforeSend : function(){
+				$('#spinner').show();
+			},
 			success	: function(response){
 				console.log(response);
+				$('#spinner').hide();
 			}
 		});
 

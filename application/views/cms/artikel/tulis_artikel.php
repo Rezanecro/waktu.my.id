@@ -72,10 +72,26 @@
 							</label>
 						</div>
 
-						<img style="display: none; width: 100%; height: auto;" id="previewThumbnail" src="<?php echo base_url('assets/images/loading.gif') ?>"> 
+						<img style="display: none; width: 100%; height: auto;" id="previewThumbnail" src="<?php echo base_url('assets/images/loading.gif') ?>">
 					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>
+</div>
+
+<div style="
+	display:	none;
+	position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 )
+                url('<?php echo base_url('assets/images/loading.gif'); ?>')
+                50% 50%
+                no-repeat;
+	"id="spinner">
 </div>

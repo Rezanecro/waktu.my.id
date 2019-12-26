@@ -85,10 +85,27 @@ class Artikel extends CI_Controller
 	}
 
 	public function Ajax_TulisArtikel() {
-		// echo "321313";
-		print_r($this->input->post());
-		print_r($_FILES);
+
+		$artikelTxt = $this->input->post('artikelTxt');
+		$judulTxt = $this->input->post('judulTxt');
+		$category = $this->input->post('categorySelect');
+		$subCategory = $this->input->post('subCategorySelect');
+		$TagTxt = $this->input->post('TagTxt');
+		$thumbnail = $_FILES;
+
+		$data = array(
+			'artikel' => $artikelTxt,
+			'judul' => $judulTxt,
+			'kategori' => $category,
+			'sub-kategori' => $subCategory,
+			'tag' => $TagTxt,
+			'thumbnail' => $thumbnail
+		);
+
+		print_r($data);
+		
 	}
+
 	// function simple_template() {
 	// 	$this->template->set_template('default');
 	// 	$this->template->write('header', 'This is Header');
