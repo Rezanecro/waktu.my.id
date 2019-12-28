@@ -14,12 +14,13 @@ class Pengguna extends CI_Controller
 	public function index() {
 
 		$datas = array(
-			'ccc' => 'ccccccccc',
+			'ccc' => 'ccccccccc', 
 			'ddd', 'dddddddddd'
 		);
 
 		$toHtml = array(
 			'aaa' => $datas,
+			'aktif'	=> 'masuk',
 		);
 
 		$this->template->set_template('non_pebri_cms');

@@ -102,6 +102,8 @@
 	</script>
 
 	<?php if(isset($aktif)) { if($aktif == 'tulis_artikel') { ?>
+		<!-- AUTH TOKEN AS CRF -->
+  		<script type="text/javascript">var authCrf = '<?php echo base64_encode($token); ?>';</script>
 		<!-- SUMMERNOTE -->
 		<script src="<?php echo base_url('assets/js/waktu/summernote-conf.js') ?>"></script>
 		<!-- THUMBNAIL -->

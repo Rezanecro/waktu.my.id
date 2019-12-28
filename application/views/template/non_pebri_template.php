@@ -26,4 +26,16 @@
 	    <link href="<?php echo base_url('assets/css/custom.min.css') ?>" rel="stylesheet">
 	</head>
 	<?php echo $content ?>
+	<script type="text/javascript">
+		console.log('<?php if(isset($aktif)) { echo $aktif; } else { echo base_url(); } ?>');
+	</script>
+	<script type="text/javascript">var baseUrl = '<?php echo base_url(); ?>';</script>
+
+	<!-- jQuery -->
+	<script src="<?php echo base_url('vendors/jquery/dist/jquery.min.js') ?>"></script>
+
+	<?php if(isset($aktif)) { if($aktif == 'masuk') { ?>
+		<!-- AJAX -->
+  		<script src="<?php echo base_url('assets/js/waktu/ajax.masuk.js') ?>"></script>
+  	<?php } } ?>
 </html>

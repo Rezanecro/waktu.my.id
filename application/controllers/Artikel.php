@@ -31,14 +31,12 @@ class Artikel extends CI_Controller
 
 	public function tulis_artikel() {
 
-		$datas = array(
-			'ccc' => 'ccccccccc',
-			'ddd', 'dddddddddd'
-		);
+		//SESSION
+		$userToken = md5(date('YmdHis')); // << nanti ini session toke dari hasil login
 
 		$toHtml = array(
-			'aaa' 	=> $datas,
-			'aktif'	=> 'tulis_artikel'
+			'aktif'	=> 'tulis_artikel',
+			'token'	=> $userToken,
 		);
 
 		$this->template->write('title', 'Tulis Artikel - Waktu.my.id', TRUE);
