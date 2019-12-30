@@ -127,7 +127,14 @@ $route['panel/moderasi/donasi/disetujui']	= 'Donasi/daftar_disetujui';
 
 // AJAX
 $route['ajax']					= 'Front';
+// PENGGUNA
+$route['ajax/pengguna']			= 'Front';
+$route['ajax/pengguna/masuk']	= 'Pengguna/Ajax_MasukPengguna';
+$route['ajax/pengguna/register']= 'Pengguna/Ajax_RegistePengguna';
+// ARTIKEL
+// VIDEO
 // ETALASE
 $route['ajax/etalase']			= 'Front';
 $route['ajax/etalase/tambah']	= 'Etalase/Ajax_TambahBarang';
-$route['ajax/artikel/tulis']    = 'Artikel/Ajax_TulisArtikel';
+// JADWAL
+// DONASI
