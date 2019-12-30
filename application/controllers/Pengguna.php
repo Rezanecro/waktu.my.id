@@ -9,7 +9,10 @@ class Pengguna extends CI_Controller
 		$this->template->write_view('sidenavs', 'template/cms/default_sidenavs', true);
 		$this->template->write_view('navs', 'template/cms/default_topnavs.php', true);
 
+		$this->load->library('session');
+
 		$this->load->model('Pengguna_Model');
+		$this->load->model('Email_Model');
 	}
 
 	// LOGIN
@@ -74,6 +77,8 @@ class Pengguna extends CI_Controller
 
 	public function daftar_moderasi() {
 
+		$this->sesi_check();
+
 		$datas = array(
 			'ccc' => 'ccccccccc',
 			'ddd', 'dddddddddd'
@@ -91,6 +96,8 @@ class Pengguna extends CI_Controller
 	}
 
 	public function daftar_disetujui() {
+
+		$this->sesi_check();
 
 		$datas = array(
 			'ccc' => 'ccccccccc',
@@ -110,6 +117,8 @@ class Pengguna extends CI_Controller
 
 	public function profil_pengguna() {
 
+		$this->sesi_check();
+
 		$datas = array(
 			'ccc' => 'ccccccccc',
 			'ddd', 'dddddddddd'
@@ -128,6 +137,8 @@ class Pengguna extends CI_Controller
 
 	public function pengaturan_pengguna() {
 
+		$this->sesi_check();
+
 		$datas = array(
 			'ccc' => 'ccccccccc',
 			'ddd', 'dddddddddd'
@@ -142,6 +153,13 @@ class Pengguna extends CI_Controller
 		$this->template->write_view('content', 'cms/pengguna/pengaturan', $toHtml, true);
 
 		$this->template->render();
+	}
+
+	public function keluar_pengguna()
+	{
+		$this->session->sess_destroy();
+
+		redirect(base_url('masuk'));
 	}
 
 	// AJAX
@@ -166,8 +184,27 @@ class Pengguna extends CI_Controller
 			} else {
 				$simpan_pengguna = $this->Pengguna_Model->simpan_pengguna($namaTxt, $emaiUserTxt, md5($passwordUserTxt));
 				if($simpan_pengguna) {
-					$kode = 200;
-					$msg = 'Data pengguna berhasil disimpan!';
+					$kode_verifikasi = date('YmdHis').rand(0000,9999);
+
+					$simpan_verifikasi = $this->Email_Model->simpan_verifikasi($emaiUserTxt, $kode_verifikasi);
+					if($simpan_verifikasi) {
+
+						$subyek = 'Verifikasi akun Waktu.my.id '.$kode_verifikasi;
+						$email = "Berikut adalah link untuk verifikasi email. <br><br> <a href='".base_url('panel/email/validasi?token='.$kode_verifikasi)."'>".base_url('panel/email/validasi?token='.$kode_verifikasi)."</a>";
+
+						$kirim_email = $this->Email_Model->send_email($emaiUserTxt, $subyek, $email);
+						if($kirim_email) {
+							$kode = 200;
+							$msg = 'Data pengguna berhasil disimpan!';
+						} else {
+							$kode = 404;
+							$msg = 'Gagal simpan data email!';
+						}
+
+					} else {
+						$kode = 404;
+						$msg = 'Gagal simpan data verifikasi!';
+					}
 				} else {
 					$kode = 404;
 					$msg = 'Data pengguna gagal disimpan!';
@@ -200,10 +237,34 @@ class Pengguna extends CI_Controller
 		if($emaiUserTxt != '' && $passwordUserTxt != '') {
 
 			//check email
-			$check_email = $this->Pengguna_Model->check_masuk_pengguna($emaiUserTxt, md5($passwordUserTxt));
-			if(count($check_email) > 0) {
-				$kode = 200;
-				$msg = 'Email terdaftar!';
+			$check_masuk = $this->Pengguna_Model->check_masuk_pengguna($emaiUserTxt, md5($passwordUserTxt));
+			if(count($check_masuk) > 0) {
+
+				foreach ($check_masuk as $key => $val) {
+					if($val->stat == 'tunggu') {
+						$kode = 404;
+						$msg = 'Anda belum terverifikasi oleh moderator';
+					} elseif($val->stat == 'blok') {
+						$kode = 404;
+						$msg = 'Akun Anda diblokir';
+					} elseif($val->stat == 'hapus') {
+						$kode = 404;
+						$msg = 'Akun Anda sudah dihapus';
+					} else {
+						$sess_array = array(
+							'id' 	=> $val->id,
+							'nama' 	=> $val->nama,
+							'email' => $val->email,
+							'avatar'=> $val->avatar,
+						);
+
+						$this->session->set_userdata($sess_array);
+
+						$kode = 200;
+						$msg = 'Berhasil';
+					}
+				}
+
 			} else {
 				$kode = 404;
 				$msg = 'Email atau password tidak cocok!';
@@ -231,4 +292,69 @@ class Pengguna extends CI_Controller
 
 	// 	$this->template->render();
 	// }
+
+	public function testEmail()
+	{
+		// Konfigurasi email
+        $config = [
+            'mailtype'  => 'html',
+            'charset'   => 'iso-8859-1',
+            'protocol'  => 'mail',
+            'smtp_host' => 'mail.waktu.my.id',
+            'smtp_user' => 'info@waktu.my.id',
+            'smtp_pass'   => 'lKATHaMrHn',
+            'smtp_crypto' => 'tls', 
+            'smtp_port'   => 587,
+            'newline' => "\r\n"
+        ];
+
+        // Load library email dan konfigurasinya
+        $this->load->library('email', $config);
+
+        // Email dan nama pengirim
+        $this->email->from('info@waktu.my.id', 'Admin Waktu');
+
+        // Email penerima
+        $this->email->to('juripebrianto@gmail.com'); // Ganti dengan email tujuan
+
+        // Lampiran email, isi dengan url/path file
+        // $this->email->attach('https://masrud.com/content/images/20181215150137-codeigniter-smtp-gmail.png');
+
+        // Subject email
+        $this->email->subject('Test email '.rand());
+
+        // Isi email
+        $this->email->message(rand()." <br><br> <a href='".base_url()."'>".base_url()."</a>");
+
+        // Tampilkan pesan sukses atau error
+        if ($this->email->send()) {
+            echo "terikirim";
+        } else {
+            echo $this->email->print_debugger();
+        }
+	}
+
+	function sesi_check() {
+		if($this->session->userdata('email') == '') {
+			$this->session->sess_destroy();
+			redirect(base_url('masuk'));
+		} 
+	}
+
+	function sesi_check_ajax() {
+		if($this->session->userdata('email') == '') {
+			$this->session->sess_destroy();
+
+			$res = array(
+				'code' => 400,
+				'datas' => array(),
+				'msg' => 'Akses dilarang'
+			);
+
+			header('Content-Type: application/json');
+			echo json_encode($res);
+		}
+
+		exit();
+	}
 }

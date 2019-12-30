@@ -26,11 +26,9 @@ $("#registerFormId").on("click", function() {
 				formData.append('emaiUserTxt', emaiUserTxt);
 				formData.append('passwordUserTxt', passwordUserTxt);
 
-				console.log(formData);
-
 				$.ajax({
 			    	beforeSend: function() {
-			    		console.log('Loading...!')
+			    		// $('#modalsLoading').modal('show');
 			    	},
 				    type: "POST",
 				    url: baseUrl+"ajax/pengguna/register",
@@ -38,10 +36,8 @@ $("#registerFormId").on("click", function() {
 				    processData: false,
 		    		contentType: false,
 				    success: function(response) {
-				    	$('#modlasPeringatan').modal('show');
-
-				        $('#kodeResponse').append(response.code);
-						$('#pesanResponse').append(response.msg);
+				    	$('#modalsLoading').modal('hide');
+				    	console.log(response)
 				    },
 				    error: function(XMLHttpRequest, textStatus, errorThrown) {
 				    	$('#modlasPeringatan').modal('show');
