@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'waktu',
+	'hostname' => '103.29.214.103',
+	'username' => 'wktpanel_us',
+	'password' => 'Twc47Izdbf',
+	'database' => 'wktpanel_db',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

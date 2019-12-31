@@ -49,11 +49,11 @@ $("#kirimTulisArtikel").on("click", function() {
 			processData: false,
     		contentType: false,
 			beforeSend : function(){
-				$('#spinner').show();
+				// $('#spinner').show();
 			},
 			success	: function(response){
 				console.log(response);
-				$('#spinner').hide();
+				// $('#spinner').hide();
 			}
 		});
 

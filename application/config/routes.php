@@ -132,6 +132,7 @@ $route['ajax/pengguna']			= 'Front';
 $route['ajax/pengguna/masuk']	= 'Pengguna/Ajax_MasukPengguna';
 $route['ajax/pengguna/register']= 'Pengguna/Ajax_RegistePengguna';
 // ARTIKEL
+$route['ajax/artikel/tulis']    = 'Artikel/Ajax_TulisArtikel';
 // VIDEO
 // ETALASE
 $route['ajax/etalase']			= 'Front';
