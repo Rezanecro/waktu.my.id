@@ -9,7 +9,10 @@ class Pengguna extends CI_Controller
 		$this->template->write_view('sidenavs', 'template/cms/default_sidenavs', true);
 		$this->template->write_view('navs', 'template/cms/default_topnavs.php', true);
 
+		$this->load->library('session');
+
 		$this->load->model('Pengguna_Model');
+		$this->load->model('Email_Model');
 	}
 
 	// LOGIN
@@ -74,6 +77,8 @@ class Pengguna extends CI_Controller
 
 	public function daftar_moderasi() {
 
+		$this->sesi_check();
+
 		$datas = array(
 			'ccc' => 'ccccccccc',
 			'ddd', 'dddddddddd'
@@ -91,6 +96,8 @@ class Pengguna extends CI_Controller
 	}
 
 	public function daftar_disetujui() {
+
+		$this->sesi_check();
 
 		$datas = array(
 			'ccc' => 'ccccccccc',
@@ -110,6 +117,8 @@ class Pengguna extends CI_Controller
 
 	public function profil_pengguna() {
 
+		$this->sesi_check();
+
 		$datas = array(
 			'ccc' => 'ccccccccc',
 			'ddd', 'dddddddddd'
@@ -128,6 +137,8 @@ class Pengguna extends CI_Controller
 
 	public function pengaturan_pengguna() {
 
+		$this->sesi_check();
+
 		$datas = array(
 			'ccc' => 'ccccccccc',
 			'ddd', 'dddddddddd'
@@ -144,9 +155,83 @@ class Pengguna extends CI_Controller
 		$this->template->render();
 	}
 
+	public function keluar_pengguna()
+	{
+		$this->session->sess_destroy();
+
+		redirect(base_url('masuk'));
+	}
+
+	// WEB
+	public function email_validasi()
+	{
+		$pesan = '';
+
+		if($this->input->get('token') != '') {
+
+			$kode = $this->input->get('token');
+
+			// pengecekan kode = token yang diterima user
+			$check_kode = $this->Email_Model->check_token_validasi($kode);
+			if(count($check_kode) > 0) {
+				foreach ($check_kode as $key => $val) {
+					if($val->stat == 'belum') {
+
+						// jika status validasinya belum, maka di cek kode terakhir yang diterima oleh email dengan kode yang diterima
+						$last_kode = $this->Email_Model->last_kode($val->email);
+						if(count($last_kode) > 0) {
+							foreach ($last_kode as $keyLc => $valLc) {
+
+								// jika kode sama dengan kode terakhir request dari database sama
+								if($kode == $valLc->kode) {
+
+									// ubah satatus validasi menjadi sudah
+									$up_verifikasi = $this->Email_Model->update_status_verifikasi($valLc->email, $valLc->kode);
+									if($up_verifikasi) {
+										// ubah status pengguna menjadi aktif
+										$up_pengguna = $this->Pengguna_Model->update_status_pengguna($valLc->email);
+										if($up_pengguna) {
+											$pesan = 'Validasi email berhasil';
+										} else {
+											$pesan = 'Validasi pengguna gagal';
+										}										
+									} else {
+										$pesan = 'Validasi email gagal';
+									}
+								} else {
+									$pesan = 'Link validasi tidak cocok';
+								}
+							}
+						} else {
+							$pesan = 'Email tidak ditemukan';
+						}
+					} else {
+						$pesan = 'Link kadaluarsa';
+					}
+				}
+
+			} else {
+				$pesan = 'Link tidak valid';
+			}
+		} else {
+			redirect(base_url('register'));
+		}
+
+		$toHtml = array(
+			'pesan' => $pesan,
+		);
+
+		$this->template->set_template('non_pebri_cms');
+		$this->template->write('title', 'Validasi Email - Waktu.my.id', TRUE);
+		$this->template->write('header', 'Validasi Email');
+		$this->template->write_view('content', 'cms/pengguna/validasi_email', $toHtml, true);
+
+		$this->template->render();
+	}
+
 	// AJAX
 
-	public function Ajax_RegistePengguna() {
+	public function Ajax_RegisterPengguna() { 
 
 		$kode = '';
 		$msg = '';
@@ -166,8 +251,27 @@ class Pengguna extends CI_Controller
 			} else {
 				$simpan_pengguna = $this->Pengguna_Model->simpan_pengguna($namaTxt, $emaiUserTxt, md5($passwordUserTxt));
 				if($simpan_pengguna) {
-					$kode = 200;
-					$msg = 'Data pengguna berhasil disimpan!';
+					$kode_verifikasi = date('YmdHis').rand(0000,9999);
+
+					$simpan_verifikasi = $this->Email_Model->simpan_verifikasi($emaiUserTxt, $kode_verifikasi);
+					if($simpan_verifikasi) {
+
+						$subyek = 'Verifikasi akun Waktu.my.id '.$kode_verifikasi;
+						$email = "Berikut adalah link untuk verifikasi email. <br><br> <a href='".base_url('panel/email/validasi?token='.$kode_verifikasi)."'>".base_url('panel/email/validasi?token='.$kode_verifikasi)."</a>";
+
+						$kirim_email = $this->Email_Model->send_email($emaiUserTxt, $subyek, $email);
+						if($kirim_email) {
+							$kode = 200;
+							$msg = 'Masuk ke email anda dan lakukan verifikasi!';
+						} else {
+							$kode = 404;
+							$msg = 'Gagal simpan data email!';
+						}
+
+					} else {
+						$kode = 404;
+						$msg = 'Gagal simpan data verifikasi!';
+					}
 				} else {
 					$kode = 404;
 					$msg = 'Data pengguna gagal disimpan!';
@@ -200,10 +304,34 @@ class Pengguna extends CI_Controller
 		if($emaiUserTxt != '' && $passwordUserTxt != '') {
 
 			//check email
-			$check_email = $this->Pengguna_Model->check_masuk_pengguna($emaiUserTxt, md5($passwordUserTxt));
-			if(count($check_email) > 0) {
-				$kode = 200;
-				$msg = 'Email terdaftar!';
+			$check_masuk = $this->Pengguna_Model->check_masuk_pengguna($emaiUserTxt, md5($passwordUserTxt));
+			if(count($check_masuk) > 0) {
+
+				foreach ($check_masuk as $key => $val) {
+					if($val->stat == 'tunggu') {
+						$kode = 404;
+						$msg = 'Anda belum terverifikasi oleh moderator';
+					} elseif($val->stat == 'blok') {
+						$kode = 404;
+						$msg = 'Akun Anda diblokir';
+					} elseif($val->stat == 'hapus') {
+						$kode = 404;
+						$msg = 'Akun Anda sudah dihapus';
+					} else {
+						$sess_array = array(
+							'id' 	=> $val->id,
+							'nama' 	=> $val->nama,
+							'email' => $val->email,
+							'avatar'=> $val->avatar,
+						);
+
+						$this->session->set_userdata($sess_array);
+
+						$kode = 200;
+						$msg = 'Berhasil';
+					}
+				}
+
 			} else {
 				$kode = 404;
 				$msg = 'Email atau password tidak cocok!';
@@ -231,4 +359,28 @@ class Pengguna extends CI_Controller
 
 	// 	$this->template->render();
 	// }
+
+	function sesi_check() {
+		if($this->session->userdata('email') == '') {
+			$this->session->sess_destroy();
+			redirect(base_url('masuk'));
+		} 
+	}
+
+	function sesi_check_ajax() {
+		if($this->session->userdata('email') == '') {
+			$this->session->sess_destroy();
+
+			$res = array(
+				'code' => 400,
+				'datas' => array(),
+				'msg' => 'Akses dilarang'
+			);
+
+			header('Content-Type: application/json');
+			echo json_encode($res);
+		}
+
+		exit();
+	}
 }

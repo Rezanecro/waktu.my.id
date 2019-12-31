@@ -49,6 +49,30 @@
   	</div>
   	<!-- /modals -->
 
+  	<!-- Small modal -->
+  	<div id="modalsLoading" class="modal fade bs-example-modal-sm" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+	    <div class="modal-dialog modal-sm">
+	      	<div class="modal-content">
+	        	<div class="modal-body">
+	        		<h4><center>Mohon tunggu</center></h4>
+	          		<center><img src="<?php echo base_url('assets/images/loading.gif'); ?>"></center>
+	        	</div>
+  			</div>
+    	</div>
+  	</div>
+  	<!-- /modals -->
+
+  	<div id="myModal" class="modal hide fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	    <div class="modal-dialog modal-sm">
+	      	<div class="modal-content">
+	        	<div class="modal-body">
+	        		<h4><center>Mohon tunggu</center></h4>
+	          		<center><img src="<?php echo base_url('assets/images/loading.gif'); ?>"></center>
+	        	</div>
+  			</div>
+    	</div>
+	</div>
+
 
 	<script type="text/javascript">
 		console.log('<?php if(isset($aktif)) { echo $aktif; } else { echo base_url(); } ?>');

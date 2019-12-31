@@ -60,6 +60,7 @@ $route['lupa']						= 'Pengguna/lupa_password';
 
 $route['panel']						= 'Cms';
 $route['panel/pengguna']			= 'Pengguna';
+$route['panel/email']				= 'Pengguna';
 $route['panel/artikel']				= 'Artikel';
 $route['panel/video']				= 'Video';
 $route['panel/jadwal']				= 'Jadwal';
@@ -123,14 +124,17 @@ $route['panel/moderasi/jadwal/disetujui']	= 'Jadwal/daftar_disetujui';
 $route['panel/moderasi/donasi/menunggu']	= 'Donasi/daftar_moderasi';
 $route['panel/moderasi/donasi/disetujui']	= 'Donasi/daftar_disetujui';
 
-
+// Email
+$route['panel/email/test']					= 'Pengguna/testEmail';
+$route['panel/email/verifikasi']			= 'Pengguna/email_verifikasi';
+$route['panel/email/validasi']				= 'Pengguna/email_validasi';
 
 // AJAX
 $route['ajax']					= 'Front';
 // PENGGUNA
 $route['ajax/pengguna']			= 'Front';
 $route['ajax/pengguna/masuk']	= 'Pengguna/Ajax_MasukPengguna';
-$route['ajax/pengguna/register']= 'Pengguna/Ajax_RegistePengguna';
+$route['ajax/pengguna/register']= 'Pengguna/Ajax_RegisterPengguna';
 // ARTIKEL
 $route['ajax/artikel/tulis']    = 'Artikel/Ajax_TulisArtikel';
 // VIDEO

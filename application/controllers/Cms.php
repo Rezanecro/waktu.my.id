@@ -8,9 +8,13 @@ class Cms extends CI_Controller
 		parent::__construct();
 		$this->template->write_view('sidenavs', 'template/cms/default_sidenavs', true);
 		$this->template->write_view('navs', 'template/cms/default_topnavs.php', true);
+
+		$this->load->library('session');
 	}
 
 	public function index() {
+
+		$this->sesi_check();
 
 		$datas = array(
 			'ccc' => 'ccccccccc',
@@ -36,4 +40,11 @@ class Cms extends CI_Controller
 
 	// 	$this->template->render();
 	// }
+
+	function sesi_check() {
+		if($this->session->userdata('email') == '') {
+			$this->session->sess_destroy();
+			redirect(base_url('masuk'));
+		} 
+	}
 }

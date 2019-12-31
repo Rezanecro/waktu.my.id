@@ -35,4 +35,12 @@ class Pengguna_Model extends CI_Model
         $query = $this->db->query($sql);
         return $query->result();
     }
+
+    public function update_status_pengguna($email) {
+        $updated_at = date('Y-m-d H:i:s');
+
+        $sql = "UPDATE pengguna_tb SET stat = 'aktif', updated_at = ".$this->db->escape($updated_at)." WHERE email = ".$this->db->escape($email)."";
+        $this->db->query($sql);
+        return $this->db->affected_rows();
+    }
 }
