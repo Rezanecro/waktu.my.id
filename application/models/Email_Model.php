@@ -80,6 +80,28 @@ class Email_Model extends CI_Model
         return $this->db->affected_rows();
     }
 
+    public function check_token_validasi($kode)
+    {
+        $sql = "SELECT * FROM verifikasi_tb WHERE kode = ".$this->db->escape($kode)." LIMIT 1";
+        $query = $this->db->query($sql);
+        return $query->result();
+    }
+
+    public function last_kode($email)
+    {
+        $sql = "SELECT * FROM verifikasi_tb WHERE email = ".$this->db->escape($email)." ORDER BY id DESC LIMIT 1";
+        $query = $this->db->query($sql);
+        return $query->result();
+    }
+
+    public function update_status_verifikasi($email, $kode) {
+        $updated_at = date('Y-m-d H:i:s');
+
+        $sql = "UPDATE verifikasi_tb SET stat = 'sudah', updated_at = ".$this->db->escape($updated_at)." WHERE email = ".$this->db->escape($email)." AND kode = ".$this->db->escape($kode)."";
+        $this->db->query($sql);
+        return $this->db->affected_rows();
+    }
+
     public function check_email_pengguna($email) {
         $sql = "SELECT * FROM pengguna_tb WHERE email = ".$this->db->escape($email)." LIMIT 1";
         $query = $this->db->query($sql);

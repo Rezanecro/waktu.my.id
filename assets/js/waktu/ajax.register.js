@@ -36,8 +36,10 @@ $("#registerFormId").on("click", function() {
 				    processData: false,
 		    		contentType: false,
 				    success: function(response) {
-				    	$('#modalsLoading').modal('hide');
-				    	console.log(response)
+				    	$('#modlasPeringatan').modal('show');
+
+				    	$('#kodeResponse').append(response.code);
+						$('#pesanResponse').append(response.msg);
 				    },
 				    error: function(XMLHttpRequest, textStatus, errorThrown) {
 				    	$('#modlasPeringatan').modal('show');

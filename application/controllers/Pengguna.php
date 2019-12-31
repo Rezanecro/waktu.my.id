@@ -162,9 +162,76 @@ class Pengguna extends CI_Controller
 		redirect(base_url('masuk'));
 	}
 
+	// WEB
+	public function email_validasi()
+	{
+		$pesan = '';
+
+		if($this->input->get('token') != '') {
+
+			$kode = $this->input->get('token');
+
+			// pengecekan kode = token yang diterima user
+			$check_kode = $this->Email_Model->check_token_validasi($kode);
+			if(count($check_kode) > 0) {
+				foreach ($check_kode as $key => $val) {
+					if($val->stat == 'belum') {
+
+						// jika status validasinya belum, maka di cek kode terakhir yang diterima oleh email dengan kode yang diterima
+						$last_kode = $this->Email_Model->last_kode($val->email);
+						if(count($last_kode) > 0) {
+							foreach ($last_kode as $keyLc => $valLc) {
+
+								// jika kode sama dengan kode terakhir request dari database sama
+								if($kode == $valLc->kode) {
+
+									// ubah satatus validasi menjadi sudah
+									$up_verifikasi = $this->Email_Model->update_status_verifikasi($valLc->email, $valLc->kode);
+									if($up_verifikasi) {
+										// ubah status pengguna menjadi aktif
+										$up_pengguna = $this->Pengguna_Model->update_status_pengguna($valLc->email);
+										if($up_pengguna) {
+											$pesan = 'Validasi email berhasil';
+										} else {
+											$pesan = 'Validasi pengguna gagal';
+										}										
+									} else {
+										$pesan = 'Validasi email gagal';
+									}
+								} else {
+									$pesan = 'Link validasi tidak cocok';
+								}
+							}
+						} else {
+							$pesan = 'Email tidak ditemukan';
+						}
+					} else {
+						$pesan = 'Link kadaluarsa';
+					}
+				}
+
+			} else {
+				$pesan = 'Link tidak valid';
+			}
+		} else {
+			redirect(base_url('register'));
+		}
+
+		$toHtml = array(
+			'pesan' => $pesan,
+		);
+
+		$this->template->set_template('non_pebri_cms');
+		$this->template->write('title', 'Validasi Email - Waktu.my.id', TRUE);
+		$this->template->write('header', 'Validasi Email');
+		$this->template->write_view('content', 'cms/pengguna/validasi_email', $toHtml, true);
+
+		$this->template->render();
+	}
+
 	// AJAX
 
-	public function Ajax_RegistePengguna() {
+	public function Ajax_RegisterPengguna() { 
 
 		$kode = '';
 		$msg = '';
@@ -195,7 +262,7 @@ class Pengguna extends CI_Controller
 						$kirim_email = $this->Email_Model->send_email($emaiUserTxt, $subyek, $email);
 						if($kirim_email) {
 							$kode = 200;
-							$msg = 'Data pengguna berhasil disimpan!';
+							$msg = 'Masuk ke email anda dan lakukan verifikasi!';
 						} else {
 							$kode = 404;
 							$msg = 'Gagal simpan data email!';
@@ -292,47 +359,6 @@ class Pengguna extends CI_Controller
 
 	// 	$this->template->render();
 	// }
-
-	public function testEmail()
-	{
-		// Konfigurasi email
-        $config = [
-            'mailtype'  => 'html',
-            'charset'   => 'iso-8859-1',
-            'protocol'  => 'mail',
-            'smtp_host' => 'mail.waktu.my.id',
-            'smtp_user' => 'info@waktu.my.id',
-            'smtp_pass'   => 'lKATHaMrHn',
-            'smtp_crypto' => 'tls', 
-            'smtp_port'   => 587,
-            'newline' => "\r\n"
-        ];
-
-        // Load library email dan konfigurasinya
-        $this->load->library('email', $config);
-
-        // Email dan nama pengirim
-        $this->email->from('info@waktu.my.id', 'Admin Waktu');
-
-        // Email penerima
-        $this->email->to('juripebrianto@gmail.com'); // Ganti dengan email tujuan
-
-        // Lampiran email, isi dengan url/path file
-        // $this->email->attach('https://masrud.com/content/images/20181215150137-codeigniter-smtp-gmail.png');
-
-        // Subject email
-        $this->email->subject('Test email '.rand());
-
-        // Isi email
-        $this->email->message(rand()." <br><br> <a href='".base_url()."'>".base_url()."</a>");
-
-        // Tampilkan pesan sukses atau error
-        if ($this->email->send()) {
-            echo "terikirim";
-        } else {
-            echo $this->email->print_debugger();
-        }
-	}
 
 	function sesi_check() {
 		if($this->session->userdata('email') == '') {

@@ -60,7 +60,7 @@ $route['lupa']						= 'Pengguna/lupa_password';
 
 $route['panel']						= 'Cms';
 $route['panel/pengguna']			= 'Pengguna';
-$route['panel/email']			= 'Pengguna';
+$route['panel/email']				= 'Pengguna';
 $route['panel/artikel']				= 'Artikel';
 $route['panel/video']				= 'Video';
 $route['panel/jadwal']				= 'Jadwal';
@@ -134,7 +134,7 @@ $route['ajax']					= 'Front';
 // PENGGUNA
 $route['ajax/pengguna']			= 'Front';
 $route['ajax/pengguna/masuk']	= 'Pengguna/Ajax_MasukPengguna';
-$route['ajax/pengguna/register']= 'Pengguna/Ajax_RegistePengguna';
+$route['ajax/pengguna/register']= 'Pengguna/Ajax_RegisterPengguna';
 // ARTIKEL
 // VIDEO
 // ETALASE
