@@ -136,6 +136,7 @@ $route['ajax/pengguna']			= 'Front';
 $route['ajax/pengguna/masuk']	= 'Pengguna/Ajax_MasukPengguna';
 $route['ajax/pengguna/register']= 'Pengguna/Ajax_RegisterPengguna';
 // ARTIKEL
+$route['ajax/artikel/sub']    	= 'Artikel/Ajax_KategoriForSub';
 $route['ajax/artikel/tulis']    = 'Artikel/Ajax_TulisArtikel';
 // VIDEO
 // ETALASE

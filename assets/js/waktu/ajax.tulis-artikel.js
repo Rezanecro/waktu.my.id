@@ -19,8 +19,6 @@ $("#kirimTulisArtikel").on("click", function() {
 	var TagTxt				= $('#TagId').val();
 	var thumbnailImg 		= $("#thumbnailImgId").prop("files")[0];
 
-	// var xhr = new XMLHttpRequest();
-
 	var data = new FormData();
 
 	if(

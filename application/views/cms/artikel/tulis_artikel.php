@@ -24,11 +24,10 @@
 						</div>
 						<div class="col-md-12 col-sm-12 col-xs-12">
 							<select name="categorySelect" id="categorySelectId" class="form-control" required="">
-								<option value="0">Pilih Kategori</option>
-								<option value="1">Option one</option>
-								<option value="2">Option two</option>
-								<option value="3">Option three</option>
-								<option value="4">Option four</option>
+								<option selected="" value="0">Pilih Kategori</option>
+								<?php if(isset($kategori)) { foreach($kategori as $keyK => $valK) { ?>
+									<option value="<?php echo $valK->id; ?>"><?php echo $valK->nama_kategori; ?></option>
+								<?php } } ?>
 							</select>
 						</div>
 					</div>
@@ -40,10 +39,6 @@
 						<div class="col-md-12 col-sm-12 col-xs-12">
 							<select name="subCategorySelect" id="subCategorySelectId" class="form-control" required="">
 								<option value="0">Pilih Sub Kategori</option>
-								<option value="1">Option one</option>
-								<option value="2">Option two</option>
-								<option value="3">Option three</option>
-								<option value="4">Option four</option>
 							</select>
 						</div>
 					</div>
@@ -79,19 +74,4 @@
 			</div>
 		</div>
 	</div>
-</div>
-
-<div style="
-	display:	none;
-	position:   fixed;
-    z-index:    1000;
-    top:        0;
-    left:       0;
-    height:     100%;
-    width:      100%;
-    background: rgba( 255, 255, 255, .8 )
-                url('<?php echo base_url('assets/images/loading.gif'); ?>')
-                50% 50%
-                no-repeat;
-	"id="spinner">
 </div>
