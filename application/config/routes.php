@@ -133,10 +133,15 @@ $route['panel/email/test']					= 'Pengguna/testEmail';
 $route['panel/email/verifikasi']			= 'Pengguna/email_verifikasi';
 $route['panel/email/validasi']				= 'Pengguna/email_validasi';
 
-// AJAX
+// INIT AJAX
 $route['ajax']					= 'Front';
-// PENGGUNA
+$route['ajax/etalase']			= 'Front';
 $route['ajax/pengguna']			= 'Front';
+$route['ajax/etalase']			= 'Front';
+$route['ajax/kategori']			= 'Front';
+
+// AJAX
+// PENGGUNA
 $route['ajax/pengguna/masuk']	= 'Pengguna/Ajax_MasukPengguna';
 $route['ajax/pengguna/register']= 'Pengguna/Ajax_RegisterPengguna';
 // ARTIKEL
@@ -144,7 +149,12 @@ $route['ajax/artikel/sub']    	= 'Artikel/Ajax_KategoriForSub';
 $route['ajax/artikel/tulis']    = 'Artikel/Ajax_TulisArtikel';
 // VIDEO
 // ETALASE
-$route['ajax/etalase']			= 'Front';
 $route['ajax/etalase/tambah']	= 'Etalase/Ajax_TambahBarang';
 // JADWAL
 // DONASI
+// CMS - KATEGORI
+$route['ajax/kategori/data']	= 'Cms/Ajax_DataKategori';
+$route['ajax/kategori/tambah']	= 'Cms/Ajax_TambahKategori';
+$route['ajax/kategori/sunting']	= 'Cms/Ajax_SuntingKategori';
+$route['ajax/kategori/hapus']	= 'Cms/Ajax_HapusKategori';
+

@@ -165,7 +165,7 @@
 		<script src="<?php echo base_url('assets/js/waktu/image-thum.js') ?>"></script>
 		<!-- AJAX -->
   		<script src="<?php echo base_url('assets/js/waktu/ajax.tulis-artikel.js') ?>"></script>
-  		<script src="<?php echo base_url('assets/js/waktu/ajax.pilih-kategori.js') ?>"></script>
+  		<script src="<?php echo base_url('assets/js/waktu/ajax.kategori.js') ?>"></script>
   	<?php } } ?>
 
 	<?php if(isset($aktif)) { if($aktif == 'tambah_jadwal') { ?>
@@ -210,6 +210,11 @@
   	<?php if(isset($aktif)) { if($aktif == 'etalase') { ?>
   		<!-- AJAX -->
   		<script src="<?php echo base_url('assets/js/waktu/ajax.etalase.js') ?>"></script>
+  	<?php } } ?>
+
+  	<?php if(isset($aktif)) { if($aktif == 'kategori') { ?>
+		<!-- AJAX -->
+  		<script src="<?php echo base_url('assets/js/waktu/ajax.kategori.js') ?>"></script>
   	<?php } } ?>
 </body>
 </html>
