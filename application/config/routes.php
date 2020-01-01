@@ -74,6 +74,10 @@ $route['panel/moderasi/video']		= 'Video/daftar_moderasi';
 $route['panel/moderasi/etalase']	= 'Etalase/daftar_moderasi';
 $route['panel/moderasi/jadwal']		= 'Jadwal/daftar_moderasi';
 
+// CMS
+$route['panel/kategori/kategori']	= 'Cms/kategori';
+$route['panel/kategori/subkategori']= 'Cms/subkategori';
+
 // PENGGUNA
 $route['panel/pengguna/keluar']		= 'Pengguna/keluar_pengguna';
 $route['panel/pengguna/profil']		= 'Pengguna/profil_pengguna';

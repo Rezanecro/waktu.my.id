@@ -32,6 +32,48 @@ class Cms extends CI_Controller
 		$this->template->render();
 	}
 
+	public function kategori() {
+
+		// $this->sesi_check();
+
+		$datas = array(
+			'ccc' => 'ccccccccc',
+			'ddd', 'dddddddddd'
+		);
+
+		$toHtml = array(
+			'aaa' 		=> $datas,
+			'aktif'		=> 'kategori',
+		);
+
+		$this->template->write('title', 'Kategori', TRUE);
+		$this->template->write('header', 'Kategori');
+		$this->template->write_view('content', 'cms/kategori', $toHtml, true);
+
+		$this->template->render();
+	}
+
+	public function subkategori() {
+
+		// $this->sesi_check();
+
+		$datas = array(
+			'ccc' => 'ccccccccc',
+			'ddd', 'dddddddddd'
+		);
+
+		$toHtml = array(
+			'aaa' 		=> $datas,
+			'aktif'		=> 'subkategori',
+		);
+
+		$this->template->write('title', 'Sub Kategori', TRUE);
+		$this->template->write('header', 'Sub Kategori');
+		$this->template->write_view('content', 'cms/subkategori', $toHtml, true);
+
+		$this->template->render();
+	}
+
 	// function simple_template() {
 	// 	$this->template->set_template('default');
 	// 	$this->template->write('header', 'This is Header');

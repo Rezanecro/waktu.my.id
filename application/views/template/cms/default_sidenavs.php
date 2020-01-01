@@ -65,7 +65,7 @@
 				</ul>
 
 				<br>
-				<h3>Moderator</h3>
+				<h3>Admin</h3>
 				<ul class="nav side-menu">
 					<li><a><i class="fa fa-user"></i> Pengguna <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
@@ -106,6 +106,17 @@
 						<ul class="nav child_menu">
 							<li><a href="<?php echo base_url('panel/moderasi/donasi/menunggu') ?>">Menunggu Moderasi</a></li>
 							<li><a href="<?php echo base_url('panel/moderasi/donasi/disetujui') ?>">Daftar Permintaan Disetujui</a></li>
+						</ul>
+					</li>
+				</ul>
+
+				<br>
+				<h3>Kategori</h3>
+				<ul class="nav side-menu">
+					<li><a><i class="fa fa-user"></i> Kategori <span class="fa fa-chevron-down"></span></a>
+						<ul class="nav child_menu">
+							<li><a href="<?php echo base_url('panel/kategori/kategori') ?>">Kategori</a></li>
+							<li><a href="<?php echo base_url('panel/kategori/subkategori') ?>">Sub Kategori</a></li>
 						</ul>
 					</li>
 				</ul>
