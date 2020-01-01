@@ -1,4 +1,10 @@
 $(document).ready(function() {
+	$("#modlasPeringatan").on('hide.bs.modal', function () {
+    	$('#kodeResponse').html('');
+		$('#pesanResponse').html('');
+    });
+
+
 	var thumbnailImg = $("#thumbnailImgId").prop("files")[0];
 
 	var reader  = new FileReader();
@@ -11,7 +17,11 @@ $(document).ready(function() {
   	}
 });
 
-$("#kirimTulisArtikel").on("click", function() {
+// $('#myModal').on('shown.bs.modal', function () {
+//   console.log('shown')
+// })
+
+$("#kirimTulisArtikel").on("click", function(e) {
 	var artikeltxt			= $('#artikelId').summernote('code');
 	var judulTxt			= $('#judulId').val();
 	var categorySelect 		= $('#categorySelectId').find('option:selected').val();
@@ -19,7 +29,7 @@ $("#kirimTulisArtikel").on("click", function() {
 	var TagTxt				= $('#TagId').val();
 	var thumbnailImg 		= $("#thumbnailImgId").prop("files")[0];
 
-	var data = new FormData();
+	var formData = new FormData();
 
 	if(
 		artikeltxt.length !== 0 &&
@@ -32,30 +42,56 @@ $("#kirimTulisArtikel").on("click", function() {
 		subCategorySelect.length !== 0 &&
 		thumbnailImg !== undefined) {
 
-		data.append('artikelTxt', artikeltxt);
-		data.append('judulTxt', judulTxt);
-		data.append('categorySelect', categorySelect);
-		data.append('subCategorySelect', subCategorySelect);
-		data.append('TagTxt', TagTxt);
-		data.append('thumbnailImg', thumbnailImg);
-
+		formData.append('artikelTxt', artikeltxt);
+		formData.append('judulTxt', judulTxt);
+		formData.append('categorySelect', categorySelect);
+		formData.append('subCategorySelect', subCategorySelect);
+		formData.append('TagTxt', TagTxt);
+		formData.append('thumbnailImg', thumbnailImg);
 
 		$.ajax({
-			type 	: 'POST',
-			url 	: baseUrl+'ajax/artikel/tulis',
-			data 	: data,
-			processData: false,
+	    	beforeSend: function() {
+	    		$('#modalsLoading').modal('show');
+	    	},
+		    type: "POST",
+		    url: baseUrl+"ajax/artikel/tulis",
+		    data: formData,
+		    processData: false,
     		contentType: false,
-			beforeSend : function(){
-				// $('#spinner').show();
-			},
-			success	: function(response){
-				console.log(response);
-				// $('#spinner').hide();
-			}
+		    success: function(response) {
+
+		    	$("#modalsLoading").removeClass("in");
+			    $(".modal-backdrop").remove();
+			    $("#modalsLoading").hide();
+
+		   		if(response.code === 200) {
+		   			$('#modlasBerhasil').modal('show');
+
+			  		$('#kodeResponseBerhasil').append(response.code);
+					$('#pesanResponseBerhasil').append(response.msg);
+		   		} else {
+		   			$('#modlasPeringatan').modal('show');
+
+			  		$('#kodeResponse').append(response.code);
+					$('#pesanResponse').append(response.msg);
+		   		}	
+		    },
+		    error: function(XMLHttpRequest, textStatus, errorThrown) {
+		    	jQuery("#modalsLoading").modal('hide');
+		    	$('#modlasPeringatan').modal('show');
+
+		    	$('#kodeResponse').append(textStatus);
+				$('#pesanResponse').append(errorThrown);
+		        console.log("Status: " + textStatus);
+		        console.log("Error: " + errorThrown);
+		    }
 		});
 
 	} else {
-		alert('Ada form yang kosong, mohon diisi!');
+		$('#modlasPeringatan').modal('show');
+
+		$('#kodeResponse').append(404);
+		$('#pesanResponse').append('Ada form yang kosong, mohon diisi');
+		console.log('Ada form yang kosong, mohon diisi');
 	}
 });

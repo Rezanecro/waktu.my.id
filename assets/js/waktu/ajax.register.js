@@ -28,7 +28,7 @@ $("#registerFormId").on("click", function() {
 
 				$.ajax({
 			    	beforeSend: function() {
-			    		// $('#modalsLoading').modal('show');
+			    		$('#modalsLoading').modal('show');
 			    	},
 				    type: "POST",
 				    url: baseUrl+"ajax/pengguna/register",
@@ -36,6 +36,11 @@ $("#registerFormId").on("click", function() {
 				    processData: false,
 		    		contentType: false,
 				    success: function(response) {
+				    	$("#modalsLoading").removeClass("in");
+					    $(".modal-backdrop").remove();
+					    $("#modalsLoading").hide();
+
+			    
 				    	$('#modlasPeringatan').modal('show');
 
 				    	$('#kodeResponse').append(response.code);

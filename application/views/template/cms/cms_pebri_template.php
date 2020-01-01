@@ -95,6 +95,39 @@
   	</div>
   	<!-- /modals -->
 
+  	<!-- Small modal -->
+  	<div id="modlasBerhasil" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+	    <div class="modal-dialog modal-sm">
+	      	<div class="modal-content">
+
+	        	<div class="modal-header">
+	          		<h4 id="kodeResponseBerhasil"></h4>
+	        	</div>
+	        	<div class="modal-body">
+	          		<p id="pesanResponseBerhasil"></p>
+	        	</div>
+	        	<div class="modal-footer">
+	          		<a class="btn btn-secondary" href="<?php echo base_url('panel/artikel/daftar'); ?>">Mengerti</a>
+	        	</div>
+
+  			</div>
+    	</div>
+  	</div>
+  	<!-- /modals -->
+
+  	<!-- Small modal -->
+  	<div id="modalsLoading" class="modal fade bs-example-modal-sm" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+	    <div class="modal-dialog modal-sm">
+	      	<div class="modal-content">
+	        	<div class="modal-body">
+	        		<h4><center>Mohon tunggu</center></h4>
+	          		<center><img src="<?php echo base_url('assets/images/loading.gif'); ?>"></center>
+	        	</div>
+  			</div>
+    	</div>
+  	</div>
+  	<!-- /modals -->
+
 	<script type="text/javascript">var baseUrl = '<?php echo base_url(); ?>';</script>
 
 	<!-- jQuery -->

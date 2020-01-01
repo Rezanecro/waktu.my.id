@@ -62,17 +62,6 @@
   	</div>
   	<!-- /modals -->
 
-  	<div id="myModal" class="modal hide fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	    <div class="modal-dialog modal-sm">
-	      	<div class="modal-content">
-	        	<div class="modal-body">
-	        		<h4><center>Mohon tunggu</center></h4>
-	          		<center><img src="<?php echo base_url('assets/images/loading.gif'); ?>"></center>
-	        	</div>
-  			</div>
-    	</div>
-	</div>
-
 
 	<script type="text/javascript">
 		console.log('<?php if(isset($aktif)) { echo $aktif; } else { echo base_url(); } ?>');

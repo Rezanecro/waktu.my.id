@@ -20,7 +20,7 @@ class Artikel extends CI_Controller
 
 		$datas = array(
 			'ccc' => 'ccccccccc',
-			'ddd', 'dddddddddd'
+			'ddd', 'dddddddddd' 
 		);
 
 		$toHtml = array(
@@ -139,61 +139,99 @@ class Artikel extends CI_Controller
 
 	public function Ajax_TulisArtikel() {
 
+		// $this->sesi_check_ajax();
+
+		$kode = '';
+		$msg = '';
+		$datas = array();
+
 		$artikelTxt 	= $this->input->post('artikelTxt');
 		$judulTxt 		= $this->input->post('judulTxt');
 		$category 		= $this->input->post('categorySelect');
 		$subCategory 	= $this->input->post('subCategorySelect');
 		$TagTxt 		= $this->input->post('TagTxt');
-		$thumbnail 		= $_FILES;
+		$thumbnail 		= $_FILES['thumbnailImg'];
 
-		if($artikelTxt != '' && $judulTxt != '' && $category != '' && $subCategory != '' && $_FILES['tmp']['name'] != '') {
+		// CHECK THUMBNAIL IMAGE TRUE
+		$thum_name 	= $thumbnail['name'];
+		$thum_tmp	= $thumbnail['tmp_name'];
+		$thum_type	= $thumbnail['type'];
+		$thum_size	= $thumbnail['size'];
 
-		} else {
-			$kode = 200;
-			$msg = 'Masuk ke email anda dan lakukan verifikasi!';
+		$thum_type_bool = false;
+		if($thum_type == 'image/jpeg' || $thum_type == 'image/jpg' || $thum_type == 'image/png') {
+			$thum_type_bool = true;
 		}
 
+		$thum_bool = false;
+		if($thum_name != '' && $thum_tmp != '' && $thum_type_bool == true && $thum_size > 0) {
+			$thum_bool = true;
+		}
 
+		if($artikelTxt != '' && $judulTxt != '' && $category != '' && $subCategory != '') {
 
+			if($thum_bool) {
+				$kode = 200;
+				$msg = 'Artikel anda masuk moderasi, terima kasih!';
+			} else {
+				$kode = 404;
+				$msg = 'Thumbnail/cover artikel anda tidak valid!';
+			}
+		} else {
+			$kode = 404;
+			$msg = 'Ada form yang kosong, mohon diisi';
+		}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		$data 	= array(
-				'isi_artikel' 	=> $this->db->escape($artikelTxt),
-				'judul'		=> $this->db->escape($judulTxt),
-				'id_kategori'	=> $this->db->escape($category),
-				'id_sub_kategori' => $this->db->escape($subCategory),
-				'tag'		=> $this->db->escape($TagTxt),
-				// 'thumbnail'	=> $this->db->escape($thumbnail),
-				'created_at'=> $this->db->escape($created_at),
-				'updated_at'=> $this->db->escape($updated_at)
+		$res = array(
+			'code' => $kode,
+			'datas' => $datas,
+			'msg' => $msg
 		);
 
-		$insert = $this->Artikel_Model->simpan_artikel('artikel_tb', $data);
-		// print_r($insert);
-
-		if ($insert > 0) {
-			echo "Berhasil";
-		}else{
-			echo "Tidak berhasil";
-		}
-
 		header('Content-Type: application/json');
-		echo json_encode($data);
+		echo json_encode($res);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		// $data 	= array(
+		// 		'isi_artikel' 	=> $this->db->escape($artikelTxt),
+		// 		'judul'		=> $this->db->escape($judulTxt),
+		// 		'id_kategori'	=> $this->db->escape($category),
+		// 		'id_sub_kategori' => $this->db->escape($subCategory),
+		// 		'tag'		=> $this->db->escape($TagTxt),
+		// 		// 'thumbnail'	=> $this->db->escape($thumbnail),
+		// 		'created_at'=> $this->db->escape($created_at),
+		// 		'updated_at'=> $this->db->escape($updated_at)
+		// );
+
+		// $insert = $this->Artikel_Model->simpan_artikel('artikel_tb', $data);
+		// // print_r($insert);
+
+		// if ($insert > 0) {
+		// 	echo "Berhasil";
+		// }else{
+		// 	echo "Tidak berhasil";
+		// }
+
+		// header('Content-Type: application/json');
+		// echo json_encode($data);
 
 	}
 
