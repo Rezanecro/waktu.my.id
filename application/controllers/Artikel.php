@@ -151,6 +151,7 @@ class Artikel extends CI_Controller
 		$subCategory 	= $this->input->post('subCategorySelect');
 		$TagTxt 		= $this->input->post('TagTxt');
 		$thumbnail 		= $_FILES['thumbnailImg'];
+		$id_pengguna	= $this->session->userdata('id');
 
 		// CHECK THUMBNAIL IMAGE TRUE
 		$thum_name 	= $thumbnail['name'];
@@ -171,8 +172,85 @@ class Artikel extends CI_Controller
 		if($artikelTxt != '' && $judulTxt != '' && $category != '' && $subCategory != '') {
 
 			if($thum_bool) {
-				$kode = 200;
-				$msg = 'Artikel anda masuk moderasi, terima kasih!';
+
+				$folderImage = 'assets/images/artikel/thumbnail/'.date('Y').'/'.date('F');
+				if (!is_dir($folderImage)) {
+					mkdir($folderImage, 0777, TRUE);
+
+				}
+
+				$cleanChar = str_replace(array('ú','à', 'á', 'è', 'ì', 'ò', 'ù', '','º','Á','@','#','$','%','^','&','(',')','_','+','=','|','!',' ',',','.','~','/',':','*','?','"','<','>','|',"'"),'-',$judulTxt);
+
+				// TAG
+				$the_tags = $TagTxt;
+				if($TagTxt == '') {
+					$judul_clean = str_replace(array('ú','à', 'á', 'è', 'ì', 'ò', 'ù', '','º','Á','@','#','$','%','^','&','(',')','_','+','=','|','!',',','.','~','/',':','*','?','"','<','>','|',"'"),'',$judulTxt);
+
+					$the_tags = join(',', explode(' ', $judul_clean));
+				}
+
+				$rand_id = rand(11111,99999);
+				$content_link = strip_tags($cleanChar).'-'.$id_pengguna.'-'.$rand_id;
+
+				// ext
+				$extImage = explode('/', $thum_type);
+				$newName = $content_link.'.'.$extImage[1];
+
+				$config['upload_path']          = './'.$folderImage.'/';
+				$config['allowed_types']        = 'gif|jpg|jpeg|png';
+				$config['file_name'] 			= $newName;
+
+				$this->load->library('upload', $config);
+
+				if (!$this->upload->do_upload('thumbnailImg')) {
+					$kode = 404;
+					$msg = 'Unggah thumbnail artikel gagal! Kesalahan : '.$this->upload->display_errors();
+				} else {
+					$imageUploadInfo = $this->upload->data();
+
+	    			// print_r($imageUploadInfo); exit();
+
+	    			//ukuran image
+					$gambar_array = array();
+					$gambar_array['image_library'] = 'gd2';
+					$gambar_array['maintain_ratio'] = TRUE;
+					$gambar_array['create_thumb'] = FALSE;
+
+					$gambar_array['source_image'] = $imageUploadInfo['full_path'];
+					$gambar_array['width'] = 700;
+
+					$this->load->library('image_lib', $gambar_array);
+					// $this->image_lib->clear(); 
+					// $this->image_lib->initialize($gambar_array);
+
+
+					if (!$this->image_lib->resize()) {
+						$kode = 404;
+	    				$msg = 'Pengaturan ukuran thumbnail artikel gagal! Kesalahan : '.$this->upload->display_errors();
+					} else {
+						// SIMPAN ARTIKEL
+
+						$judul = $judulTxt;
+						$isi_artikel = $artikelTxt;
+						$id_kategori = $category;
+						$id_sub_kategori = $subCategory;
+						$tag = $the_tags;
+						$thumbnail = $folderImage.'/'.$newName;
+						$slug_artikel = $content_link;
+						$short_url = $rand_id;
+						$token = base64_encode($rand_id);
+
+						$simpan_data_artikel = $this->Artikel_Model->simpan_artikel($id_pengguna, $judul, $isi_artikel, $id_kategori, $id_sub_kategori, $tag, $thumbnail, $slug_artikel, $short_url, $token);
+
+						if($simpan_data_artikel) {
+							$kode = 200;
+							$msg = 'Artikel anda masuk moderasi, terima kasih!';
+						} else {
+							$kode = 404;
+							$msg = 'Penyimpanan data artikel gagal!';
+						}
+					}
+				}
 			} else {
 				$kode = 404;
 				$msg = 'Thumbnail/cover artikel anda tidak valid!';
