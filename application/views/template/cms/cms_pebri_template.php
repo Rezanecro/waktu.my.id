@@ -95,6 +95,80 @@
   	</div>
   	<!-- /modals -->
 
+  	<?php if(isset($aktif)) { if($aktif == 'kategori') { ?>
+  	<!-- Small modal -->
+  	<div id="modalsSuntingKategori" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+	    <div class="modal-dialog modal-sm">
+	      	<div class="modal-content">
+
+	        	<div class="modal-header">
+	          		<h4>Sunting Kategori</h4>
+	          		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+	        	</div>
+	        	<div class="modal-body">
+	          		<div class="col-md-12 col-sm-12 form-group">
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<input name="namaKategoriTxt" type="text" class="form-control" id="namaKategoriId" placeholder="Tulis nama kategori" require>
+							<input name="idTxt" type="hidden" id="iDkategori" required="">
+						</div>
+					</div>
+	        	</div>
+	        	<div class="modal-footer">
+	          		<button id="perbaruiDataKategori" type="button" class="btn btn-info">Perbarui Data</button>
+	          		<button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
+	        	</div>
+
+  			</div>
+    	</div>
+  	</div>
+  	<!-- /modals -->
+  	<?php } } ?>
+
+  	<?php if(isset($aktif)) { if($aktif == 'subkategori') { ?>
+  	<!-- Small modal -->
+  	<div id="modalsSuntingSubKategori" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+	    <div class="modal-dialog modal-sm">
+	      	<div class="modal-content">
+
+	        	<div class="modal-header">
+	          		<h4>Sunting Sub-Kategori</h4>
+	          		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+	        	</div>
+	        	<div class="modal-body">
+	          		<div class="col-md-12 col-sm-12 form-group">
+	          			<div class="col-md-12 col-sm-12 col-xs-12">
+							<label>Nama sub-kategori</label>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<input name="ubahNamaSubTxt" type="text" class="form-control" id="ubahNamaSub" placeholder="Tulis nama sub-kategori" require>
+							<input name="ubahIdSubTxt" type="hidden" id="ubahIdSub" required="">
+						</div>
+					</div>
+					<div class="col-md-12 col-sm-12 form-group" style="margin-top: 5px">
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<label>Pilih Kategory <small>relasi</small></label>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<select name="ubahSelectCategory" id="ubahSelectCategoryId" class="form-control" required="">
+								<option selected="" value="0">Pilih Kategori</option>
+								<?php if(isset($kategori)) { foreach($kategori as $keyK => $valK) { ?>
+									<option value="<?php echo $valK->id; ?>"><?php echo $valK->nama_kategori; ?></option>
+								<?php } } ?>
+							</select>
+						</div>
+					</div>
+	        	</div>
+	        	<div class="modal-footer">
+	          		<button id="perbaruiDataSubKategori" type="button" class="btn btn-info">Perbarui Data</button>
+	          		<button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
+	        	</div>
+
+  			</div>
+    	</div>
+  	</div>
+  	<!-- /modals -->
+  	<?php } } ?>
+
   	<!-- Small modal -->
   	<div id="modlasBerhasil" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
 	    <div class="modal-dialog modal-sm">
@@ -150,7 +224,8 @@
 	<script src="<?php echo base_url('assets/js/custom.js') ?>"></script>
 
 	<script type="text/javascript">
-		console.log('<?php if(isset($aktif)) { echo $aktif; } else { echo base_url(); } ?>');
+		var pageOn = '<?php if(isset($aktif)) { echo $aktif; } else { echo base_url(); } ?>';
+		console.log(pageOn);
 		$(document).ready(function() {
 			$('#previewVideo').hide();
 		});
@@ -213,6 +288,11 @@
   	<?php } } ?>
 
   	<?php if(isset($aktif)) { if($aktif == 'kategori') { ?>
+		<!-- AJAX -->
+  		<script src="<?php echo base_url('assets/js/waktu/ajax.kategori.js') ?>"></script>
+  	<?php } } ?>
+
+  	<?php if(isset($aktif)) { if($aktif == 'subkategori') { ?>
 		<!-- AJAX -->
   		<script src="<?php echo base_url('assets/js/waktu/ajax.kategori.js') ?>"></script>
   	<?php } } ?>

@@ -157,4 +157,9 @@ $route['ajax/kategori/data']	= 'Cms/Ajax_DataKategori';
 $route['ajax/kategori/tambah']	= 'Cms/Ajax_TambahKategori';
 $route['ajax/kategori/sunting']	= 'Cms/Ajax_SuntingKategori';
 $route['ajax/kategori/hapus']	= 'Cms/Ajax_HapusKategori';
+// CMS - SUBKATEGORI
+$route['ajax/subkategori/data']		= 'Cms/Ajax_DataSubKategori';
+$route['ajax/subkategori/tambah']	= 'Cms/Ajax_TambahSubKategori';
+$route['ajax/subkategori/sunting']	= 'Cms/Ajax_SuntingSubKategori';
+$route['ajax/subkategori/hapus']	= 'Cms/Ajax_HapusSubKategori';
 

@@ -42,6 +42,14 @@ class Kategori_Model extends CI_Model
         return $query->result();
     }
 
+    public function update_kategori($nama_kategori, $slug_kategori, $id_kategori) {
+        $updated_at = date('Y-m-d H:i:s');
+
+        $sql = "UPDATE kategori_tb SET nama_kategori = ".$this->db->escape($nama_kategori).", slug_kategori = ".$this->db->escape($slug_kategori).", updated_at = ".$this->db->escape($updated_at)." WHERE id = ".$this->db->escape($id_kategori)."";
+        $this->db->query($sql);
+        return $this->db->affected_rows();
+    }
+
 
     // SUB KATEGORI
     public function simpan_sub_kategori($id_kategori, $nama_sub_kategori, $slug_sub_kategori) {
@@ -76,6 +84,26 @@ class Kategori_Model extends CI_Model
         $sql = "SELECT * FROM sub_kategori_tb WHERE slug_sub_kategori = ".$this->db->escape($slug_sub_kategori)." LIMIT 1";
         $query = $this->db->query($sql);
         return $query->result();
+    }
+
+    public function sub_by_slug_id_kategori($slug_sub_kategori, $id_kategori) {
+        $sql = "SELECT * FROM sub_kategori_tb WHERE id_kategori = ".$this->db->escape($id_kategori)." AND slug_sub_kategori = ".$this->db->escape($slug_sub_kategori)." LIMIT 1";
+        $query = $this->db->query($sql);
+        return $query->result();
+    }
+
+    public function semua_sub_kategori() {
+        $sql = "SELECT sc.id_kategori, sc.id, kt.nama_kategori, sc.nama_sub_kategori FROM sub_kategori_tb sc INNER JOIN kategori_tb kt ON kt.id = sc.id_kategori WHERE sc.stat = 'aktif' ORDER BY sc.nama_sub_kategori ASC";
+        $query = $this->db->query($sql);
+        return $query->result();
+    }
+
+    public function update_sub_kategori($id_kategori, $nama_sub_kategori, $slug_sub_kategori, $id_sub) {
+        $updated_at = date('Y-m-d H:i:s');
+
+        $sql = "UPDATE sub_kategori_tb SET id_kategori = ".$this->db->escape($id_kategori).", nama_sub_kategori = ".$this->db->escape($nama_sub_kategori).", slug_sub_kategori = ".$this->db->escape($slug_sub_kategori).", updated_at = ".$this->db->escape($updated_at)." WHERE id = ".$this->db->escape($id_sub)."";
+        $this->db->query($sql);
+        return $this->db->affected_rows();
     }
 
 

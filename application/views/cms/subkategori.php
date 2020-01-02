@@ -62,21 +62,7 @@
 	                      			</tr>
 	                    		</thead>
 
-	                    		<tbody>
-
-	                      			<tr class="even pointer">
-			                            <td class=" ">1</td>
-			                            <td class=" ">10</td>
-			                            <td class=" ">Kisah</td>
-			                            <td class=" ">Kisah Nabi</td>
-			                            <td class=" ">
-			                            	<a href="<?php echo base_url('panel/kategori/subkategori/sunting'); ?>"><i class="fa fa-pencil"></i> Sunting</a>
-			                            	|
-			                            	<a href="<?php echo base_url('panel/kategori/subkategori/hapus'); ?>"><i class="fa fa-trash"></i> Hapus</a>
-			                            </td>
-	                      			</tr>
-	                      			
-	                    		</tbody>
+	                    		<tbody id="loadDataSubKategori"></tbody>
 	                  		</table>
 	                	</div>
                 	</div>

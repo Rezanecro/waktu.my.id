@@ -59,13 +59,10 @@ class Cms extends CI_Controller
 
 		// $this->sesi_check();
 
-		$datas = array(
-			'ccc' => 'ccccccccc',
-			'ddd', 'dddddddddd'
-		);
+		$kategori_data = $this->Kategori_Model->semua_kategori();
 
 		$toHtml = array(
-			'aaa' 		=> $datas,
+			'kategori' 	=> $kategori_data,
 			'aktif'		=> 'subkategori',
 		);
 
@@ -126,7 +123,7 @@ class Cms extends CI_Controller
 
 		$kategoriTxt = $this->input->post('kategoriTxt');
 
-		if($artikelTxt) {
+		if($kategoriTxt != '') {
 
 			$cleanChar = str_replace(array('ú','à', 'á', 'è', 'ì', 'ò', 'ù', '','º','Á','@','#','$','%','^','&','(',')','_','+','=','|','!',' ',',','.','~','/',':','*','?','"','<','>','|',"'"),'-',$kategoriTxt);
 
@@ -134,7 +131,7 @@ class Cms extends CI_Controller
 			// CHECK
 			$check_kategori_slug = $this->Kategori_Model->kategori_by_slug($slug_kategori);
 			if(count($check_kategori_slug) == 0) {
-				$simpan_kategori = $this->Kategori_Model->simpan_kategori($artikelTxt, $slug_kategori);
+				$simpan_kategori = $this->Kategori_Model->simpan_kategori($kategoriTxt, $slug_kategori);
 				if($simpan_kategori) {
 					$kode = 200;
 					$msg = 'Kategori berhasil ditambah';
@@ -145,6 +142,203 @@ class Cms extends CI_Controller
 			} else {
 				$kode = 404;
 				$msg = 'Kategori sudah ada';
+			}
+		} else {
+			$kode = 404;
+			$msg = 'Ada form yang kosong, mohon diisi';
+		}
+
+		$res = array(
+			'code' => $kode,
+			'datas' => $datas,
+			'msg' => $msg
+		);
+
+		header('Content-Type: application/json');
+		echo json_encode($res);
+	}
+
+	public function Ajax_SuntingKategori() {
+
+		// $this->sesi_check_ajax();
+
+		$kode = '';
+		$msg = '';
+		$datas = array();
+
+		$namaKategoriTxt 	= $this->input->post('namaKategoriTxt');
+		$idTxt 				= $this->input->post('idTxt');
+
+		if($namaKategoriTxt != '' && $idTxt != '') {
+
+			$cleanChar = str_replace(array('ú','à', 'á', 'è', 'ì', 'ò', 'ù', '','º','Á','@','#','$','%','^','&','(',')','_','+','=','|','!',' ',',','.','~','/',':','*','?','"','<','>','|',"'"),'-',$namaKategoriTxt);
+
+			$slug_kategori = strip_tags(strtolower($cleanChar));
+			// CHECK
+			$check_kategori_id = $this->Kategori_Model->kategori_by_id($idTxt);
+			if(count($check_kategori_id) > 0) {
+
+				$check_kategori_slug = $this->Kategori_Model->kategori_by_slug($slug_kategori);
+				if(count($check_kategori_slug) == 0) {
+
+					$ubah_kategori = $this->Kategori_Model->update_kategori($namaKategoriTxt, $slug_kategori, $idTxt);
+					if($ubah_kategori) {
+						$kode = 200;
+						$msg = 'Kategori berhasil Ubah';
+					} else {
+						$kode = 404;
+						$msg = 'Ubah sub-kategori gagal';
+					}
+
+				} else {
+					$kode = 404;
+					$msg = 'Kategori sudah ada';
+				}
+			} else {
+				$kode = 404;
+				$msg = 'Kategori tidak ditemukan';
+			}
+		} else {
+			$kode = 404;
+			$msg = 'Ada form yang kosong, mohon diisi';
+		}
+
+		$res = array(
+			'code' => $kode,
+			'datas' => $datas,
+			'msg' => $msg
+		);
+
+		header('Content-Type: application/json');
+		echo json_encode($res);
+	}
+
+	// SUB KATEGORI
+	public function Ajax_DataSubKategori() {
+
+		// $this->sesi_check_ajax();
+
+		$kode = '';
+		$msg = '';
+		$datas = array();
+
+		if($this->input->post('aksi') == 'data_sub_kategori') {
+			$sub_kategori_data = $this->Kategori_Model->semua_sub_kategori();
+			if(count($sub_kategori_data) > 0) {
+				foreach ($sub_kategori_data as $key => $val) {
+					$datas[$key]['id_kategori']		= $val->id_kategori;
+					$datas[$key]['id']				= $val->id;
+					$datas[$key]['nama_kategori']	= $val->nama_kategori;
+					$datas[$key]['nama']			= $val->nama_sub_kategori;
+				}
+
+				$kode = 200;
+				$msg = 'Sukses';
+			} else {
+				$kode = 404;
+				$msg = 'Sub-kategori kosong';
+			}
+		} else {
+			$kode = 404;
+			$msg = 'Metode tidak valid';
+		}
+
+		$res = array(
+			'code' => $kode,
+			'datas' => $datas,
+			'msg' => $msg
+		);
+
+		header('Content-Type: application/json');
+		echo json_encode($res);
+	}
+
+	public function Ajax_TambahSubKategori() {
+
+		// $this->sesi_check_ajax();
+
+		$kode = '';
+		$msg = '';
+		$datas = array();
+
+		$subKategoriTxt = $this->input->post('subKategoriTxt');
+		$categorySelect = $this->input->post('categorySelect');
+
+		if($subKategoriTxt != '' && $categorySelect != '') {
+
+			$cleanChar = str_replace(array('ú','à', 'á', 'è', 'ì', 'ò', 'ù', '','º','Á','@','#','$','%','^','&','(',')','_','+','=','|','!',' ',',','.','~','/',':','*','?','"','<','>','|',"'"),'-',$subKategoriTxt);
+
+			$slug_sub_kategori = strip_tags(strtolower($cleanChar));
+			// CHECK
+			$check_sub_kategori_slug = $this->Kategori_Model->sub_by_slug($slug_sub_kategori);
+			if(count($check_sub_kategori_slug) == 0) {
+				$simpan_sub_kategori = $this->Kategori_Model->simpan_sub_kategori($categorySelect, $subKategoriTxt, $slug_sub_kategori);
+				if($simpan_sub_kategori) {
+					$kode = 200;
+					$msg = 'Sub-kategori berhasil ditambah';
+				} else {
+					$kode = 404;
+					$msg = 'Tambah sub-kategori gagal';
+				}
+			} else {
+				$kode = 404;
+				$msg = 'Sub-kategori sudah ada';
+			}
+		} else {
+			$kode = 404;
+			$msg = 'Ada form yang kosong, mohon diisi';
+		}
+
+		$res = array(
+			'code' => $kode,
+			'datas' => $datas,
+			'msg' => $msg
+		);
+
+		header('Content-Type: application/json');
+		echo json_encode($res);
+	}
+
+	public function Ajax_SuntingSubKategori() {
+
+		// $this->sesi_check_ajax();
+
+		$kode = '';
+		$msg = '';
+		$datas = array();
+
+		$ubahIdSubTxt = $this->input->post('ubahIdSubTxt');
+		$ubahNamaSubTxt = $this->input->post('ubahNamaSubTxt');
+		$ubahSelectCategory = $this->input->post('ubahSelectCategory');
+
+		if($ubahIdSubTxt != '' && $ubahNamaSubTxt != '' && $ubahSelectCategory != '') {
+
+			$cleanChar = str_replace(array('ú','à', 'á', 'è', 'ì', 'ò', 'ù', '','º','Á','@','#','$','%','^','&','(',')','_','+','=','|','!',' ',',','.','~','/',':','*','?','"','<','>','|',"'"),'-',$ubahNamaSubTxt);
+
+			$slug_sub_kategori = strip_tags(strtolower($cleanChar));
+			// CHECK BY ID
+			$check_sub_kategori_id = $this->Kategori_Model->sub_by_id($ubahIdSubTxt);
+			if(count($check_sub_kategori_id) > 0) {
+
+				// CHECK BY SLUG
+				$check_sub_kategori_slug = $this->Kategori_Model->sub_by_slug_id_kategori($slug_sub_kategori, $ubahSelectCategory);
+				if(count($check_sub_kategori_slug) == 0) {
+
+					$update_sub_kategori = $this->Kategori_Model->update_sub_kategori($ubahSelectCategory, $ubahNamaSubTxt, $slug_sub_kategori, $ubahIdSubTxt);
+					if($update_sub_kategori) {
+						$kode = 200;
+						$msg = 'Sub-kategori berhasil diubah';
+					} else {
+						$kode = 404;
+						$msg = 'Ubah sub-kategori gagal';
+					}
+				} else {
+					$kode = 404;
+					$msg = 'Sub-kategori sudah ada';
+				}
+			} else {
+				$kode = 404;
+				$msg = 'Sub-kategori tidak ditemukan';
 			}
 		} else {
 			$kode = 404;
