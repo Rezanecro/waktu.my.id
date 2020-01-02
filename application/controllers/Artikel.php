@@ -18,13 +18,14 @@ class Artikel extends CI_Controller
 	// Daftar Artikel
 	public function index() {
 
-		$datas = array(
-			'ccc' => 'ccccccccc',
-			'ddd', 'dddddddddd' 
-		);
+		//SESSION
+		$id_pengguna = $this->session->userdata('id');
+
+		$artikel_pengguna = $this->Artikel_Model->artikel_pengguna($id_pengguna);
 
 		$toHtml = array(
-			'aaa' => $datas,
+			'aktif'		=> 'tulis_artikel',
+			'artikel'	=> $artikel_pengguna,
 		);
 
 		$this->template->write('title', 'Daftar Artikel - Waktu.my.id', TRUE);

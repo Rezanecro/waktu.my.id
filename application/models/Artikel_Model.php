@@ -29,4 +29,10 @@ class Artikel_Model extends CI_Model
         $this->db->query($sql);
         return $this->db->affected_rows();
     }
+
+    public function artikel_pengguna($id_pengguna) {
+        $sql = "SELECT ar.*, kt.nama_kategori, sk.nama_sub_kategori FROM artikel_tb ar INNER JOIN kategori_tb kt ON kt.id = ar.id_kategori INNER JOIN sub_kategori_tb sk ON sk.id = ar.id_sub_kategori WHERE ar.id_pengguna = ".$this->db->escape($id_pengguna)." ORDER BY created_at ASC";
+        $query = $this->db->query($sql);
+        return $query->result();
+    }
 }
