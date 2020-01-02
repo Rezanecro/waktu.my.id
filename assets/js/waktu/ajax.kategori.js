@@ -174,6 +174,7 @@ $("#perbaruiDataKategori").on("click", function() {
 		    }
 		});
 	} else {
+		$('#modalsSuntingKategori').modal('hide');
 		$('#modlasPeringatan').modal('show');
 
 		$('#kodeResponse').append(404);
@@ -233,6 +234,7 @@ $("#perbaruiDataSubKategori").on("click", function() {
 		    }
 		});
 	} else {
+		$('#modalsSuntingSubKategori').modal('hide');
 		$('#modlasPeringatan').modal('show');
 
 		$('#kodeResponse').append(404);
