@@ -153,11 +153,13 @@ $route['ajax/etalase/tambah']	= 'Etalase/Ajax_TambahBarang';
 // JADWAL
 // DONASI
 // CMS - KATEGORI
+$route['ajax/kategori/id']		= 'Cms/Ajax_DataKategoriId';
 $route['ajax/kategori/data']	= 'Cms/Ajax_DataKategori';
 $route['ajax/kategori/tambah']	= 'Cms/Ajax_TambahKategori';
 $route['ajax/kategori/sunting']	= 'Cms/Ajax_SuntingKategori';
 $route['ajax/kategori/hapus']	= 'Cms/Ajax_HapusKategori';
 // CMS - SUBKATEGORI
+$route['ajax/subkategori/id']		= 'Cms/Ajax_DataSubKategoriId';
 $route['ajax/subkategori/data']		= 'Cms/Ajax_DataSubKategori';
 $route['ajax/subkategori/tambah']	= 'Cms/Ajax_TambahSubKategori';
 $route['ajax/subkategori/sunting']	= 'Cms/Ajax_SuntingSubKategori';

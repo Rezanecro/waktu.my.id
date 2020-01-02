@@ -113,6 +113,45 @@ class Cms extends CI_Controller
 		echo json_encode($res);
 	}
 
+	public function Ajax_DataKategoriId() {
+
+		// $this->sesi_check_ajax();
+
+		$kode = '';
+		$msg = '';
+		$datas = array();
+
+		$id = $this->input->post('data_kategori_id');
+
+		if($id != '') {
+			$kategori_data_id = $this->Kategori_Model->kategori_by_id($id);
+			if(count($kategori_data_id) > 0) {
+				foreach ($kategori_data_id as $key => $val) {
+					$datas[$key]['id']		= $val->id;
+					$datas[$key]['nama']	= $val->nama_kategori;
+				}
+
+				$kode = 200;
+				$msg = 'Sukses';
+			} else {
+				$kode = 404;
+				$msg = 'Kategori kosong';
+			}
+		} else {
+			$kode = 404;
+			$msg = 'Metode tidak valid';
+		}
+
+		$res = array(
+			'code' => $kode,
+			'datas' => $datas,
+			'msg' => $msg
+		);
+
+		header('Content-Type: application/json');
+		echo json_encode($res);
+	}
+
 	public function Ajax_TambahKategori() {
 
 		// $this->sesi_check_ajax();
@@ -287,6 +326,46 @@ class Cms extends CI_Controller
 		} else {
 			$kode = 404;
 			$msg = 'Ada form yang kosong, mohon diisi';
+		}
+
+		$res = array(
+			'code' => $kode,
+			'datas' => $datas,
+			'msg' => $msg
+		);
+
+		header('Content-Type: application/json');
+		echo json_encode($res);
+	}
+
+	public function Ajax_DataSubKategoriId() {
+
+		// $this->sesi_check_ajax();
+
+		$kode = '';
+		$msg = '';
+		$datas = array();
+
+		$id = $this->input->post('data_sub_kategori_id');
+
+		if($id != '') {
+			$sub_kategori_data_id = $this->Kategori_Model->sub_by_id($id);
+			if(count($sub_kategori_data_id) > 0) {
+				foreach ($sub_kategori_data_id as $key => $val) {
+					$datas[$key]['id_sub']			= $val->id;
+					$datas[$key]['id_kategori']		= $val->id_kategori;
+					$datas[$key]['nama_sub']		= $val->nama_sub_kategori;
+				}
+
+				$kode = 200;
+				$msg = 'Sukses';
+			} else {
+				$kode = 404;
+				$msg = 'Kategori kosong';
+			}
+		} else {
+			$kode = 404;
+			$msg = 'Metode tidak valid';
 		}
 
 		$res = array(

@@ -302,11 +302,14 @@ function data_kategori() {
 
 	    		// EACH
 	    		$.each(response.datas, function(idx, res) {
+	    			var nama = res.nama;
+	    			var resNama = nama.replace('"', '');
                     dataTabel += '<tr class="even pointer">';
                     dataTabel += '<td>'+res.id+'</td>';
-                    dataTabel += '<td>'+res.nama+'</td>';
+                    dataTabel += '<td>'+resNama+'</td>';
                     dataTabel += '<td>';
-                    dataTabel += "<button onClick=suntingKategori("+res.id+",'"+res.nama+"')><i class=fa fa-pencil></i> Sunting</button>";
+                    dataTabel += "<button onClick='suntingKategori("+res.id+")'>";
+                    dataTabel += '<i class="fa fa-pencil"></i> Sunting</button>';
                     dataTabel += '<button onClick="hapusKategori('+res.id+')"><i class="fa fa-trash"></i> Hapus</button>';
                     dataTabel += '</td>';
                     dataTabel += '</tr>';
@@ -358,7 +361,7 @@ function data_sub_kategori() {
                     dataTabel += '<td>'+res.nama_kategori+'</td>';
                     dataTabel += '<td>'+res.nama+'</td>';
                     dataTabel += '<td>';
-                    dataTabel += "<button onClick=suntingSubKategori("+res.id_kategori+","+res.id+",'"+res.nama+"')><i class=fa fa-pencil></i> Sunting</button>";
+                    dataTabel += "<button onClick=suntingSubKategori("+res.id+")><i class='fa fa-pencil'></i> Sunting</button>";
                     dataTabel += '<button onClick="hapusSubKategori('+res.id+')"><i class="fa fa-trash"></i> Hapus</button>';
                     dataTabel += '</td>';
                     dataTabel += '</tr>';
@@ -384,10 +387,48 @@ function data_sub_kategori() {
 }
 
 // ON EMBED KATEGORI
-function suntingKategori(id, nama) {
-	$('#modalsSuntingKategori').modal('show');
-	$('#namaKategoriId').val(nama);
-	$('#iDkategori').val(id);
+function suntingKategori(id) {
+	$('#modalsLoading').modal('show');
+
+	var formData = new FormData();
+	formData.append('data_kategori_id', id);
+	
+	$.ajax({
+    	beforeSend: function() {
+    		// $('#modalsLoading').modal('show');
+    	},
+	    type: "POST",
+	    url: baseUrl+"ajax/kategori/id",
+	    data: formData,
+	    processData: false,
+		contentType: false,
+	    success: function(response) {
+	    	$("#modalsLoading").removeClass("in");
+		    $(".modal-backdrop").remove();
+		    $("#modalsLoading").hide();
+
+			if(response.code === 200) {
+				$.each(response.datas, function(idx, res) {
+					$('#modalsSuntingKategori').modal('show');
+					$('#namaKategoriId').val(res.nama);
+					$('#iDkategori').val(res.id);
+				});
+			} else {
+				$('#modlasPeringatan').modal('show');
+
+		    	$('#kodeResponse').append(response.code);
+				$('#pesanResponse').append(response.msg);
+			}
+	    },
+	    error: function(XMLHttpRequest, textStatus, errorThrown) {
+	    	$('#modlasPeringatan').modal('show');
+
+	    	$('#kodeResponse').append(textStatus);
+			$('#pesanResponse').append(errorThrown);
+	        console.log("Status: " + textStatus);
+	        console.log("Error: " + errorThrown);
+	    }
+	});
 }
 
 function hapusKategori(argument) {
@@ -395,13 +436,51 @@ function hapusKategori(argument) {
 }
 
 // ON EMBED SUB KATEGORI
-function suntingSubKategori(id_kategori, id_sub, nama_sub) {
-	$('#modalsSuntingSubKategori').modal('show');
+function suntingSubKategori(id_sub) {
+	$('#modalsLoading').modal('show');
 
-	$('#ubahIdSub').val(id_sub);
-	$('#ubahNamaSub').val(nama_sub);
+	var formData = new FormData();
+	formData.append('data_sub_kategori_id', id_sub);
+	
+	$.ajax({
+    	beforeSend: function() {
+    		// $('#modalsLoading').modal('show');
+    	},
+	    type: "POST",
+	    url: baseUrl+"ajax/subkategori/id",
+	    data: formData,
+	    processData: false,
+		contentType: false,
+	    success: function(response) {
+	    	$("#modalsLoading").removeClass("in");
+		    $(".modal-backdrop").remove();
+		    $("#modalsLoading").hide();
 
-	$('#ubahSelectCategoryId option[value="'+id_kategori+'"]').prop('selected', true);
+			if(response.code === 200) {
+				$.each(response.datas, function(idx, res) {
+					$('#modalsSuntingSubKategori').modal('show');
+
+					$('#ubahIdSub').val(res.id_sub);
+					$('#ubahNamaSub').val(res.nama_sub);
+
+					$('#ubahSelectCategoryId option[value="'+res.id_kategori+'"]').prop('selected', true);
+				});
+			} else {
+				$('#modlasPeringatan').modal('show');
+
+		    	$('#kodeResponse').append(response.code);
+				$('#pesanResponse').append(response.msg);
+			}
+	    },
+	    error: function(XMLHttpRequest, textStatus, errorThrown) {
+	    	$('#modlasPeringatan').modal('show');
+
+	    	$('#kodeResponse').append(textStatus);
+			$('#pesanResponse').append(errorThrown);
+	        console.log("Status: " + textStatus);
+	        console.log("Error: " + errorThrown);
+	    }
+	});
 }
 
 function hapusSubKategori(argument) {
