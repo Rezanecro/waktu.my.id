@@ -99,7 +99,7 @@ $template['non_pebri_cms']['regions'] = array(
    'sidenavs',
    'content',
    'footer' => array(
-        'content' => array('Waktu &copy;2019'),
+        'content' => array('Waktu by <a href="https://www.instagram.com/jpebriant/">Pebriant</a> &copy; 2020'),
     ),
 );
 
@@ -119,7 +119,7 @@ $template['pebri_cms']['regions'] = array(
    'sidenavs',
    'content',
    'footer' => array(
-        'content' => array('Waktu &copy;2019'),
+        'content' => array('Waktu by <a href="https://www.instagram.com/jpebriant/">Pebriant</a> &copy;2020'),
     ),
 );
 
@@ -139,7 +139,7 @@ $template['pebri_front']['regions'] = array(
    'sidenavs',
    'content',
    'footer' => array(
-        'content' => array('Waktu &copy;2019'),
+        'content' => array('Waktu by <a href="https://www.instagram.com/jpebriant/">Pebriant</a> &copy;2020'),
     ),
 );
 
