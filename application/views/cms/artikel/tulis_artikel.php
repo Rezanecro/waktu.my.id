@@ -51,12 +51,6 @@
 							<textarea name="TagTxt" id="TagId" class="form-control" placeholder="Masukan tag (optional) pisahkan dengan koma"></textarea>
 						</div>
 					</div>
-
-					<div class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 30px">
-						<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-							<button id="kirimTulisArtikel" class="btn btn-success"><i class="fa fa-send"></i> Kirim Artikel</button>
-						</div>
-					</div>
 				</div>
 				<div class="col-md-4 col-sm-4 col-xs-4" style="margin-top: 60px">
 					<div class="row">
@@ -68,6 +62,12 @@
 						</div>
 
 						<img style="display: none; width: 100%; height: auto;" id="previewThumbnail" src="<?php echo base_url('assets/images/loading.gif') ?>">
+					</div>
+				</div>
+
+				<div class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 30px">
+					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+						<button id="kirimTulisArtikel" class="btn btn-success"><i class="fa fa-send"></i> Kirim Artikel</button>
 					</div>
 				</div>
 

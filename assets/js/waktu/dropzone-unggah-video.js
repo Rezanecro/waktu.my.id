@@ -15,7 +15,7 @@ var myDropzone = new Dropzone("#dropZoneVideo" , {
     		            console.log('addedfile');
     		            $('#previewVideo').show();
     		            $('#dropVideo').hide();	
-    		            $('#previewDropzone').html('<video width="400" controls><source src="'+event.target.result+'" type="video/mp4"></video><input name="videBlobFormat" id="videBlobFormatId" type="hidden" value="'+event.target.result+'"><input name="videoName" id="videoNameId" type="hidden" value="'+filenya.name+'">');  
+    		            $('#previewDropzone').html('<video width="100%" controls><source src="'+event.target.result+'" type="video/mp4"></video><input name="videBlobFormat" id="videBlobFormatId" type="hidden" value="'+event.target.result+'"><input name="videoName" id="videoNameId" type="hidden" value="'+filenya.name+'">');  
                     };
     		        reader.readAsDataURL(filenya);
             	} else {

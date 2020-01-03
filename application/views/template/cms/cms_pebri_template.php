@@ -190,6 +190,27 @@
   	<!-- /modals -->
 
   	<!-- Small modal -->
+  	<div id="modalsPeringatanSunting" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+	    <div class="modal-dialog modal-sm">
+	      	<div class="modal-content">
+
+	        	<div class="modal-header">
+	          		<h4>Perhatian</h4>
+	        	</div>
+	        	<div class="modal-body">
+	          		<p>Konten yang di sunting (edit) akan masuk moderasi kembali untuk diperikasa ulang!</p>
+	        	</div>
+	        	<div class="modal-footer">
+	        		Yakin ingin meneruskan ?
+	          		<button type="button" class="btn btn-secondary" data-dismiss="modal">Mengerti</button>
+	        	</div>
+
+  			</div>
+    	</div>
+  	</div>
+  	<!-- /modals -->
+
+  	<!-- Small modal -->
   	<div id="modalsLoading" class="modal fade bs-example-modal-sm" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
 	    <div class="modal-dialog modal-sm">
 	      	<div class="modal-content">
@@ -264,8 +285,28 @@
   	<?php if(isset($aktif)) { if($aktif == 'unggah_video') { ?>
 		<!-- AJAX -->
   		<script src="<?php echo base_url('assets/js/waktu/ajax.unggah-video.js') ?>"></script>
+  		<script src="<?php echo base_url('assets/js/waktu/ajax.kategori.js') ?>"></script>
+  		<script src="<?php echo base_url('assets/js/waktu/ajax.lengkapi-video.js') ?>"></script>
+  		<!-- THUMBNAIL -->
+		<script src="<?php echo base_url('assets/js/waktu/image-thum.js') ?>"></script>
   		<!-- DROPZONE -->
         <script src="<?php echo base_url('assets/js/waktu/dropzone-unggah-video.js') ?>"></script>
+  	<?php } } ?>
+
+  	<?php if(isset($aktif)) { if($aktif == 'lengkapi_video') { ?>
+		<!-- AJAX -->
+  		<script src="<?php echo base_url('assets/js/waktu/ajax.lengkapi-video.js') ?>"></script>
+  		<script src="<?php echo base_url('assets/js/waktu/ajax.kategori.js') ?>"></script>
+  		<!-- THUMBNAIL -->
+		<script src="<?php echo base_url('assets/js/waktu/image-thum.js') ?>"></script>
+  	<?php } } ?>
+
+  	<?php if(isset($aktif)) { if($aktif == 'sunting_video') { ?>
+		<!-- AJAX -->
+  		<script src="<?php echo base_url('assets/js/waktu/ajax.lengkapi-video.js') ?>"></script>
+  		<script src="<?php echo base_url('assets/js/waktu/ajax.kategori.js') ?>"></script>
+  		<!-- THUMBNAIL -->
+		<script src="<?php echo base_url('assets/js/waktu/image-thum.js') ?>"></script>
   	<?php } } ?>
 
   	<?php if(isset($aktif)) { if($aktif == 'permintaan_donasi') { ?>

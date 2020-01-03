@@ -92,6 +92,8 @@ $route['panel/artikel/tulis']		= 'Artikel/tulis_artikel';
 // VIDEO
 $route['panel/video/daftar']		= 'Video';
 $route['panel/video/unggah']		= 'Video/unggah_video';
+$route['panel/video/draf']			= 'Video/draf_video';
+$route['panel/video/sunting']		= 'Video/sunting_video';
 
 
 // ETALASE
@@ -148,6 +150,8 @@ $route['ajax/pengguna/register']= 'Pengguna/Ajax_RegisterPengguna';
 $route['ajax/artikel/sub']    	= 'Artikel/Ajax_KategoriForSub';
 $route['ajax/artikel/tulis']    = 'Artikel/Ajax_TulisArtikel';
 // VIDEO
+$route['ajax/video/unggah']		= 'Video/Ajax_UnggahVideo';
+$route['ajax/video/lengkapi']	= 'Video/Ajax_LengkapiVideo';
 // ETALASE
 $route['ajax/etalase/tambah']	= 'Etalase/Ajax_TambahBarang';
 // JADWAL

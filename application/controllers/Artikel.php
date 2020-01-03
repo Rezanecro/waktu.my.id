@@ -24,7 +24,7 @@ class Artikel extends CI_Controller
 		$artikel_pengguna = $this->Artikel_Model->artikel_pengguna($id_pengguna);
 
 		$toHtml = array(
-			'aktif'		=> 'tulis_artikel',
+			'aktif'		=> 'daftar_artikel',
 			'artikel'	=> $artikel_pengguna,
 		);
 
@@ -231,15 +231,15 @@ class Artikel extends CI_Controller
 					} else {
 						// SIMPAN ARTIKEL
 
-						$judul = $judulTxt;
-						$isi_artikel = $artikelTxt;
-						$id_kategori = $category;
-						$id_sub_kategori = $subCategory;
-						$tag = $the_tags;
-						$thumbnail = $folderImage.'/'.$newName;
-						$slug_artikel = $content_link;
-						$short_url = $rand_id;
-						$token = base64_encode($rand_id);
+						$judul 				= $judulTxt;
+						$isi_artikel 		= $artikelTxt;
+						$id_kategori 		= $category;
+						$id_sub_kategori 	= $subCategory;
+						$tag 				= $the_tags;
+						$thumbnail 			= $folderImage.'/'.$newName;
+						$slug_artikel 		= $content_link;
+						$short_url 			= $rand_id;
+						$token 				= base64_encode($rand_id);
 
 						$simpan_data_artikel = $this->Artikel_Model->simpan_artikel($id_pengguna, $judul, $isi_artikel, $id_kategori, $id_sub_kategori, $tag, $thumbnail, $slug_artikel, $short_url, $token);
 
@@ -269,49 +269,6 @@ class Artikel extends CI_Controller
 
 		header('Content-Type: application/json');
 		echo json_encode($res);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		// $data 	= array(
-		// 		'isi_artikel' 	=> $this->db->escape($artikelTxt),
-		// 		'judul'		=> $this->db->escape($judulTxt),
-		// 		'id_kategori'	=> $this->db->escape($category),
-		// 		'id_sub_kategori' => $this->db->escape($subCategory),
-		// 		'tag'		=> $this->db->escape($TagTxt),
-		// 		// 'thumbnail'	=> $this->db->escape($thumbnail),
-		// 		'created_at'=> $this->db->escape($created_at),
-		// 		'updated_at'=> $this->db->escape($updated_at)
-		// );
-
-		// $insert = $this->Artikel_Model->simpan_artikel('artikel_tb', $data);
-		// // print_r($insert);
-
-		// if ($insert > 0) {
-		// 	echo "Berhasil";
-		// }else{
-		// 	echo "Tidak berhasil";
-		// }
-
-		// header('Content-Type: application/json');
-		// echo json_encode($data);
-
 	}
 
 	// function simple_template() {

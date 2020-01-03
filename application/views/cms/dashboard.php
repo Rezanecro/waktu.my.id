@@ -2,7 +2,7 @@
 	<div class="col-md-12 col-sm-12 col-xs-12">
 		
 		<div class="row">
-			<div class="tile_count">
+			<div class="tile_count" style="width: 100%">
 				<div class="col-md-2 col-sm-4  tile_stats_count">
 					<span class="count_top"><i class="fa fa-user"></i> Pengguna</span>
 					<div class="count">2500</div>

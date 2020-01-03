@@ -15,6 +15,42 @@ $(document).ready(function() {
     	$('#namaKategoriId').val('');
 		$('#iDkategori').val('');
     });
+
+
+    // LOAD SUB CATEGORY
+    var iDCategory 	= $('#categorySelectId').find('option:selected').val();
+    if( iDCategory !== '0' && iDCategory !== 'Pilih Kategori') {
+
+	    var formData = new FormData();
+		formData.append('id_kategori', iDCategory);
+		$.ajax({
+	    	beforeSend: function() {
+	    		// $('#modalsLoading').modal('show');
+	    	},
+		    type: "POST",
+		    url: baseUrl+"ajax/artikel/sub",
+		    data: formData,
+		    processData: false,
+			contentType: false,
+		    success: function(response) {
+		    	console.log('on load category');
+		    	// Remove options 
+	          	$('#subCategorySelectId').find('option').not(':first').remove();
+
+	      		// Add options
+	      		var res = response.datas;
+	      		var i;
+	          	for(i=0; i < res.length; i++) {
+	            	$('#subCategorySelectId').append('<option value="'+res[i].id_sub+'">'+res[i].nama_sub+'</option>');
+	          	}
+		    },
+		    error: function(XMLHttpRequest, textStatus, errorThrown) {
+		    	
+		        console.log("Status: " + textStatus);
+		        console.log("Error: " + errorThrown);
+		    }
+		});
+	}
 });
 
 $("#kirimTambahKategori").on("click", function() {
@@ -247,7 +283,7 @@ $("#perbaruiDataSubKategori").on("click", function() {
 
 $('#categorySelectId').on('change', function() {
 
-	if(pageOn === 'tulis_artikel' || pageOn === 'unggah_video') {
+	if(pageOn === 'tulis_artikel' || pageOn === 'unggah_video' || pageOn === 'lengkapi_video') {
 		var formData = new FormData();
 		formData.append('id_kategori', this.value);
 		
